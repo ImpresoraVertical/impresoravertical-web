@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const FOOTER_COLUMNS = [
   {
@@ -46,9 +47,17 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
           {/* Brand block */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1 space-y-4">
-            <h3 className="font-serif text-h4 text-bone leading-tight">
-              I-TECH España
-            </h3>
+            <Image
+              src="/logo/logo-itech-mark.png"
+              alt="I-TECH España"
+              width={200}
+              height={32}
+              className="h-8 w-auto invert brightness-0 saturate-100"
+              style={{ filter: "invert(95%) brightness(1.1)" }}
+            />
+            <p className="font-mono text-eyebrow uppercase tracking-wider text-ocre-200">
+              España · Distribuidor oficial
+            </p>
             <div className="font-sans text-body-sm text-bone/70 space-y-1">
               <p>Vertical Printer S.L.</p>
               <p>Les Preses, Girona</p>

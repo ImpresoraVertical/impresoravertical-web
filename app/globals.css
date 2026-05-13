@@ -9,13 +9,19 @@
 
   body {
     @apply bg-paper text-ink font-sans antialiased;
-    font-feature-settings: "ss01", "cv11";
   }
 
-  /* Headings por defecto en serif */
+  /* Headings: Anton (geometric condensed, ecos del logo I-TECH) */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-ink;
-    font-feature-settings: "ss01";
+    @apply font-display text-ink uppercase tracking-tight leading-[0.95];
+  }
+
+  /* Anton no tiene italic — bloqueamos italic en headings y display */
+  h1 .italic, h2 .italic, h3 .italic, h4 .italic, h5 .italic, h6 .italic,
+  h1 em, h2 em, h3 em, h4 em, h5 em, h6 em,
+  .font-display .italic, .font-serif .italic,
+  .font-display em, .font-serif em {
+    font-style: normal !important;
   }
 
   /* Selection styling */

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
@@ -32,10 +33,15 @@ export default function Header() {
     >
       <div className="container-page flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <span className="font-serif text-h5 text-ink leading-none">
-            I-TECH
-          </span>
+        <Link href="/" className="flex items-center gap-3 group" aria-label="I-TECH España">
+          <Image
+            src="/logo/logo-itech-mark.png"
+            alt="I-TECH"
+            width={140}
+            height={22}
+            priority
+            className="h-6 md:h-7 w-auto"
+          />
           <span className="hidden md:inline font-mono text-eyebrow uppercase tracking-wider text-stone border-l border-stone/30 pl-3">
             España · Oficial
           </span>

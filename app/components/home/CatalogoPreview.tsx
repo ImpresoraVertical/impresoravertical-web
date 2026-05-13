@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { MODEL_IMAGES } from "../../data/images";
 
 const MODELS = [
   {
@@ -86,18 +88,32 @@ export default function CatalogoPreview() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-stone/15 border border-stone/15">
-          {MODELS.map((model) => (
+          {MODELS.map((model) => {
+            const slug = model.slug.replace("/modelos/", "");
+            const img = MODEL_IMAGES[slug];
+            return (
             <Link
               key={model.code}
               href={model.slug}
-              className={`group relative bg-paper p-8 space-y-6 hover:bg-bone transition-colors ${
-                model.featured ? "lg:row-span-2 lg:col-span-1" : ""
-              }`}
+              className={`group relative bg-paper p-8 space-y-6 hover:bg-bone transition-colors flex flex-col`}
             >
               {model.featured && (
-                <span className="absolute top-6 right-6 badge-ocre">
+                <span className="absolute top-6 right-6 badge-ocre z-10">
                   Más vendido
                 </span>
+              )}
+
+              {/* Imagen del modelo */}
+              {img && (
+                <div className="relative aspect-square -mx-8 -mt-8 mb-2 overflow-hidden bg-bone">
+                  <Image
+                    src={img}
+                    alt={`Modelo ${model.code} ${model.name}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               )}
 
               <div className="flex items-baseline justify-between">
@@ -107,10 +123,10 @@ export default function CatalogoPreview() {
               </div>
 
               <div>
-                <h3 className="font-serif text-h3 text-ink leading-none">
+                <h3 className="font-display text-h3 uppercase tracking-tight text-ink leading-none">
                   {model.name}
                 </h3>
-                <p className="font-serif text-body italic text-stone mt-2">
+                <p className="font-sans text-body text-stone mt-2">
                   {model.tagline}
                 </p>
               </div>
@@ -139,7 +155,8 @@ export default function CatalogoPreview() {
                 </span>
               </div>
             </Link>
-          ))}
+          );
+          })}
         </div>
 
         <div className="mt-12 flex flex-wrap items-center gap-6">

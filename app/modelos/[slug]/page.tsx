@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MODELS, getModelBySlug } from "../../data/models";
+import { MODEL_IMAGES } from "../../data/images";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -54,10 +56,11 @@ export default async function ModelPage({ params }: PageProps) {
                 )}
               </div>
 
-              <h1 className="font-serif text-display lg:text-display-xl text-ink text-balance leading-[1.02]">
+              <h1 className="font-display text-display lg:text-display-xl uppercase tracking-tight text-ink text-balance leading-[0.92]">
                 {model.name}
-                <br />
-                <span className="italic text-cobalto-700">{model.tagline.split(",").slice(1).join(",").trim()}</span>
+                <span className="block text-cobalto-700 mt-1">
+                  {model.tagline.split(",").slice(1).join(",").trim()}
+                </span>
               </h1>
 
               <p className="text-body-lg text-stone max-w-xl text-pretty">
@@ -74,8 +77,20 @@ export default async function ModelPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Right column: price card */}
-            <div className="lg:col-span-4 lg:col-start-9">
+            {/* Right column: imagen del modelo + price card */}
+            <div className="lg:col-span-4 lg:col-start-9 space-y-6">
+              {MODEL_IMAGES[model.slug] && (
+                <div className="relative aspect-[3/4] bg-bone overflow-hidden">
+                  <Image
+                    src={MODEL_IMAGES[model.slug]}
+                    alt={`Modelo ${model.code} ${model.name}`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-contain object-center"
+                    priority
+                  />
+                </div>
+              )}
               <div className="bg-ink text-paper p-8 space-y-6">
                 <div>
                   <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300">

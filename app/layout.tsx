@@ -1,28 +1,30 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import { Anton, Inter, JetBrains_Mono } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
+// Display / Headlines — geometric condensed, ecos del logo I-TECH
+const anton = Anton({
   weight: ["400"],
-  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-instrument-serif",
+  variable: "--font-display",
   display: "swap",
 });
 
-const instrumentSans = Instrument_Sans({
-  weight: ["400", "500", "600", "700"],
+// Body / Texto general — neutral, moderna, legible
+const inter = Inter({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-instrument-sans",
+  variable: "--font-sans",
   display: "swap",
 });
 
+// Mono — eyebrows y texto técnico
 const jetBrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600"],
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -87,7 +89,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${instrumentSerif.variable} ${instrumentSans.variable} ${jetBrainsMono.variable}`}
+      className={`${anton.variable} ${inter.variable} ${jetBrainsMono.variable}`}
     >
       <body>
         <Header />

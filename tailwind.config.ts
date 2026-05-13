@@ -42,14 +42,19 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["var(--font-instrument-serif)", "Georgia", "serif"],
+        // Display headlines — Anton (geometric condensed, ecos del logo I-TECH)
+        display: ["var(--font-display)", "Impact", "sans-serif"],
+        // Body / texto general — Inter (moderna, neutral)
         sans: [
-          "var(--font-instrument-sans)",
+          "var(--font-sans)",
           "system-ui",
           "-apple-system",
           "sans-serif",
         ],
-        mono: ["var(--font-jetbrains-mono)", "Menlo", "monospace"],
+        // Eyebrows / código / texto técnico — JetBrains Mono
+        mono: ["var(--font-mono)", "Menlo", "monospace"],
+        // Alias: usamos "serif" como "display" en componentes legacy
+        serif: ["var(--font-display)", "Impact", "sans-serif"],
       },
       fontSize: {
         // Escala tipográfica del documento maestro
