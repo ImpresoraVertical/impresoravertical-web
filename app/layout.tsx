@@ -31,7 +31,7 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://impresoravertical.com"),
   title: {
-    default: "Impresora Vertical I-Tech · Distribuidor oficial en España",
+    default: "Impresora Vertical I-Tech · Oficial en España",
     template: "%s · Impresora Vertical I-Tech",
   },
   description:
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: "https://impresoravertical.com",
-    title: "Impresora Vertical I-Tech · Distribuidor oficial en España",
+    title: "Impresora Vertical I-Tech · Oficial en España",
     description:
       "La impresora vertical oficial. Sin vinilos. Sin pintores. Servicio técnico, formación y soporte de por vida.",
     siteName: "Impresora Vertical I-Tech",

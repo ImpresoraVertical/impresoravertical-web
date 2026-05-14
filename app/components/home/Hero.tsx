@@ -8,7 +8,7 @@ export default function Hero() {
         {/* Texto principal */}
         <div className="lg:col-span-7 space-y-8">
           <div className="badge-ocre">
-            <span>Distribuidor oficial en España</span>
+            <span>Oficial en España</span>
             <span className="mx-2">·</span>
             <span>Certificado RII-AEE</span>
           </div>
@@ -22,8 +22,10 @@ export default function Hero() {
           </h1>
 
           <p className="text-body-lg text-stone max-w-xl text-pretty">
-            Las únicas impresoras verticales del fabricante original e inventor
-            de la tecnología, con servicio técnico oficial en España, formación
+            Punto de gestión oficial para España. Te asesoramos en tus
+            necesidades y gestionamos la orden de fabricación directamente con
+            la fábrica. Somos el punto de gestión del inventor de la
+            tecnología, con servicio técnico oficial en España, formación
             incluida y soporte de por vida.
           </p>
 
@@ -36,8 +38,8 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-12 border-t border-stone/15">
+          {/* Stats — 4 columnas */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-stone/15">
             <div>
               <div className="font-display text-h2 uppercase tracking-tight text-ink">
                 2020
@@ -59,7 +61,15 @@ export default function Hero() {
                 6
               </div>
               <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mt-1">
-                Series · +12 modelos
+                Series
+              </div>
+            </div>
+            <div>
+              <div className="font-display text-h2 uppercase tracking-tight text-ink">
+                +12
+              </div>
+              <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mt-1">
+                Modelos
               </div>
             </div>
           </div>

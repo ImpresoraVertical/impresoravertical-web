@@ -3,15 +3,15 @@
 import { useState } from "react";
 
 const INTERESTS = [
-  "Demo en taller (Les Preses)",
-  "Información sobre un modelo concreto",
-  "Calcular ROI / presupuesto",
+  "Quiero adquirir una impresora para mi negocio",
+  "Quiero contratar una impresión",
+  "Información sobre una serie/modelo concreto",
   "Servicio técnico (cliente actual)",
   "Formación / curso",
-  "Otra consulta",
+  "Otras consultas",
 ];
 
-const MODELS_OPTIONS = ["No lo sé aún", "E2", "K1", "S2", "T1", "W1", "WF"];
+const MODELS_OPTIONS = ["No lo sé aún", "Serie E", "Serie K", "Serie G", "Serie T", "Serie W", "Serie FB"];
 
 export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
@@ -177,7 +177,7 @@ export default function ContactForm() {
           htmlFor="model"
           className="font-mono text-eyebrow uppercase tracking-wider text-ink mb-2 block"
         >
-          Modelo de interés
+          Serie de interés
         </label>
         <div className="flex flex-wrap gap-2">
           {MODELS_OPTIONS.map((m) => (

@@ -280,7 +280,7 @@ export default function CalculadoraROI() {
         <p className="text-body-sm text-stone leading-relaxed">
           Precios base orientativos: <strong>10.500€</strong> tinta base agua,{" "}
           <strong>21.500€</strong> tinta UV. Serie G consultar. Coste de tinta
-          calculado a 8€/m² (orientativo). Para presupuesto exacto y financiación{" "}
+          calculado a 8€/m² (orientativo). Para presupuesto exacto{" "}
           <a href="/contacto" className="text-cobalto-700 underline">
             contáctanos
           </a>

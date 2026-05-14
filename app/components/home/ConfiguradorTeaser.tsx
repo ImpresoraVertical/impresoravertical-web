@@ -23,7 +23,7 @@ const CARDS = [
     code: "04",
     title: "¿Qué presupuesto?",
     description:
-      "Desde 10.500€ entrada tinta base agua, hasta 26.500€ UV profesional. Financiación disponible.",
+      "Desde 10.500€ tinta base agua, desde 21.500€ tinta UV. Te pasamos la tarifa actualizada después de la consulta.",
   },
 ];
 
