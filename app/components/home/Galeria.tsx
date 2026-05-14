@@ -7,17 +7,6 @@ const APPLICATIONS = [
   { label: "Institucional", detail: "Museos, espacios públicos, mobiliario urbano" },
 ];
 
-const SURFACES = [
-  "Yeso pintado",
-  "Hormigón pulido",
-  "Madera lacada",
-  "Vidrio templado",
-  "Panel acústico",
-  "Lona PVC",
-  "Metacrilato",
-  "Microcemento",
-];
-
 export default function Galeria() {
   return (
     <section className="section-pad bg-ink text-paper">
@@ -36,8 +25,7 @@ export default function Galeria() {
           <div className="lg:col-span-5 lg:col-start-8 flex items-end">
             <p className="text-body-lg text-bone/80 text-pretty">
               Trabajamos con clientes que decoran desde habitaciones de hotel
-              hasta fachadas de museo. Cada superficie tiene su perfil ICC y su
-              tinta óptima.
+              hasta fachadas de museo.
             </p>
           </div>
         </div>
@@ -55,21 +43,18 @@ export default function Galeria() {
           ))}
         </div>
 
-        {/* Tags de superficies */}
-        <div>
-          <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-4">
-            Superficies validadas
+        {/* Nota técnica altura/ancho */}
+        <div className="bg-bone/5 border-l-4 border-ocre-300 p-8 lg:p-10 max-w-4xl">
+          <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-3">
+            Dimensiones de impresión
           </div>
-          <div className="flex flex-wrap gap-3">
-            {SURFACES.map((surface) => (
-              <span
-                key={surface}
-                className="inline-flex items-center bg-bone/10 border border-bone/20 text-bone px-4 py-2 font-mono text-eyebrow uppercase tracking-wider"
-              >
-                {surface}
-              </span>
-            ))}
-          </div>
+          <p className="text-body text-bone/85 leading-relaxed">
+            La altura de impresión es de hasta <strong className="text-paper">5 metros</strong>{" "}
+            (depende del modelo) y en ancho{" "}
+            <strong className="text-paper">no tiene limitación de longitud</strong>.
+            Existe la posibilidad de usar la técnica de solapación: al unir dos
+            imágenes, la altura puede superar los 5 metros.
+          </p>
         </div>
       </div>
     </section>

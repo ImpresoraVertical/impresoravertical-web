@@ -8,7 +8,7 @@ const ROWS = [
   },
   {
     aspect: "Garantía",
-    oficial: "2-3 años + extensión · piezas en stock España",
+    oficial: "2 años + extensión · piezas en stock España",
     china: "6-12 meses · piezas con envío 3-6 semanas",
   },
   {
@@ -18,8 +18,8 @@ const ROWS = [
   },
   {
     aspect: "Formación",
-    oficial: "Curso completo en taller + a domicilio",
-    china: "Manual PDF traducido por motor automático",
+    oficial: "Curso completo en taller + a domicilio con suplemento",
+    china: "Manual PDF traducido",
   },
   {
     aspect: "Perfiles ICC",
@@ -33,7 +33,7 @@ const ROWS = [
   },
   {
     aspect: "Software RIP",
-    oficial: "Licencia oficial actualizada · soporte inglés/español",
+    oficial: "El mejor software con licencia oficial actualizada · soporte inglés/español",
     china: "Software crackeado · sin actualizaciones",
   },
 ];
@@ -44,7 +44,7 @@ export default function Comparador() {
       <div className="container-page">
         <div className="grid lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-6 space-y-4">
-            <div className="eyebrow">Oficial vs. clónica china</div>
+            <div className="eyebrow">Oficial vs. imitación</div>
             <h2 className="font-serif text-h2 lg:text-h1 text-ink text-balance">
               Por qué pagar más
               <br />
@@ -53,8 +53,9 @@ export default function Comparador() {
           </div>
           <div className="lg:col-span-5 lg:col-start-8 flex items-end">
             <p className="text-body-lg text-stone text-pretty">
-              Cada vez más imitaciones del modelo I-TECH llegan a España. Te
-              contamos la diferencia real, no la teórica.
+              En esta tecnología China es líder indiscutible e I-TECH líder
+              destacado, pero cada vez más imitaciones del modelo I-TECH llegan
+              a España. Te contamos la diferencia real, no la teórica.
             </p>
           </div>
         </div>
@@ -71,7 +72,7 @@ export default function Comparador() {
               I-TECH Oficial
             </div>
             <div className="col-span-12 md:col-span-4 p-6 font-mono text-eyebrow uppercase tracking-wider text-bone/70">
-              Clónica china
+              Imitación
             </div>
           </div>
 

@@ -5,19 +5,19 @@ const CARDS = [
     code: "01",
     title: "¿Qué superficie?",
     description:
-      "Paredes lisas, panel acústico, madera tratada, vidrio templado. Cada superficie tiene un perfil ICC validado.",
+      "Paredes porosas o en todas las superficies posibles.",
   },
   {
     code: "02",
     title: "¿Qué tamaño?",
     description:
-      "Desde 0,9 × 1,8 m del modelo K1 hasta 1,5 × 4,5 m del WF. Te recomendamos según tus murales tipo.",
+      "El ancho es infinito, altos personalizables según modelo de 90 cm a 5 m. Te recomendamos según tus murales tipo.",
   },
   {
     code: "03",
     title: "¿Qué volumen?",
     description:
-      "Si imprimes 10 m² al mes o 100 m² al día, el motor que necesitas es distinto. Calculamos contigo.",
+      "Si imprimes 10 m² al mes o 100 m² al día, la impresora que necesitas es distinta. Calculamos contigo.",
   },
   {
     code: "04",
@@ -42,7 +42,7 @@ export default function ConfiguradorTeaser() {
           </div>
           <div className="lg:col-span-6 lg:col-start-7 flex items-end">
             <p className="text-body-lg text-stone text-pretty">
-              4 preguntas. Una recomendación basada en datos reales de 15 años
+              4 preguntas. Una recomendación basada en datos reales de +6 años
               de instalaciones. Sin compromiso, sin formulario obligatorio.
             </p>
           </div>

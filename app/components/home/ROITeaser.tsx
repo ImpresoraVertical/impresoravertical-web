@@ -8,15 +8,15 @@ export default function ROITeaser() {
           <div className="lg:col-span-5">
             <div className="bg-ink text-paper p-10 lg:p-16 space-y-6">
               <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300">
-                ROI estimado · modelo S2
+                ROI estimado · Serie T
               </div>
               <div className="font-serif text-display lg:text-display-xl text-paper leading-none">
                 8-10
                 <span className="text-h2 text-ocre-300 align-top ml-2">meses</span>
               </div>
               <p className="text-body-sm text-bone/80 leading-relaxed">
-                Inversión recuperada con uso medio (60 m² impresos/mes ·
-                facturación 90€/m²). Datos reales clientes 2022-2024.
+                Inversión recuperada con uso medio (25 m² impresos/mes ·
+                facturación 150€/m²). Datos reales clientes 2022-2024.
               </p>
               <div className="grid grid-cols-3 gap-4 pt-6 border-t border-bone/20">
                 <div>
@@ -26,13 +26,13 @@ export default function ROITeaser() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-serif text-h4 text-paper">90€</div>
+                  <div className="font-serif text-h4 text-paper">150€</div>
                   <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
                     Tarifa media/m²
                   </div>
                 </div>
                 <div>
-                  <div className="font-serif text-h4 text-paper">60</div>
+                  <div className="font-serif text-h4 text-paper">25</div>
                   <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
                     m²/mes uso medio
                   </div>
@@ -57,7 +57,7 @@ export default function ROITeaser() {
             <ul className="space-y-3 pt-4 text-body text-ink">
               <li className="flex items-start gap-3">
                 <span className="text-ocre-500 mt-1">→</span>
-                <span>Compara los 6 modelos en la misma simulación</span>
+                <span>Compara las 6 series en la misma simulación</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-ocre-500 mt-1">→</span>
