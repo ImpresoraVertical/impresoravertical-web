@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { WIX_IMAGES } from "../data/images";
-
 const NAV_ITEMS = [
   { label: "Series", href: "/series" },
   { label: "Configurador", href: "/configurador" },
@@ -33,17 +31,16 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-page flex items-center justify-between h-16 md:h-20">
+      <div className="container-page flex items-center justify-between h-20 md:h-24">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group" aria-label="I-TECH España">
+        <Link href="/" className="flex items-center gap-3 group" aria-label="Impresora Vertical · I-TECH España">
           <Image
-            src={WIX_IMAGES.logoBlanc}
-            alt="Impresora Vertical · I-TECH España"
-            width={292}
-            height={85}
+            src="/logo/logo-itech-full.png"
+            alt="Impresora Vertical · I-TECH · www.impresoravertical.com"
+            width={1200}
+            height={271}
             priority
-            unoptimized
-            className="h-10 md:h-12 w-auto"
+            className="h-10 md:h-12 lg:h-14 w-auto"
           />
         </Link>
 

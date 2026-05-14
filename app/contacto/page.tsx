@@ -75,7 +75,7 @@ export default function ContactoPage() {
                   <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600">
                     Taller
                   </div>
-                  <p className="font-serif text-body text-ink mt-1 leading-snug">
+                  <p className="font-sans text-body text-ink mt-1 leading-snug">
                     Calle del Centre d&apos;Empreses 1-7
                     <br />
                     Nave 7 · 17178 Les Preses
@@ -85,6 +85,14 @@ export default function ContactoPage() {
                   <p className="text-body-sm text-stone mt-2">
                     Demos con cita previa
                   </p>
+                  <a
+                    href="https://maps.app.goo.gl/9irgokoeBUDvCEu67"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-3 font-mono text-eyebrow uppercase tracking-wider text-cobalto-700 hover:text-cobalto-800 transition-colors"
+                  >
+                    Ver en Google Maps →
+                  </a>
                 </div>
               </div>
 

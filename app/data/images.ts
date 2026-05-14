@@ -35,14 +35,15 @@ export const WIX_IMAGES = {
 
 /**
  * Imagen representativa por slug de Serie.
+ * Imágenes locales del catálogo oficial del fabricante.
  */
 export const SERIES_IMAGES: Record<string, string> = {
-  e: WIX_IMAGES.modeloS_Cremallera, // placeholder
-  k: WIX_IMAGES.modeloS3_SinPantalla, // placeholder
-  g: WIX_IMAGES.muralBanner, // placeholder industrial
-  t: WIX_IMAGES.modeloT1,
-  w: WIX_IMAGES.modeloW1,
-  fb: WIX_IMAGES.modeloFB_Suelos,
+  e: "/catalogo/img-02.png", // Serie E base agua
+  k: "/catalogo/img-03.png", // Serie K base agua multi-cabezal
+  g: "/catalogo/img-30.png", // Serie G industrial personalizable
+  t: "/catalogo/img-01.png", // Serie T1 con etiqueta oficial
+  w: "/catalogo/img-05.png", // Serie W1
+  fb: "/catalogo/img-19.png", // Serie FB suelos
 };
 
 export const CLIENT_LOGOS = [

@@ -20,7 +20,7 @@ export default function PrivacidadPage() {
         <section className="space-y-4">
           <h2 className="font-serif text-h4 text-ink mt-12">1. Responsable del tratamiento</h2>
           <ul className="text-body text-stone space-y-2 list-none border-l-2 border-ocre-300 pl-6">
-            <li><strong>Razón social:</strong> Vertical Printer S.L.</li>
+            <li><strong>Razón social:</strong> Impresora Vertical · I-TECH España</li>
             <li><strong>Domicilio:</strong> Calle del Centre d&apos;Empreses 1-7, Nave 7, 17178 Les Preses, Girona</li>
             <li><strong>Email contacto datos:</strong> info@impresoravertical.com</li>
           </ul>
@@ -78,7 +78,7 @@ export default function PrivacidadPage() {
 
           <h2 className="font-serif text-h4 text-ink mt-12">7. Medidas de seguridad</h2>
           <p className="text-body text-stone leading-relaxed">
-            Vertical Printer S.L. ha adoptado las medidas técnicas y
+            Impresora Vertical · I-TECH España ha adoptado las medidas técnicas y
             organizativas necesarias para garantizar la seguridad e integridad
             de los datos de carácter personal así como para evitar su
             alteración, pérdida, tratamiento o acceso no autorizado.

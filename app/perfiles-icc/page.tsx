@@ -71,31 +71,17 @@ export default function PerfilesICCPage() {
       <section className="section-pad bg-paper">
         <div className="container-page">
           <div className="grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-6 space-y-4">
+            <div className="lg:col-span-7 space-y-6">
               <div className="eyebrow">Calibración custom</div>
-              <h2 className="font-serif text-h2 lg:text-h1 text-ink text-balance">
-                ¿Tienes un material <span className="italic text-cobalto-700">no listado?</span>
+              <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-ink text-balance">
+                ¿Tienes un material <span className="block text-cobalto-700">no listado?</span>
               </h2>
-              <p className="text-body-lg text-stone max-w-xl">
-                Mándanos una muestra de 30×30 cm de tu superficie. La
-                calibramos en taller con espectrofotómetro y te enviamos el
-                perfil ICC personalizado en 3-5 días.
+              <p className="text-body-lg text-stone max-w-2xl">
+                Mándanos una muestra de tu superficie. La calibramos en taller
+                con espectrofotómetro y te enviamos el perfil ICC personalizado.
               </p>
-            </div>
-
-            <div className="lg:col-span-5 lg:col-start-8 bg-bone p-8 space-y-4">
-              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600">
-                Proceso de calibración
-              </div>
-              <ol className="space-y-3 text-body text-ink">
-                <li className="flex gap-3"><span className="text-ocre-500 font-mono">01</span><span>Envías muestra física</span></li>
-                <li className="flex gap-3"><span className="text-ocre-500 font-mono">02</span><span>Imprimimos test chart en tu material</span></li>
-                <li className="flex gap-3"><span className="text-ocre-500 font-mono">03</span><span>Medimos cada parche con X-Rite</span></li>
-                <li className="flex gap-3"><span className="text-ocre-500 font-mono">04</span><span>Generamos perfil ICC + validación</span></li>
-                <li className="flex gap-3"><span className="text-ocre-500 font-mono">05</span><span>Te enviamos perfil + muestra</span></li>
-              </ol>
-              <div className="pt-4 border-t border-stone/15">
-                <Link href="/contacto" className="btn-primary text-eyebrow">
+              <div className="pt-4">
+                <Link href="/contacto" className="btn-primary">
                   Solicitar calibración
                 </Link>
               </div>

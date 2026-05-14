@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     "vertical printer",
     "España",
   ],
-  authors: [{ name: "I-TECH España · Vertical Printer S.L." }],
-  creator: "Vertical Printer S.L.",
-  publisher: "I-TECH España",
+  authors: [{ name: "Impresora Vertical · I-TECH España" }],
+  creator: "Impresora Vertical · I-TECH España",
+  publisher: "Impresora Vertical · I-TECH España",
   formatDetection: {
     email: false,
     address: false,

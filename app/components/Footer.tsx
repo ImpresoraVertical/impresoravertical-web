@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { WIX_IMAGES } from "../data/images";
 
 const FOOTER_COLUMNS = [
   {
@@ -49,21 +48,17 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
           {/* Brand block */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1 space-y-4">
-            <div className="bg-paper inline-block p-3 pr-6">
-              <Image
-                src={WIX_IMAGES.logoBlanc}
-                alt="Impresora Vertical · I-TECH España"
-                width={292}
-                height={85}
-                unoptimized
-                className="h-12 w-auto"
-              />
-            </div>
+            <Image
+              src="/logo/logo-itech-full.png"
+              alt="Impresora Vertical · I-TECH España"
+              width={1200}
+              height={271}
+              className="h-14 w-auto invert"
+            />
             <p className="font-mono text-eyebrow uppercase tracking-wider text-ocre-200">
               España · Distribuidor oficial
             </p>
             <div className="font-sans text-body-sm text-bone/70 space-y-1">
-              <p>Vertical Printer S.L.</p>
               <p>Les Preses, Girona</p>
               <p>
                 <a href="mailto:info@impresoravertical.com" className="hover:text-ocre-200 transition-colors">
@@ -108,7 +103,7 @@ export default function Footer() {
         {/* Bottom: copyright */}
         <div className="mt-16 pt-8 border-t border-bone/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="font-sans text-body-sm text-bone/60">
-            © {new Date().getFullYear()} I-TECH España · Vertical Printer S.L. ·
+            © {new Date().getFullYear()} Impresora Vertical · I-TECH España ·
             Les Preses, Girona · Distribuidor oficial certificado RII-AEE
           </p>
           <div className="flex items-center gap-6">

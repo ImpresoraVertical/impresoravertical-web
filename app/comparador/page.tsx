@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 };
 
 const COMPARISON_ROWS = [
-  { aspect: "Origen del fabricante", oficial: "I-TECH Italia · inventor original (2008)", china: "Múltiples factorías sin trazabilidad" },
-  { aspect: "Distribución en España", oficial: "Vertical Printer S.L. · oficial certificado", china: "Importación gris · sin representación" },
+  { aspect: "Origen del fabricante", oficial: "I-TECH · inventor original de la tecnología", china: "Múltiples factorías sin trazabilidad" },
+  { aspect: "Distribución en España", oficial: "Distribuidor oficial certificado", china: "Importación gris · sin representación" },
   { aspect: "Garantía", oficial: "2-3 años + extensión opcional", china: "6-12 meses · letra pequeña" },
   { aspect: "Servicio técnico", oficial: "Taller Les Preses · 24/7 WhatsApp", china: "Remoto China · horario chino" },
   { aspect: "Tiempo respuesta urgencia", oficial: "48-72h piezas en stock España", china: "3-6 semanas envío internacional" },

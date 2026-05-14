@@ -1,29 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { WIX_IMAGES } from "../../data/images";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 md:pt-32 overflow-hidden bg-paper">
-      {/* Fondo de imagen — dunas/paisaje del Wix actual */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={WIX_IMAGES.heroBackground}
-          alt=""
-          fill
-          sizes="100vw"
-          priority
-          unoptimized
-          className="object-cover object-center"
-        />
-        {/* Overlay paper para legibilidad */}
-        <div className="absolute inset-0 bg-paper/70 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-paper/40 via-transparent to-paper/60" />
-      </div>
-
+    <section className="relative min-h-screen flex items-center bg-paper pt-24 md:pt-32 overflow-hidden">
       <div className="container-page relative z-10 grid lg:grid-cols-12 gap-12 items-center">
         {/* Texto principal */}
-        <div className="lg:col-span-9 space-y-8">
+        <div className="lg:col-span-7 space-y-8">
           <div className="badge-ocre">
             <span>Distribuidor oficial en España</span>
             <span className="mx-2">·</span>
@@ -53,8 +36,8 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Stats actualizados */}
-          <div className="grid grid-cols-3 gap-8 pt-12 border-t border-stone/15 max-w-2xl">
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-8 pt-12 border-t border-stone/15">
             <div>
               <div className="font-display text-h2 uppercase tracking-tight text-ink">
                 2020
@@ -77,6 +60,31 @@ export default function Hero() {
               </div>
               <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mt-1">
                 Series · +12 modelos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Visual derecha — imagen real del modelo T1 del catálogo oficial */}
+        <div className="lg:col-span-5 relative">
+          <div className="aspect-[4/5] relative overflow-hidden bg-paper border border-stone/15">
+            <Image
+              src="/catalogo/img-01.png"
+              alt="Modelo T1 · Impresora vertical I-TECH"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-contain object-center"
+              priority
+            />
+            <div className="absolute bottom-6 left-6 right-6 bg-paper/95 backdrop-blur-md p-6 border border-stone/15">
+              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mb-2">
+                Modelo destacado
+              </div>
+              <div className="font-display text-h4 uppercase tracking-tight text-ink">
+                Serie T · T1
+              </div>
+              <div className="font-sans text-body-sm text-stone mt-1">
+                UV · pantalla integrada · murales hasta 4m
               </div>
             </div>
           </div>

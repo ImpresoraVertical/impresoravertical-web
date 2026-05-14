@@ -3,7 +3,7 @@ import Link from "next/link";
 const ROWS = [
   {
     aspect: "Origen",
-    oficial: "Fabricante original I-TECH · Italia",
+    oficial: "Fabricante original I-TECH · inventor de la tecnología",
     china: "Clones sin licencia · trazabilidad nula",
   },
   {

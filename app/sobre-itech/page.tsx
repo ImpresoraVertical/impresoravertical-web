@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sobre I-TECH España · Distribuidor oficial RII-AEE",
   description:
-    "I-TECH España (Vertical Printer S.L.) es el distribuidor oficial certificado de impresoras verticales I-TECH en España, con taller propio en Les Preses, Girona.",
+    "I-TECH España es el distribuidor oficial certificado de impresoras verticales I-TECH en España, con taller propio en Les Preses, Girona.",
 };
 
 export default function SobreITechPage() {
@@ -21,9 +21,9 @@ export default function SobreITechPage() {
                 <span className="italic text-cobalto-700">impresora vertical oficial.</span>
               </h1>
               <p className="text-body-lg text-stone max-w-2xl text-pretty">
-                I-TECH España opera como Vertical Printer S.L. desde Les Preses,
+                I-TECH España opera desde Les Preses,
                 Girona. Somos el único distribuidor oficial certificado en
-                España para la marca italiana I-TECH, inventora de la tecnología
+                España para la marca I-TECH, inventora de la tecnología
                 de impresión vertical sobre pared.
               </p>
             </div>
@@ -78,7 +78,7 @@ export default function SobreITechPage() {
               {[
                 {
                   title: "Venta directa de fábrica",
-                  body: "Gestionamos la compra desde I-TECH Italia con personalizaciones de medidas, colores y adaptaciones. Sin intermediarios, sin sobreprecio de re-venta.",
+                  body: "Gestionamos la compra directo de fábrica con personalizaciones de medidas, colores y adaptaciones. Sin intermediarios, sin sobreprecio de re-venta.",
                 },
                 {
                   title: "Formación in situ",

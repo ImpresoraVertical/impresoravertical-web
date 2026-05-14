@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Aviso legal",
-  description: "Aviso legal de impresoravertical.com · Vertical Printer S.L.",
+  description: "Aviso legal de impresoravertical.com · Impresora Vertical · I-TECH España",
 };
 
 export default function AvisoLegalPage() {
@@ -24,7 +24,7 @@ export default function AvisoLegalPage() {
             la Sociedad de la Información y de Comercio Electrónico (LSSI-CE):
           </p>
           <ul className="text-body text-stone space-y-2 list-none border-l-2 border-ocre-300 pl-6">
-            <li><strong>Titular:</strong> Vertical Printer S.L.</li>
+            <li><strong>Titular:</strong> Impresora Vertical · I-TECH España</li>
             <li><strong>Domicilio:</strong> Calle del Centre d&apos;Empreses 1-7, Nave 7, 17178 Les Preses, Girona, España</li>
             <li><strong>Email:</strong> info@impresoravertical.com</li>
             <li><strong>Teléfono:</strong> +34 623 007 729</li>
@@ -34,9 +34,9 @@ export default function AvisoLegalPage() {
           <h2 className="font-serif text-h4 text-ink mt-12">2. Objeto</h2>
           <p className="text-body text-stone leading-relaxed">
             El presente sitio web tiene por objeto facilitar al público en
-            general el conocimiento por parte de Vertical Printer S.L. de las
+            general el conocimiento por parte de Impresora Vertical · I-TECH España de las
             actividades que esta empresa realiza y de los productos y
-            servicios que ofrece. Vertical Printer S.L. se reserva la facultad
+            servicios que ofrece. Impresora Vertical · I-TECH España se reserva la facultad
             de efectuar, en cualquier momento y sin necesidad de previo aviso,
             modificaciones de la información contenida en su sitio web.
           </p>
@@ -45,7 +45,7 @@ export default function AvisoLegalPage() {
           <p className="text-body text-stone leading-relaxed">
             Todos los contenidos del sitio web (textos, imágenes, sonidos,
             vídeos, código fuente, etc.) son titularidad exclusiva de
-            Vertical Printer S.L. o de sus licenciantes. El usuario reconoce
+            Impresora Vertical · I-TECH España o de sus licenciantes. El usuario reconoce
             que la reproducción, distribución, comercialización,
             transformación, y en general, cualquier otra forma de explotación,
             por cualquier procedimiento, total o parcial, de los contenidos
@@ -54,11 +54,11 @@ export default function AvisoLegalPage() {
 
           <h2 className="font-serif text-h4 text-ink mt-12">4. Responsabilidad</h2>
           <p className="text-body text-stone leading-relaxed">
-            Vertical Printer S.L. no se hace responsable de la información y
+            Impresora Vertical · I-TECH España no se hace responsable de la información y
             contenidos almacenados en foros, redes sociales o cualquier otro
             medio que permita a terceros publicar contenidos de forma
             independiente. En cumplimiento del art. 17 de la LSSI-CE,
-            Vertical Printer S.L. se compromete a retirar o, en su caso,
+            Impresora Vertical · I-TECH España se compromete a retirar o, en su caso,
             bloquear los contenidos que pudieran afectar o contravenir la
             legislación nacional o internacional, derechos de terceros o la
             moral y el orden público.
@@ -66,7 +66,7 @@ export default function AvisoLegalPage() {
 
           <h2 className="font-serif text-h4 text-ink mt-12">5. Legislación aplicable</h2>
           <p className="text-body text-stone leading-relaxed">
-            La relación entre Vertical Printer S.L. y el usuario se regirá
+            La relación entre Impresora Vertical · I-TECH España y el usuario se regirá
             por la normativa española vigente. Cualquier controversia se
             someterá a los Juzgados y Tribunales de Girona, salvo cuando la
             ley imperativamente disponga otra cosa.
