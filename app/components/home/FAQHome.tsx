@@ -5,28 +5,28 @@ import { useState } from "react";
 
 const FAQS = [
   {
-    q: "¿Cuánto tarda la instalación en mi taller?",
-    a: "La instalación completa, calibración y formación inicial ocupa entre 1 y 2 días según modelo. Trabajamos con tu equipo en tu local — no necesitas espacio dedicado, solo enchufe estándar 220V y conexión a internet.",
+    q: "¿Qué es una impresora vertical o de pared y cómo funciona?",
+    a: "Una impresora vertical o de pared es una variedad de impresora de inyección de tinta que emplea tinta de 4 o 5 colores CMYK(W) para plasmar imágenes directamente sobre muros y otros soportes verticales.",
   },
   {
-    q: "¿Qué garantía incluye la máquina?",
-    a: "2 años de garantía sin franquicia para todos los modelos E, K, S, T y W. El modelo WF incluye 3 años por su uso intensivo. Cumplimos certificación RII-AEE: nosotros gestionamos el reciclaje al final de vida útil.",
+    q: "¿Cuál es la diferencia entre tinta base agua y tinta UV?",
+    a: "La impresora vertical con tinta a base de agua emplea tinta de pigmento, adecuada para imprimir en materiales absorbentes como paredes de yeso y papel tapiz. La impresora UV utiliza una lámpara UV para solidificar la tinta sobre superficies de materiales como muros, metal, vidrio, acrílico, azulejos, entre otros.",
   },
   {
-    q: "¿Es compatible con mi software RIP actual?",
-    a: "Sí. Suministramos licencia oficial de Caldera o ColorGate (a elegir). Si ya trabajas con otro RIP profesional (Onyx, Wasatch), confirmamos compatibilidad antes de la entrega.",
+    q: "¿Qué tamaño puede imprimir una impresora vertical?",
+    a: "La altura de impresión es de hasta 3 metros (depende del modelo) y en ancho no tiene limitación de longitud. Existe la posibilidad de usar la técnica de solapación, al unir dos imágenes, la altura puede superar los 3 metros.",
   },
   {
-    q: "¿Las tintas son ecológicas?",
-    a: "Las tintas base agua del E y K son GREENGUARD certificadas para entornos interiores sin restricciones (hospitales, escuelas, hoteles). Las UV cumplen normativa REACH y son compatibles con espacios públicos.",
+    q: "¿En qué superficies puede imprimir?",
+    a: "La impresora vertical con LED UV puede imprimir en casi cualquier superficie: paredes, papel tapiz, azulejos, metal, vidrio, acrílico, plástico. La base agua imprime en paredes y superficies absorbentes como masilla, cal, etc.",
   },
   {
-    q: "¿Qué pasa si se rompe una pieza?",
-    a: "Tenemos stock de las piezas más comunes en nuestro taller de Les Preses. Envío 24-48h a península. Para casos urgentes con coste de producción detenido, organizamos visita técnica en 48-72h.",
+    q: "¿Cuánto dura la tinta?",
+    a: "Depende de la preparación y condiciones del soporte. En condiciones buenas: 15 años en interiores y 5 años en exteriores con protección UV.",
   },
   {
-    q: "¿Aceptáis empresas con licitación pública?",
-    a: "Sí. Tenemos toda la documentación CE, RII-AEE, fichas técnicas y declaraciones de conformidad listas para pliegos. Hemos trabajado con ayuntamientos, museos y proyectos institucionales (Fundación ONCE, entre otros).",
+    q: "¿Puedo quitar una impresión?",
+    a: "Sí. Se puede repintar encima con 3 capas de pintura plástica. En cristal con espátula de cerámica. En otros materiales con chorro de arena o lijando.",
   },
 ];
 

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import { WIX_IMAGES } from "../data/images";
 
 const FOOTER_COLUMNS = [
   {
     title: "Producto",
     links: [
-      { label: "Modelos", href: "/modelos" },
+      { label: "Series", href: "/series" },
+      { label: "I-TECH Pro · Industrial", href: "/itech-pro" },
       { label: "Configurador", href: "/configurador" },
       { label: "Calculadora ROI", href: "/calculadora-roi" },
       { label: "Comparador", href: "/comparador" },
@@ -47,14 +49,16 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
           {/* Brand block */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1 space-y-4">
-            <Image
-              src="/logo/logo-itech-mark.png"
-              alt="I-TECH España"
-              width={200}
-              height={32}
-              className="h-8 w-auto invert brightness-0 saturate-100"
-              style={{ filter: "invert(95%) brightness(1.1)" }}
-            />
+            <div className="bg-paper inline-block p-3 pr-6">
+              <Image
+                src={WIX_IMAGES.logoBlanc}
+                alt="Impresora Vertical · I-TECH España"
+                width={292}
+                height={85}
+                unoptimized
+                className="h-12 w-auto"
+              />
+            </div>
             <p className="font-mono text-eyebrow uppercase tracking-wider text-ocre-200">
               España · Distribuidor oficial
             </p>

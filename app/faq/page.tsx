@@ -4,79 +4,95 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "FAQ · preguntas frecuentes impresora vertical I-TECH",
   description:
-    "Preguntas frecuentes sobre la impresora vertical I-TECH: garantía, instalación, tintas, perfiles ICC, ROI, financiación, certificaciones.",
+    "Preguntas frecuentes sobre la impresora vertical I-TECH: superficies, tintas, resolución, formatos, velocidad, durabilidad, garantía y personalización.",
 };
 
 const FAQ_CATEGORIES = [
   {
-    title: "Modelos y especificaciones",
+    title: "Tecnología y funcionamiento",
     questions: [
       {
-        q: "¿Cuál es la diferencia entre tinta base agua y UV?",
-        a: "Base agua (modelos E2, K1): ecológica, certificación GREENGUARD, ideal para superficies porosas como yeso pintado, cartón, madera tratada. Tiempo de secado mayor pero acabado mate natural. UV (modelos S2 en adelante): curación instantánea por luz ultravioleta, compatible con prácticamente cualquier superficie incluido vidrio, metacrilato, aluminio. Mayor durabilidad exterior, acabado brillante o mate según preferencia.",
+        q: "¿Qué es una impresora vertical o de pared y cómo funciona?",
+        a: "Una impresora vertical o de pared es una variedad de impresora de inyección de tinta que emplea tinta de 4 o 5 colores CMYK(W) para plasmar imágenes directamente sobre muros y otros soportes verticales.",
       },
       {
-        q: "¿Hasta qué tamaño puedo imprimir?",
-        a: "Depende del modelo: E2 hasta 1,2 × 2,4 m, K1 hasta 0,9 × 1,8 m, S2 hasta 1,5 × 3 m, T1 hasta 1,5 × 4 m de altura, W1 hasta 1,2 × 4 m de ancho, WF hasta 1,5 × 4,5 m. Para murales mayores se imprime por secciones modulares sin junta visible.",
+        q: "¿Cuál es la diferencia entre tinta base agua y tinta UV?",
+        a: "La impresora vertical con tinta a base de agua emplea tinta de pigmento, adecuada para imprimir en materiales absorbentes como paredes de yeso y papel tapiz. La impresora UV utiliza una lámpara UV para solidificar la tinta sobre distintas superficies de materiales como muros, metal, vidrio, acrílico, azulejos, entre otros.",
       },
       {
-        q: "¿Necesito una sala dedicada?",
-        a: "No es imprescindible. Los modelos E, K y S funcionan en cualquier espacio con suelo razonablemente plano y enchufe estándar 220V. El WF por su tamaño y refrigeración líquida requiere unos 4-5 m² dedicados. El polvo y humedad sí afectan: trabajamos siempre en interior.",
+        q: "¿Cuáles son las diferencias entre las impresoras de pared con uno, dos y cuatro cabezales?",
+        a: "Las impresoras verticales con tinta a base de agua cuentan con múltiples cabezales. A medida que aumenta el número de cabezales de impresión, la velocidad de impresión se incrementa. No obstante, esto no afecta a la calidad de la impresión. Actualmente ya disponemos de impresoras verticales de doble cabezal con tinta UV.",
+      },
+      {
+        q: "¿No sé nada de impresoras, es muy complicado?",
+        a: "Es muy sencillo previa formación básica. Cualquier persona puede manejarlo sin problemas.",
       },
     ],
   },
   {
-    title: "Compra, garantía y financiación",
+    title: "Superficies y tamaños",
     questions: [
       {
-        q: "¿Qué garantía incluye la máquina?",
-        a: "2 años de garantía sin franquicia para todos los modelos E, K, S, T y W. El modelo WF incluye 3 años por su uso intensivo. Cumplimos certificación RII-AEE: nosotros gestionamos el reciclaje al final de vida útil.",
+        q: "¿Qué tamaño puede imprimir una impresora vertical?",
+        a: "La altura de impresión es de hasta 3 metros (depende de los diferentes modelos), y en ancho no tiene limitación de longitud. Existe la posibilidad de usar la técnica de solapación: al unir dos imágenes, la altura de impresión puede superar los 3 metros.",
       },
       {
-        q: "¿Hay opciones de financiación?",
-        a: "Sí. Trabajamos con BBVA Leasing y CaixaBank para leasing financiero a 24, 36 o 48 meses con opción de compra. También renting operativo si prefieres mantenerlo como gasto. Cuota orientativa: ~350-650€/mes según modelo y plazo.",
+        q: "¿En qué superficies de material puede imprimir una impresora vertical?",
+        a: "La impresora vertical con LED UV puede imprimir en casi cualquier superficie de material, incluidas paredes, papel tapiz, azulejos, metal, vidrio, acrílico, plástico…",
       },
       {
-        q: "¿Cuánto tarda en llegarme la máquina?",
-        a: "4-6 semanas desde confirmación de pedido. Incluye fabricación en Italia, transporte a España, customización si la pides (color, medidas), pruebas previas en taller Les Preses y entrega + instalación + formación en tu local.",
+        q: "¿Puede la impresora de pared imprimir en superficies irregulares como la pared de ladrillos?",
+        a: "Sí, la impresora de pared puede imprimir directamente en la pared de ladrillos. Hay dos sensores en el cabezal de impresión que ayudan a la impresora a mantener 1 cm de distancia respecto a la pared en todo momento. El cabezal puede avanzar y retroceder 10 cm automáticamente para adaptar la distancia a la superficie.",
       },
       {
-        q: "¿Aceptáis empresas con licitación pública?",
-        a: "Sí. Tenemos toda la documentación CE, RII-AEE, fichas técnicas y declaraciones de conformidad listas para pliegos. Hemos trabajado con ayuntamientos, museos y proyectos institucionales (Fundación ONCE, entre otros).",
+        q: "¿Sobre qué materiales de fondo puede imprimir una impresora vertical?",
+        a: "Los modelos I-TECH con tinta base agua imprimen en cualquier pared o papel absorbente: pared de masilla, pared de cal, etc. Los modelos con tinta UV imprimen en casi cualquier material: vidrio, azulejos, hierro y otras paredes no absorbentes.",
+      },
+      {
+        q: "¿Debo tratar las superficies antes y después de la impresión?",
+        a: "No es necesario tratar la pared antes de imprimir. Sugerimos tratar las superficies no porosas como vidrio, acrílico, metal o plástico con una imprimación especial antes de imprimir.",
       },
     ],
   },
   {
-    title: "Tintas, perfiles y materiales",
+    title: "Calidad, resolución y formatos",
     questions: [
       {
-        q: "¿Las tintas son ecológicas?",
-        a: "Las tintas base agua del E y K son GREENGUARD certificadas para entornos interiores sin restricciones (hospitales, escuelas, hoteles). Las UV cumplen normativa REACH y son compatibles con espacios públicos. Sin disolventes pesados, sin VOCs significativos.",
+        q: "¿A qué resolución puede imprimir una impresora vertical?",
+        a: "Resoluciones disponibles: 720×180, 720×360, 720×540, 720×720, 720×1080, 720×1440, 720×2880 ppp. También 1440×180, 1440×360, 1440×540, 1440×720, 1440×1080, 1440×1440 y 1440×2880 ppp.",
       },
       {
-        q: "¿Cuánto cuesta un set completo de tintas?",
-        a: "Set CMYK + blanco para base agua: ~480€ (rendimiento ~150-200 m²). Set UV CMYK + WW: ~750€ (rendimiento ~200-250 m²). Coste real por m² impreso: 5-10€ según cobertura.",
+        q: "¿Qué formatos puede imprimir una impresora vertical?",
+        a: "Soporte para JPG, BMP, TIFF, PDF, AI, PSD, CDR, etc. Recomendamos TIFF 300 dpi para la mejor calidad.",
       },
       {
-        q: "¿Y si tengo un material que no está en vuestra lista de perfiles ICC?",
-        a: "Mándanos una muestra de 30×30 cm. La calibramos en taller con espectrofotómetro y te enviamos el perfil ICC personalizado en 3-5 días laborables. Servicio gratuito para clientes activos.",
+        q: "¿Cuánto tarda en imprimir una impresora vertical?",
+        a: "Depende del modelo y la resolución de impresión. Cuanto mayor sea la resolución, menor será la velocidad. La velocidad típica está entre 3-15 m²/h, 6-30 m²/h o 12-80 m²/h en modelos de gran caudal.",
+      },
+      {
+        q: "¿Cuánto dura la tinta?",
+        a: "Depende de la preparación y condiciones del soporte, pero en condiciones buenas: 15 años en interiores y 5 años en exteriores con protección UV.",
+      },
+      {
+        q: "¿Puedo quitar una impresión?",
+        a: "Sí, no hay problema. Se puede repintar encima con 3 capas de pintura plástica. En cristal con espátula de cerámica. En otros materiales con chorro de arena o lijando.",
       },
     ],
   },
   {
-    title: "Instalación, formación y soporte",
+    title: "Personalización, stock y servicio",
     questions: [
       {
-        q: "¿Cuánto tarda la instalación en mi taller?",
-        a: "La instalación completa, calibración y formación inicial ocupa entre 1 y 2 días según modelo. Trabajamos con tu equipo en tu local — no necesitas espacio dedicado, solo enchufe estándar 220V y conexión a internet.",
+        q: "¿Se puede personalizar la impresora?",
+        a: "Sí. Al ser fabricantes podemos personalizar la altura y el color a tu gusto. Podemos fabricar en nuestro taller la prolongación que desees. Para España recomendamos alturas no superiores a 2,40 m, ya que si no puede limitar las zonas de impresión.",
       },
       {
-        q: "¿Es compatible con mi software RIP actual?",
-        a: "Sí. Suministramos licencia oficial de Caldera o ColorGate (a elegir). Si ya trabajas con otro RIP profesional (Onyx, Wasatch), confirmamos compatibilidad antes de la entrega.",
+        q: "¿Tenéis impresoras en stock?",
+        a: "Intentamos tener siempre una impresora en stock para adquisiciones rápidas. Si no, el plazo es de entre 9 y 10 semanas, con posibilidad de reducirlo a 2 semanas en casos muy urgentes mediante envío urgente con coste adicional.",
       },
       {
-        q: "¿Qué pasa si se rompe una pieza?",
-        a: "Tenemos stock de las piezas más comunes en nuestro taller de Les Preses. Envío 24-48h a península. Para casos urgentes con coste de producción detenido, organizamos visita técnica en 48-72h.",
+        q: "¿Qué tamaños puedo imprimir como referencia?",
+        a: "Como ejemplo, una impresora de 3,50 cm puede imprimir una imagen de 2,8 m aproximadamente. Pero con la técnica de solapación no tendría limitación.",
       },
     ],
   },
@@ -90,10 +106,9 @@ export default function FAQPage() {
           <div className="grid lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8 space-y-6">
               <div className="eyebrow">Preguntas frecuentes</div>
-              <h1 className="font-serif text-display lg:text-display-xl text-ink text-balance leading-[1.02]">
+              <h1 className="font-display text-display lg:text-display-xl uppercase tracking-tight text-ink text-balance leading-[0.92]">
                 Las dudas reales
-                <br />
-                <span className="italic text-cobalto-700">de quien va a comprar.</span>
+                <span className="block text-cobalto-700">de quien va a comprar.</span>
               </h1>
               <p className="text-body-lg text-stone max-w-2xl text-pretty">
                 Si tu pregunta no está aquí, escríbenos sin compromiso.
@@ -112,7 +127,7 @@ export default function FAQPage() {
                 <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-500">
                   Categoría
                 </div>
-                <h2 className="font-serif text-h2 text-ink leading-tight">
+                <h2 className="font-display text-h2 uppercase tracking-tight text-ink leading-tight">
                   {category.title}
                 </h2>
               </div>

@@ -4,11 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import { WIX_IMAGES } from "../data/images";
+
 const NAV_ITEMS = [
-  { label: "Modelos", href: "/modelos" },
+  { label: "Series", href: "/series" },
   { label: "Configurador", href: "/configurador" },
+  { label: "I-TECH Pro", href: "/itech-pro" },
   { label: "Perfiles ICC", href: "/perfiles-icc" },
-  { label: "Comparador", href: "/comparador" },
   { label: "Casos", href: "/casos-cliente" },
   { label: "Sobre I-Tech", href: "/sobre-itech" },
 ];
@@ -35,16 +37,14 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group" aria-label="I-TECH España">
           <Image
-            src="/logo/logo-itech-mark.png"
-            alt="I-TECH"
-            width={140}
-            height={22}
+            src={WIX_IMAGES.logoBlanc}
+            alt="Impresora Vertical · I-TECH España"
+            width={292}
+            height={85}
             priority
-            className="h-6 md:h-7 w-auto"
+            unoptimized
+            className="h-10 md:h-12 w-auto"
           />
-          <span className="hidden md:inline font-mono text-eyebrow uppercase tracking-wider text-stone border-l border-stone/30 pl-3">
-            España · Oficial
-          </span>
         </Link>
 
         {/* Nav desktop */}

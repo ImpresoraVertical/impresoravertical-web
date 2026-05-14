@@ -77,10 +77,10 @@ export default function ConfiguradorTeaser() {
             Empezar el configurador
           </Link>
           <Link
-            href="/modelos"
+            href="/series"
             className="font-mono text-body-sm uppercase tracking-wider text-ink link-underline"
           >
-            o ver los 6 modelos directamente →
+            o ver las 6 series directamente →
           </Link>
         </div>
       </div>

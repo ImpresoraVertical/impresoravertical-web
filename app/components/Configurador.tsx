@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { MODELS } from "../data/models";
+import { SERIES } from "../data/series";
 
 type Answer = string | null;
 
@@ -11,40 +11,104 @@ const QUESTIONS = [
     id: "surface",
     title: "¿Sobre qué superficie quieres imprimir principalmente?",
     options: [
-      { value: "smooth", label: "Pared lisa (yeso, microcemento)", weight: { e2: 3, k1: 3, s2: 3, t1: 3, w1: 3, wf: 3 } },
-      { value: "rough", label: "Texturada o porosa (panel acústico, hormigón)", weight: { e2: 1, k1: 1, s2: 3, t1: 3, w1: 3, wf: 3 } },
-      { value: "rigid", label: "Rígida no porosa (vidrio, metacrilato, madera)", weight: { e2: 0, k1: 0, s2: 3, t1: 3, w1: 3, wf: 3 } },
-      { value: "mixed", label: "Varias / no lo tengo claro", weight: { e2: 2, k1: 2, s2: 3, t1: 3, w1: 3, wf: 2 } },
+      {
+        value: "smooth",
+        label: "Pared lisa (yeso, microcemento, papel pintado)",
+        weight: { e: 3, k: 3, g: 1, t: 2, w: 2, fb: 0 },
+      },
+      {
+        value: "rough",
+        label: "Texturada/porosa (panel acústico, hormigón)",
+        weight: { e: 2, k: 2, g: 2, t: 3, w: 3, fb: 0 },
+      },
+      {
+        value: "rigid",
+        label: "Rígida no porosa (vidrio, metacrilato, madera, metal)",
+        weight: { e: 0, k: 0, g: 2, t: 3, w: 3, fb: 1 },
+      },
+      {
+        value: "floor",
+        label: "Suelo / superficie horizontal",
+        weight: { e: 0, k: 0, g: 1, t: 0, w: 0, fb: 3 },
+      },
+      {
+        value: "industrial",
+        label: "Producto industrial / pieza serie",
+        weight: { e: 0, k: 0, g: 3, t: 1, w: 1, fb: 1 },
+      },
     ],
   },
   {
     id: "size",
     title: "¿Qué tamaño máximo de mural sueles imprimir?",
     options: [
-      { value: "small", label: "Hasta 1 × 2 m (habitaciones, comercios)", weight: { e2: 3, k1: 3, s2: 2, t1: 1, w1: 1, wf: 1 } },
-      { value: "medium", label: "Hasta 1,5 × 3 m (locales medianos)", weight: { e2: 1, k1: 1, s2: 3, t1: 2, w1: 2, wf: 2 } },
-      { value: "tall", label: "Más altos que anchos (escaleras, fachadas)", weight: { e2: 0, k1: 0, s2: 1, t1: 3, w1: 1, wf: 2 } },
-      { value: "wide", label: "Panorámicos (4m de ancho)", weight: { e2: 0, k1: 0, s2: 1, t1: 1, w1: 3, wf: 3 } },
+      {
+        value: "small",
+        label: "Hasta 1,5 × 2 m (habitaciones, comercios)",
+        weight: { e: 3, k: 3, g: 1, t: 1, w: 1, fb: 1 },
+      },
+      {
+        value: "medium",
+        label: "Hasta 1,5 × 3 m (locales medianos)",
+        weight: { e: 2, k: 3, g: 1, t: 2, w: 2, fb: 0 },
+      },
+      {
+        value: "tall",
+        label: "Más altos que anchos (escaleras, fachadas hasta 4m)",
+        weight: { e: 0, k: 0, g: 1, t: 3, w: 1, fb: 0 },
+      },
+      {
+        value: "wide",
+        label: "Panorámicos (hasta 4,5m de ancho)",
+        weight: { e: 0, k: 0, g: 1, t: 1, w: 3, fb: 0 },
+      },
     ],
   },
   {
     id: "volume",
     title: "¿Qué volumen estimas imprimir al mes?",
     options: [
-      { value: "low", label: "Menos de 20 m² / mes (artesanal)", weight: { e2: 3, k1: 3, s2: 1, t1: 1, w1: 1, wf: 0 } },
-      { value: "medium", label: "20-80 m² / mes (estudio pequeño)", weight: { e2: 2, k1: 2, s2: 3, t1: 2, w1: 2, wf: 1 } },
-      { value: "high", label: "80-200 m² / mes (taller con clientes)", weight: { e2: 1, k1: 1, s2: 3, t1: 2, w1: 2, wf: 3 } },
-      { value: "industrial", label: "+200 m² / mes (producción industrial)", weight: { e2: 0, k1: 0, s2: 1, t1: 2, w1: 2, wf: 3 } },
+      {
+        value: "low",
+        label: "Menos de 20 m² / mes (artesanal)",
+        weight: { e: 3, k: 1, g: 0, t: 1, w: 1, fb: 1 },
+      },
+      {
+        value: "medium",
+        label: "20-80 m² / mes (estudio pequeño)",
+        weight: { e: 2, k: 3, g: 1, t: 2, w: 2, fb: 1 },
+      },
+      {
+        value: "high",
+        label: "80-200 m² / mes (taller con clientes)",
+        weight: { e: 1, k: 3, g: 2, t: 2, w: 2, fb: 0 },
+      },
+      {
+        value: "industrial",
+        label: "+200 m² / mes (producción industrial)",
+        weight: { e: 0, k: 2, g: 3, t: 2, w: 3, fb: 0 },
+      },
     ],
   },
   {
-    id: "budget",
-    title: "¿Cuál es tu presupuesto orientativo?",
+    id: "ink",
+    title: "¿Qué tipo de tinta prefieres?",
     options: [
-      { value: "low", label: "Hasta 12.000€", weight: { e2: 3, k1: 3, s2: 0, t1: 0, w1: 0, wf: 0 } },
-      { value: "medium", label: "12.000-20.000€", weight: { e2: 2, k1: 2, s2: 3, t1: 1, w1: 1, wf: 0 } },
-      { value: "high", label: "20.000-28.000€", weight: { e2: 1, k1: 1, s2: 3, t1: 3, w1: 3, wf: 1 } },
-      { value: "premium", label: "+28.000€ (sin restricción)", weight: { e2: 1, k1: 1, s2: 2, t1: 3, w1: 3, wf: 3 } },
+      {
+        value: "agua",
+        label: "Base agua (ecológica, paredes absorbentes)",
+        weight: { e: 3, k: 3, g: 1, t: 0, w: 0, fb: 0 },
+      },
+      {
+        value: "uv",
+        label: "UV (multi-superficie, durabilidad alta)",
+        weight: { e: 0, k: 0, g: 2, t: 3, w: 3, fb: 3 },
+      },
+      {
+        value: "either",
+        label: "Indiferente / no sé",
+        weight: { e: 2, k: 2, g: 2, t: 2, w: 2, fb: 1 },
+      },
     ],
   },
 ];
@@ -59,7 +123,7 @@ export default function Configurador() {
     if (step < QUESTIONS.length - 1) {
       setStep(step + 1);
     } else {
-      setStep(QUESTIONS.length); // resultado
+      setStep(QUESTIONS.length);
     }
   }
 
@@ -68,30 +132,32 @@ export default function Configurador() {
     setStep(0);
   }
 
-  // Calcular recomendación
   function getRecommendation() {
-    const scores: Record<string, number> = { e2: 0, k1: 0, s2: 0, t1: 0, w1: 0, wf: 0 };
+    const scores: Record<string, number> = {
+      e: 0,
+      k: 0,
+      g: 0,
+      t: 0,
+      w: 0,
+      fb: 0,
+    };
     QUESTIONS.forEach((q) => {
       const ans = answers[q.id];
       if (!ans) return;
       const option = q.options.find((o) => o.value === ans);
       if (!option) return;
-      Object.entries(option.weight).forEach(([model, points]) => {
-        scores[model] += points;
+      Object.entries(option.weight).forEach(([s, points]) => {
+        scores[s] += points;
       });
     });
-
     const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-    const top = sorted[0][0];
-    const second = sorted[1][0];
-    return { top, second, scores };
+    return { top: sorted[0][0], second: sorted[1][0], scores };
   }
 
-  // Pantalla de resultado
   if (step >= QUESTIONS.length) {
     const { top, second } = getRecommendation();
-    const topModel = MODELS.find((m) => m.slug === top)!;
-    const secondModel = MODELS.find((m) => m.slug === second)!;
+    const topSerie = SERIES.find((s) => s.slug === top)!;
+    const secondSerie = SERIES.find((s) => s.slug === second)!;
 
     return (
       <div className="space-y-12">
@@ -104,28 +170,26 @@ export default function Configurador() {
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-baseline gap-4">
                 <span className="font-mono text-h2 text-ocre-300">
-                  {topModel.code}
+                  Serie {topSerie.code}
                 </span>
                 <span className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
                   Mejor encaje
                 </span>
               </div>
-              <h2 className="font-serif text-display text-paper leading-[1.05]">
-                {topModel.name}
+              <h2 className="font-display text-display uppercase tracking-tight text-paper leading-[0.95]">
+                {topSerie.name}
               </h2>
-              <p className="font-serif text-h5 italic text-bone/80">
-                {topModel.tagline}
-              </p>
+              <p className="font-sans text-h5 text-bone/80">{topSerie.tagline}</p>
               <p className="text-body-lg text-bone/80 max-w-xl">
-                {topModel.description}
+                {topSerie.description}
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link
-                  href={`/modelos/${topModel.slug}`}
+                  href={`/series/${topSerie.slug}`}
                   className="inline-flex items-center justify-center bg-ocre-300 text-cobalto-900 px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-ocre-200 transition-colors"
                 >
-                  Ver ficha completa {topModel.code}
+                  Ver Serie {topSerie.code}
                 </Link>
                 <Link
                   href="/contacto"
@@ -141,27 +205,25 @@ export default function Configurador() {
                 <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
                   Precio
                 </div>
-                <div className="font-serif text-h3 text-paper">
-                  {topModel.price}
+                <div className="font-display text-h3 uppercase tracking-tight text-paper">
+                  {topSerie.priceLabel}
                 </div>
               </div>
               <div className="border-t border-bone/20 pt-4 space-y-2 text-body-sm">
                 <div className="flex justify-between">
-                  <span className="text-bone/70">Superficie</span>
+                  <span className="text-bone/70">Modelos</span>
                   <span className="text-paper font-mono">
-                    {topModel.specs.surface}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-bone/70">Velocidad</span>
-                  <span className="text-paper font-mono">
-                    {topModel.specs.speed}
+                    {topSerie.models.length}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-bone/70">Tinta</span>
                   <span className="text-paper font-mono">
-                    {topModel.inkType === "uv" ? "UV" : "Base agua"}
+                    {topSerie.inkType === "uv"
+                      ? "UV"
+                      : topSerie.inkType === "base-agua"
+                      ? "Base agua"
+                      : "Personalizable"}
                   </span>
                 </div>
               </div>
@@ -174,17 +236,17 @@ export default function Configurador() {
             <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mb-2">
               Segunda opción
             </div>
-            <h3 className="font-serif text-h4 text-ink">
-              {secondModel.code} {secondModel.name}
+            <h3 className="font-display text-h4 uppercase tracking-tight text-ink">
+              Serie {secondSerie.code} · {secondSerie.name}
             </h3>
             <p className="text-body-sm text-stone mt-2">
-              {secondModel.description.split(".")[0]}.
+              {secondSerie.description.split(".")[0]}.
             </p>
             <Link
-              href={`/modelos/${secondModel.slug}`}
+              href={`/series/${secondSerie.slug}`}
               className="font-mono text-eyebrow uppercase tracking-wider text-cobalto-700 mt-4 inline-block link-underline"
             >
-              Ver {secondModel.code} →
+              Ver Serie {secondSerie.code} →
             </Link>
           </div>
 
@@ -192,12 +254,12 @@ export default function Configurador() {
             <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mb-2">
               ¿No lo tienes claro?
             </div>
-            <h3 className="font-serif text-h4 text-ink">
+            <h3 className="font-display text-h4 uppercase tracking-tight text-ink">
               Ven al taller a probarlo
             </h3>
             <p className="text-body-sm text-stone mt-2">
-              Imprimimos en tu superficie real con la {topModel.code}.
-              Sin compromiso, café incluido.
+              Imprimimos en tu superficie real con la Serie {topSerie.code}.
+              Sin compromiso.
             </p>
             <Link
               href="/contacto"
@@ -220,13 +282,11 @@ export default function Configurador() {
     );
   }
 
-  // Pantalla de pregunta
   const currentQuestion = QUESTIONS[step];
   const currentAnswer = answers[currentQuestion.id];
 
   return (
     <div className="max-w-3xl mx-auto space-y-12">
-      {/* Progress */}
       <div className="space-y-3">
         <div className="flex items-center justify-between text-body-sm">
           <span className="font-mono uppercase tracking-wider text-stone">
@@ -244,9 +304,8 @@ export default function Configurador() {
         </div>
       </div>
 
-      {/* Pregunta */}
       <div className="space-y-8">
-        <h2 className="font-serif text-h2 lg:text-h1 text-ink text-balance leading-tight">
+        <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-ink text-balance leading-tight">
           {currentQuestion.title}
         </h2>
 
@@ -261,7 +320,7 @@ export default function Configurador() {
                   : "bg-paper text-ink border-stone/30 hover:border-ink"
               }`}
             >
-              <span className="font-serif text-body-lg">{option.label}</span>
+              <span className="font-sans text-body-lg">{option.label}</span>
               <span
                 className={`font-mono text-eyebrow uppercase tracking-wider transition-transform ${
                   currentAnswer === option.value

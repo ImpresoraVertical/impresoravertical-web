@@ -1,51 +1,48 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { MODELS } from "../data/models";
-
-// Precios base por modelo (€)
-const PRICES: Record<string, number> = {
-  e2: 10500,
-  k1: 11500,
-  s2: 16500,
-  t1: 22500,
-  w1: 24500,
-  wf: 32500,
-};
+import { SERIES, PRICING_COPY } from "../data/series";
 
 // Coste tinta + soporte por m² impreso (estimado)
 const INK_COST_PER_M2 = 8; // €/m²
 
+/** Precio de referencia según tipo de tinta de la serie */
+function getReferencePrice(inkType: string): number | null {
+  if (inkType === "base-agua") return PRICING_COPY.fromBaseAgua;
+  if (inkType === "uv") return PRICING_COPY.fromUV;
+  return null; // personalizable
+}
+
 export default function CalculadoraROI() {
   const [m2PerMonth, setM2PerMonth] = useState(60);
   const [pricePerM2, setPricePerM2] = useState(90);
-  const [operationalCost, setOperationalCost] = useState(800); // €/mes (luz, etc.)
-  const [selectedModel, setSelectedModel] = useState("s2");
+  const [operationalCost, setOperationalCost] = useState(800);
+  const [selectedSerie, setSelectedSerie] = useState("t"); // por defecto T (UV)
 
   const results = useMemo(() => {
-    return MODELS.map((model) => {
-      const investment = PRICES[model.slug];
+    return SERIES.map((serie) => {
+      const investment = getReferencePrice(serie.inkType);
       const revenue = m2PerMonth * pricePerM2;
       const inkCost = m2PerMonth * INK_COST_PER_M2;
       const monthlyProfit = revenue - inkCost - operationalCost;
       const roiMonths =
-        monthlyProfit > 0 ? Math.ceil(investment / monthlyProfit) : Infinity;
-      const yearRevenue = revenue * 12;
+        investment && monthlyProfit > 0
+          ? Math.ceil(investment / monthlyProfit)
+          : null;
       const yearProfit = monthlyProfit * 12;
 
       return {
-        ...model,
+        ...serie,
         investment,
         revenue,
         inkCost,
         monthlyProfit,
         roiMonths,
-        yearRevenue,
         yearProfit,
-        isSelected: model.slug === selectedModel,
+        isSelected: serie.slug === selectedSerie,
       };
     });
-  }, [m2PerMonth, pricePerM2, operationalCost, selectedModel]);
+  }, [m2PerMonth, pricePerM2, operationalCost, selectedSerie]);
 
   const selectedResult = results.find((r) => r.isSelected)!;
 
@@ -54,7 +51,9 @@ export default function CalculadoraROI() {
       {/* Inputs */}
       <div className="lg:col-span-5 space-y-6">
         <div className="bg-paper p-8 border border-stone/15 space-y-6">
-          <h3 className="font-serif text-h4 text-ink">Tu negocio</h3>
+          <h3 className="font-display text-h4 uppercase tracking-tight text-ink">
+            Tu negocio
+          </h3>
 
           {/* m² mensuales */}
           <div>
@@ -62,7 +61,7 @@ export default function CalculadoraROI() {
               <label className="font-mono text-eyebrow uppercase tracking-wider text-ink">
                 m² impresos al mes
               </label>
-              <span className="font-mono text-h5 text-cobalto-700">
+              <span className="font-display text-h5 text-cobalto-700">
                 {m2PerMonth} m²
               </span>
             </div>
@@ -87,7 +86,7 @@ export default function CalculadoraROI() {
               <label className="font-mono text-eyebrow uppercase tracking-wider text-ink">
                 Precio que cobras por m²
               </label>
-              <span className="font-mono text-h5 text-cobalto-700">
+              <span className="font-display text-h5 text-cobalto-700">
                 {pricePerM2}€
               </span>
             </div>
@@ -112,7 +111,7 @@ export default function CalculadoraROI() {
               <label className="font-mono text-eyebrow uppercase tracking-wider text-ink">
                 Coste operativo / mes
               </label>
-              <span className="font-mono text-h5 text-cobalto-700">
+              <span className="font-display text-h5 text-cobalto-700">
                 {operationalCost}€
               </span>
             </div>
@@ -136,35 +135,42 @@ export default function CalculadoraROI() {
         </div>
 
         <div className="bg-paper p-8 border border-stone/15">
-          <h3 className="font-serif text-h5 text-ink mb-4">Modelo a comparar</h3>
+          <h3 className="font-display text-h5 uppercase tracking-tight text-ink mb-4">
+            Serie a simular
+          </h3>
           <div className="grid grid-cols-3 gap-2">
-            {MODELS.map((m) => (
+            {SERIES.map((s) => (
               <button
-                key={m.slug}
-                onClick={() => setSelectedModel(m.slug)}
+                key={s.slug}
+                onClick={() => setSelectedSerie(s.slug)}
                 className={`p-3 font-mono text-eyebrow uppercase tracking-wider border transition-colors ${
-                  selectedModel === m.slug
+                  selectedSerie === s.slug
                     ? "bg-ink text-paper border-ink"
                     : "bg-paper text-stone border-stone/30 hover:border-ink"
                 }`}
               >
-                {m.code}
+                Serie {s.code}
               </button>
             ))}
           </div>
+          <p className="text-body-sm text-stone mt-3">
+            Precios base: <strong>base agua 10.500€</strong> (E, K) ·{" "}
+            <strong>UV 21.500€</strong> (T, W, FB) · <strong>Serie G consultar</strong>
+          </p>
         </div>
       </div>
 
       {/* Resultados */}
       <div className="lg:col-span-7 space-y-6">
-        {/* Card resultado destacado */}
         <div className="bg-ink text-paper p-10 space-y-6">
           <div className="flex items-baseline justify-between">
             <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300">
-              Modelo {selectedResult.code}
+              Serie {selectedResult.code} · {selectedResult.name}
             </div>
             <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
-              Inversión {selectedResult.investment.toLocaleString("es-ES")}€
+              {selectedResult.investment
+                ? `Inversión ${selectedResult.investment.toLocaleString("es-ES")}€`
+                : "Consultar precio"}
             </div>
           </div>
 
@@ -172,12 +178,18 @@ export default function CalculadoraROI() {
             <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-2">
               ROI estimado
             </div>
-            <div className="font-serif text-display lg:text-display-xl text-paper leading-none">
-              {selectedResult.roiMonths === Infinity
+            <div className="font-display text-display lg:text-display-xl uppercase tracking-tight text-paper leading-none">
+              {selectedResult.roiMonths === null
+                ? "—"
+                : selectedResult.roiMonths === Infinity
                 ? "∞"
                 : selectedResult.roiMonths}
               <span className="text-h3 text-ocre-300 align-top ml-3">
-                {selectedResult.roiMonths === 1 ? "mes" : "meses"}
+                {selectedResult.roiMonths && selectedResult.roiMonths > 0
+                  ? selectedResult.roiMonths === 1
+                    ? "mes"
+                    : "meses"
+                  : "consultar"}
               </span>
             </div>
           </div>
@@ -187,7 +199,7 @@ export default function CalculadoraROI() {
               <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
                 Ingresos/mes
               </div>
-              <div className="font-serif text-h4 text-paper mt-1">
+              <div className="font-display text-h4 uppercase tracking-tight text-paper mt-1">
                 {selectedResult.revenue.toLocaleString("es-ES")}€
               </div>
             </div>
@@ -195,7 +207,7 @@ export default function CalculadoraROI() {
               <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
                 Beneficio/mes
               </div>
-              <div className="font-serif text-h4 text-paper mt-1">
+              <div className="font-display text-h4 uppercase tracking-tight text-paper mt-1">
                 {selectedResult.monthlyProfit.toLocaleString("es-ES")}€
               </div>
             </div>
@@ -203,18 +215,18 @@ export default function CalculadoraROI() {
               <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
                 Beneficio/año
               </div>
-              <div className="font-serif text-h4 text-ocre-300 mt-1">
+              <div className="font-display text-h4 uppercase tracking-tight text-ocre-300 mt-1">
                 {selectedResult.yearProfit.toLocaleString("es-ES")}€
               </div>
             </div>
           </div>
         </div>
 
-        {/* Tabla comparativa todos los modelos */}
+        {/* Tabla comparativa */}
         <div className="bg-paper border border-stone/15">
           <div className="p-6 border-b border-stone/15">
-            <h3 className="font-serif text-h5 text-ink">
-              Comparativa todos los modelos
+            <h3 className="font-display text-h5 uppercase tracking-tight text-ink">
+              Comparativa todas las series
             </h3>
             <p className="text-body-sm text-stone mt-1">
               Con los datos que has introducido
@@ -230,17 +242,23 @@ export default function CalculadoraROI() {
               >
                 <div className="col-span-3">
                   <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-500">
-                    {r.code}
+                    Serie {r.code}
                   </div>
-                  <div className="font-serif text-body text-ink">{r.name}</div>
+                  <div className="font-sans text-body text-ink">{r.name}</div>
                 </div>
                 <div className="col-span-3 text-body-sm text-stone font-mono">
-                  {r.investment.toLocaleString("es-ES")}€
+                  {r.investment
+                    ? `${r.investment.toLocaleString("es-ES")}€`
+                    : "Consultar"}
                 </div>
                 <div className="col-span-3 text-body-sm font-mono">
                   <span className="text-stone">ROI: </span>
                   <span className="text-ink">
-                    {r.roiMonths === Infinity ? "∞" : `${r.roiMonths} meses`}
+                    {r.roiMonths === null
+                      ? "—"
+                      : r.roiMonths === Infinity
+                      ? "∞"
+                      : `${r.roiMonths} meses`}
                   </span>
                 </div>
                 <div className="col-span-3 text-body-sm font-mono text-right">
@@ -260,9 +278,9 @@ export default function CalculadoraROI() {
         </div>
 
         <p className="text-body-sm text-stone leading-relaxed">
-          Estimación basada en datos reales de clientes I-TECH España 2022-2024.
-          Precios base orientativos sin IVA. Coste de tinta calculado a 8€/m²
-          (CMYK base agua). Para presupuesto exacto y financiación{" "}
+          Precios base orientativos: <strong>10.500€</strong> tinta base agua,{" "}
+          <strong>21.500€</strong> tinta UV. Serie G consultar. Coste de tinta
+          calculado a 8€/m² (orientativo). Para presupuesto exacto y financiación{" "}
           <a href="/contacto" className="text-cobalto-700 underline">
             contáctanos
           </a>
