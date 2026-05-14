@@ -39,7 +39,7 @@ export const MODELS: Model[] = [
       speed: "1,5 m²/h",
       inks: "CMYK + blanco opaco",
       resolution: "1440 dpi",
-      warranty: "2 años (RII-AEE)",
+      warranty: "2 años",
       weight: "95 kg",
     },
     useCases: [
@@ -66,7 +66,7 @@ export const MODELS: Model[] = [
       speed: "1,2 m²/h",
       inks: "CMYK + blanco opaco",
       resolution: "1440 dpi",
-      warranty: "2 años (RII-AEE)",
+      warranty: "2 años",
       weight: "75 kg",
       footprint: "1,1 × 0,8 m",
     },
@@ -95,7 +95,7 @@ export const MODELS: Model[] = [
       speed: "2,5 m²/h",
       inks: "CMYK + blanco opaco UV",
       resolution: "1440 dpi",
-      warranty: "2 años (RII-AEE)",
+      warranty: "2 años",
       weight: "120 kg",
     },
     useCases: [
@@ -122,7 +122,7 @@ export const MODELS: Model[] = [
       speed: "2 m²/h",
       inks: "CMYK + blanco opaco UV",
       resolution: "1440 dpi",
-      warranty: "2 años (RII-AEE)",
+      warranty: "2 años",
       weight: "145 kg",
     },
     useCases: [
@@ -149,7 +149,7 @@ export const MODELS: Model[] = [
       speed: "2,5 m²/h",
       inks: "CMYK + blanco opaco UV",
       resolution: "1440 dpi",
-      warranty: "2 años (RII-AEE)",
+      warranty: "2 años",
       weight: "135 kg",
     },
     useCases: [
@@ -176,7 +176,7 @@ export const MODELS: Model[] = [
       speed: "5 m²/h (doble cabezal)",
       inks: "CMYK + blanco opaco + barniz UV",
       resolution: "2880 dpi",
-      warranty: "3 años (RII-AEE)",
+      warranty: "3 años",
       weight: "220 kg",
       extra: "Refrigeración líquida integrada",
     },

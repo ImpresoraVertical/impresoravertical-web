@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sobre I-TECH España · Distribuidor oficial RII-AEE",
+  title: "Sobre I-TECH España · Punto de gestión oficial",
   description:
-    "I-TECH España es el distribuidor oficial certificado de impresoras verticales I-TECH en España, con taller propio en Les Preses, Girona.",
+    "I-TECH España es el punto de gestión oficial de impresoras verticales I-TECH en España, con taller propio en Les Preses, Girona.",
 };
 
 export default function SobreITechPage() {
@@ -36,19 +36,19 @@ export default function SobreITechPage() {
           <div className="grid lg:grid-cols-3 gap-12">
             {[
               {
-                metric: "2008",
-                label: "Año fundación I-TECH",
-                desc: "Inventor original de la tecnología de impresión vertical sobre superficies.",
+                metric: "2020",
+                label: "Año fundación I-TECH España",
+                desc: "Punto de gestión oficial en España para la impresora vertical inventada por I-TECH.",
               },
               {
-                metric: "+15",
+                metric: "+6",
                 label: "Años de experiencia",
-                desc: "Más de una década perfeccionando el motor, las tintas y la calibración.",
+                desc: "Asesoramiento, importación, instalación, formación y servicio técnico desde Les Preses.",
               },
               {
                 metric: "ES",
-                label: "Distribuidor oficial España",
-                desc: "Único punto certificado para venta, formación, servicio técnico y reciclaje RII-AEE.",
+                label: "Punto de gestión oficial",
+                desc: "Único punto de gestión en España para venta, formación, servicio técnico y reciclaje.",
               },
             ].map((item) => (
               <div key={item.label} className="space-y-4">
@@ -89,8 +89,8 @@ export default function SobreITechPage() {
                   body: "Stock de piezas de recambio en España. Visita técnica 48-72h para casos urgentes. Atención 24/7 vía WhatsApp para clientes.",
                 },
                 {
-                  title: "Gestión RII-AEE certificada",
-                  body: "Nos encargamos del reciclaje al final de vida útil de la máquina. Documentación oficial para licitaciones públicas.",
+                  title: "Gestión de reciclaje certificada",
+                  body: "Nos encargamos del reciclaje al final de la vida útil de la máquina. Documentación oficial para licitaciones públicas.",
                 },
               ].map((service) => (
                 <div

@@ -27,9 +27,9 @@ const ROWS = [
     china: "Perfiles genéricos · ajuste por prueba/error",
   },
   {
-    aspect: "Reciclaje (RII-AEE)",
-    oficial: "Cumplimiento RII-AEE certificado · gestión incluida",
-    china: "Sin certificación · responsabilidad del usuario",
+    aspect: "Importación y aduanas",
+    oficial: "Importación legal · documentación completa · entrega operativa",
+    china: "Riesgo de bloqueo aduanero · devolución o destrucción a cargo del importador",
   },
   {
     aspect: "Software RIP",

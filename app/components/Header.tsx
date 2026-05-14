@@ -3,6 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+// Rutas donde el header NO debe aparecer (página inmersiva sin nav)
+const HIDDEN_HEADER_ROUTES = ["/perfiles-icc"];
 
 const NAV_ITEMS = [
   { label: "Series", href: "/series" },
@@ -16,12 +20,18 @@ const NAV_ITEMS = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Ocultar el header en rutas específicas
+  if (HIDDEN_HEADER_ROUTES.some((r) => pathname.startsWith(r))) {
+    return null;
+  }
 
   return (
     <header

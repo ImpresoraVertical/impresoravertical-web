@@ -10,7 +10,7 @@ export default function Hero() {
           <div className="badge-ocre">
             <span>Oficial en España</span>
             <span className="mx-2">·</span>
-            <span>Certificado RII-AEE</span>
+            <span>Inventores de la tecnología</span>
           </div>
 
           <h1 className="font-display text-h1 md:text-display lg:text-display-xl text-ink leading-[0.92] text-balance uppercase tracking-tight">

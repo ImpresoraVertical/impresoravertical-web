@@ -15,7 +15,7 @@ function getReferencePrice(inkType: string): number | null {
 
 export default function CalculadoraROI() {
   const [m2PerMonth, setM2PerMonth] = useState(60);
-  const [pricePerM2, setPricePerM2] = useState(90);
+  const [pricePerM2, setPricePerM2] = useState(150);
   const [operationalCost, setOperationalCost] = useState(800);
   const [selectedSerie, setSelectedSerie] = useState("t"); // por defecto T (UV)
 
@@ -82,7 +82,7 @@ export default function CalculadoraROI() {
 
           {/* Precio por m² */}
           <div>
-            <div className="flex items-baseline justify-between mb-2">
+            <div className="flex items-baseline justify-between mb-1">
               <label className="font-mono text-eyebrow uppercase tracking-wider text-ink">
                 Precio que cobras por m²
               </label>
@@ -90,18 +90,21 @@ export default function CalculadoraROI() {
                 {pricePerM2}€
               </span>
             </div>
+            <p className="text-body-sm text-stone mb-2">
+              Tarifa media de mercado: <strong>150 €/m²</strong>
+            </p>
             <input
               type="range"
-              min={40}
-              max={200}
+              min={100}
+              max={250}
               step={5}
               value={pricePerM2}
               onChange={(e) => setPricePerM2(Number(e.target.value))}
               className="w-full accent-cobalto-700"
             />
             <div className="flex justify-between text-body-sm text-stone mt-1">
-              <span>40€</span>
-              <span>200€</span>
+              <span>100€</span>
+              <span>250€</span>
             </div>
           </div>
 
@@ -154,8 +157,9 @@ export default function CalculadoraROI() {
             ))}
           </div>
           <p className="text-body-sm text-stone mt-3">
-            Precios base: <strong>base agua 10.500€</strong> (E, K) ·{" "}
-            <strong>UV 21.500€</strong> (T, W, FB) · <strong>Serie G consultar</strong>
+            Precios base <strong>sin IVA</strong>: <strong>base agua 10.500€</strong>{" "}
+            (E, K) · <strong>UV 21.500€</strong> (T, W, FB) ·{" "}
+            <strong>Serie G consultar</strong>
           </p>
         </div>
       </div>

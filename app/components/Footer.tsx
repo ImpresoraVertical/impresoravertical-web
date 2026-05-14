@@ -72,9 +72,9 @@ export default function Footer() {
               </p>
             </div>
             <div className="pt-2 inline-flex items-center gap-2 font-mono text-eyebrow uppercase tracking-wider text-ocre-200 border-t border-bone/20 pt-4 mt-4">
-              <span>RII-AEE</span>
-              <span className="text-bone/40">·</span>
               <span>Distribuidor oficial</span>
+              <span className="text-bone/40">·</span>
+              <span>Servicio técnico en España</span>
             </div>
           </div>
 
@@ -104,7 +104,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-bone/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="font-sans text-body-sm text-bone/60">
             © {new Date().getFullYear()} Impresora Vertical · I-TECH España ·
-            Les Preses, Girona · Distribuidor oficial certificado RII-AEE
+            Les Preses, Girona · Distribuidor oficial
           </p>
           <div className="flex items-center gap-6">
             <a

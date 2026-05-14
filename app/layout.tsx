@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s · Impresora Vertical I-Tech",
   },
   description:
-    "Las únicas impresoras verticales del fabricante original e inventor de la tecnología. Distribuidor oficial certificado RII-AEE para España. Servicio técnico, formación y soporte de por vida.",
+    "Punto de gestión oficial en España de las impresoras verticales del inventor de la tecnología. Servicio técnico, formación y soporte de por vida.",
   keywords: [
     "impresora vertical",
     "impresión vertical",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Impresora Vertical I-Tech",
     description:
-      "Distribuidor oficial certificado RII-AEE. Impresoras verticales directo de fábrica.",
+      "Punto de gestión oficial en España. Impresoras verticales directo del fabricante inventor de la tecnología.",
   },
   robots: {
     index: true,

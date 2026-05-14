@@ -26,8 +26,8 @@ export default function SeriesPage() {
               <p className="text-body-lg text-stone max-w-2xl text-pretty">
                 Series E y K con tinta base agua. Series T y W con tinta UV.
                 Serie G personalizable para industria. Serie FB para suelos.
-                Mismo motor I-TECH, misma garantía RII-AEE, mismo servicio
-                técnico oficial en España.
+                Mismo motor I-TECH, misma garantía, mismo servicio técnico
+                oficial en España.
               </p>
             </div>
           </div>

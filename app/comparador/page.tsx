@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Comparador · Oficial I-TECH vs. clónica china",
   description:
-    "Comparativa real entre impresoras verticales I-TECH oficiales y clónicas chinas. Garantía, servicio técnico, tintas, perfiles ICC, RII-AEE.",
+    "Comparativa real entre impresoras verticales I-TECH oficiales y clónicas. Garantía, servicio técnico, tintas, perfiles ICC y aduanas.",
 };
 
 const COMPARISON_ROWS = [
@@ -19,7 +19,7 @@ const COMPARISON_ROWS = [
   { aspect: "Software RIP", oficial: "Caldera/ColorGate licencia oficial", china: "Software crackeado sin updates" },
   { aspect: "Tintas certificadas", oficial: "GREENGUARD + REACH + base agua opción", china: "Sin certificación EU verificable" },
   { aspect: "Documentación CE", oficial: "Declaración conformidad oficial", china: "Marcado dudoso · no aceptado licitaciones" },
-  { aspect: "RII-AEE reciclaje", oficial: "Certificado · gestión incluida", china: "Responsabilidad del usuario" },
+  { aspect: "Importación y aduanas", oficial: "Gestionada por nosotros · documentación completa", china: "Riesgo de bloqueo aduanero · devolución o destrucción a cargo del importador" },
   { aspect: "Repuestos disponibles", oficial: "Stock España piezas críticas", china: "Pedido caso por caso a China" },
   { aspect: "Coste real 5 años", oficial: "Predecible · soporte continuo", china: "Inversión inicial baja · costes ocultos" },
 ];

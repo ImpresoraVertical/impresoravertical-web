@@ -42,7 +42,7 @@ export default function CTAFinal() {
             <span className="text-bone/30">·</span>
             <span>L-V · 9:00-18:00</span>
             <span className="text-bone/30">·</span>
-            <span>Distribuidor oficial RII-AEE</span>
+            <span>Distribuidor oficial · Les Preses, Girona</span>
           </div>
         </div>
       </div>
