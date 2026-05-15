@@ -80,14 +80,14 @@ export default async function SeriePage({ params }: PageProps) {
 
             {/* Right: imagen (primera foto de la serie) */}
             <div className="lg:col-span-4 lg:col-start-9">
-              <div className="relative aspect-[3/4] bg-bone overflow-hidden">
+              <div className="relative aspect-square bg-white overflow-hidden">
                 {serie.models[0]?.image && (
                   <Image
                     src={serie.models[0].image}
                     alt={`${serie.name} · ${serie.tagline}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-contain object-center"
+                    className="object-cover object-center"
                     priority
                   />
                 )}
@@ -146,17 +146,17 @@ export default async function SeriePage({ params }: PageProps) {
                   <tr key={m.code} className="hover:bg-bone transition-colors">
                     <td className="p-4 align-middle">
                       {m.image ? (
-                        <div className="relative w-24 h-28 bg-bone overflow-hidden">
+                        <div className="relative w-24 h-24 bg-white overflow-hidden">
                           <Image
                             src={m.image}
                             alt={`Modelo ${m.code}`}
                             fill
                             sizes="96px"
-                            className="object-contain object-center"
+                            className="object-cover object-center"
                           />
                         </div>
                       ) : (
-                        <div className="w-24 h-28 bg-bone border border-stone/15 flex items-center justify-center">
+                        <div className="w-24 h-24 bg-bone border border-stone/15 flex items-center justify-center">
                           <span className="font-mono text-eyebrow text-stone">—</span>
                         </div>
                       )}

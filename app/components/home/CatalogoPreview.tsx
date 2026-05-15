@@ -31,14 +31,14 @@ export default function CatalogoPreview() {
               className="group relative bg-paper p-8 space-y-6 hover:bg-bone transition-colors flex flex-col"
             >
               {/* Imagen del modelo representativo (primero de la serie) */}
-              <div className="relative aspect-square -mx-8 -mt-8 mb-2 overflow-hidden bg-bone">
+              <div className="relative aspect-square -mx-8 -mt-8 mb-2 overflow-hidden bg-white">
                 {s.models[0]?.image && (
                   <Image
                     src={s.models[0].image}
                     alt={`${s.name} · ${s.tagline}`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                 )}
               </div>

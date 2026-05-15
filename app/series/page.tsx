@@ -75,14 +75,14 @@ export default function SeriesPage() {
               <div className="grid lg:grid-cols-12 gap-8 p-8 lg:p-12 items-start">
                 {/* Imagen (primera foto del primer modelo) */}
                 <div className="lg:col-span-3">
-                  <div className="relative aspect-square bg-bone overflow-hidden">
+                  <div className="relative aspect-square bg-white overflow-hidden">
                     {s.models[0]?.image && (
                       <Image
                         src={s.models[0].image}
                         alt={`${s.name} · ${s.tagline}`}
                         fill
                         sizes="(max-width: 1024px) 50vw, 25vw"
-                        className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
                     )}
                   </div>
