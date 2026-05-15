@@ -207,6 +207,114 @@ export default async function SeriePage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Specs técnicas detalladas */}
+      {serie.models.some((m) => m.printHead || m.axes || m.pc) && (
+        <section className="section-pad bg-paper">
+          <div className="container-page">
+            <div className="grid lg:grid-cols-12 gap-12 mb-12">
+              <div className="lg:col-span-5 space-y-4">
+                <div className="eyebrow">Ficha técnica completa</div>
+                <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-ink text-balance">
+                  Specs detalladas
+                  <span className="block text-cobalto-700">por modelo.</span>
+                </h2>
+              </div>
+              <div className="lg:col-span-6 lg:col-start-7 flex items-end">
+                <p className="text-body-lg text-stone text-pretty">
+                  Toda la información técnica de cada modelo de la Serie{" "}
+                  {serie.code}: cabezales, ejes, sensores, software, alimentación
+                  y dimensiones.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-12">
+              {serie.models.map((m) => {
+                const rows: { label: string; value?: string }[] = [
+                  { label: "Cabezal de impresión", value: m.printHead },
+                  { label: "Resolución", value: m.resolution },
+                  { label: "Tinta", value: m.inks },
+                  { label: "Tecnología de impresión", value: m.inkTech },
+                  { label: "Formatos de imagen", value: m.fileFormats },
+                  { label: "Tamaño de impresión", value: m.surface },
+                  { label: "Velocidad", value: m.speed },
+                  { label: "Altura máxima", value: m.maxHeight },
+                  { label: "Posicionamiento láser", value: m.laserPositioning },
+                  { label: "Ejes X / Y / Z", value: m.axes },
+                  { label: "Software RIP", value: m.software },
+                  { label: "Fuente de alimentación", value: m.power },
+                  { label: "Puertos", value: m.ports },
+                  { label: "Cuerpo de la máquina", value: m.body },
+                  { label: "Métodos de montaje", value: m.mounting },
+                  { label: "PC interna", value: m.pc },
+                  { label: "Sensor de superficie", value: m.surfaceSensor },
+                  { label: "Entorno operativo", value: m.environment },
+                  { label: "Nivel de ruido", value: m.noise },
+                  { label: "Peso", value: m.weight },
+                  { label: "Dimensiones máquina", value: m.dimensions },
+                ];
+                const visibleRows = rows.filter((r) => r.value);
+                if (visibleRows.length === 0) return null;
+
+                return (
+                  <div
+                    key={m.code}
+                    className="bg-bone border border-stone/15 p-8 lg:p-10"
+                  >
+                    <div className="grid lg:grid-cols-12 gap-8">
+                      <div className="lg:col-span-3 space-y-4">
+                        {m.image && (
+                          <div className="relative aspect-square bg-white overflow-hidden">
+                            <Image
+                              src={m.image}
+                              alt={`Modelo ${m.code}`}
+                              fill
+                              sizes="(max-width: 1024px) 100vw, 25vw"
+                              className="object-cover object-center"
+                            />
+                          </div>
+                        )}
+                        <div>
+                          <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-500">
+                            Modelo
+                          </div>
+                          <h3 className="font-display text-h3 uppercase tracking-tight text-ink leading-none mt-1">
+                            {m.code}
+                          </h3>
+                          {m.name !== m.code && (
+                            <p className="font-sans text-body-sm text-stone mt-1">
+                              {m.name}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="lg:col-span-9">
+                        <dl className="divide-y divide-stone/15">
+                          {visibleRows.map((r) => (
+                            <div
+                              key={r.label}
+                              className="grid grid-cols-12 gap-4 py-3"
+                            >
+                              <dt className="col-span-12 md:col-span-4 font-mono text-eyebrow uppercase tracking-wider text-stone">
+                                {r.label}
+                              </dt>
+                              <dd className="col-span-12 md:col-span-8 font-sans text-body-sm text-ink">
+                                {r.value}
+                              </dd>
+                            </div>
+                          ))}
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Casos de uso */}
       <section className="section-pad bg-paper">
         <div className="container-page">
