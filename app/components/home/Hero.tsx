@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center bg-paper pt-24 md:pt-32 overflow-hidden">
       <div className="container-page relative z-10 grid lg:grid-cols-12 gap-12 items-center">
         {/* Texto principal */}
-        <div className="lg:col-span-7 space-y-8">
+        <div className="lg:col-span-5 space-y-8">
           <div className="badge-ocre">
             <span>Oficial en España</span>
             <span className="mx-2">·</span>
@@ -78,8 +78,8 @@ export default function Hero() {
         </div>
 
         {/* Visual derecha — vídeo demostración en autoplay */}
-        <div className="lg:col-span-5 relative">
-          <div className="aspect-video relative overflow-hidden bg-ink border border-stone/15">
+        <div className="lg:col-span-7 relative">
+          <div className="aspect-video relative overflow-hidden bg-ink border border-stone/15 shadow-xl">
             <iframe
               src={YT_EMBED_URL}
               title="Impresora Vertical I-TECH · demostración"
@@ -89,15 +89,17 @@ export default function Hero() {
               className="absolute inset-0 w-full h-full"
             />
           </div>
-          <div className="bg-paper border border-t-0 border-stone/15 p-6">
-            <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mb-2">
-              Vídeo · demostración
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <div>
+              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600">
+                Vídeo · demostración
+              </div>
+              <div className="font-display text-h5 uppercase tracking-tight text-ink mt-1">
+                La impresora vertical en acción.
+              </div>
             </div>
-            <div className="font-display text-h4 uppercase tracking-tight text-ink">
-              La impresora vertical en acción.
-            </div>
-            <div className="font-sans text-body-sm text-stone mt-1">
-              Imprimiendo sobre pared real. Sin retoques.
+            <div className="font-sans text-body-sm text-stone text-right hidden md:block">
+              Imprimiendo sobre pared real.<br />Sin retoques.
             </div>
           </div>
         </div>
