@@ -157,7 +157,8 @@ export default function ContactoPage() {
                     Girona, Cataluña · España
                   </p>
                   <p className="text-body-sm text-stone mt-2">
-                    Demos con cita previa
+                    <strong>Solo con cita previa.</strong> No atendemos sin
+                    reserva confirmada.
                   </p>
                   <a
                     href="https://maps.app.goo.gl/9irgokoeBUDvCEu67"

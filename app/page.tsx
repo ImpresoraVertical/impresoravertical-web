@@ -9,7 +9,6 @@ import Galeria from "./components/home/Galeria";
 import CatalogoPreview from "./components/home/CatalogoPreview";
 import RIIAEEBlock from "./components/home/RIIAEEBlock";
 import FAQHome from "./components/home/FAQHome";
-import Testimonios from "./components/home/Testimonios";
 import Colaboraciones from "./components/home/Colaboraciones";
 import CTAFinal from "./components/home/CTAFinal";
 
@@ -26,7 +25,6 @@ export default function HomePage() {
       <CatalogoPreview />
       <RIIAEEBlock />
       <FAQHome />
-      <Testimonios />
       <Colaboraciones />
       <CTAFinal />
     </>

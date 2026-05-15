@@ -1,60 +1,209 @@
-const APPLICATIONS = [
-  { label: "Residencial", detail: "Murales habitación, salón, escalera" },
-  { label: "Hostelería", detail: "Hoteles, restaurantes, bares temáticos" },
-  { label: "Retail", detail: "Tiendas, escaparates, branding interior" },
-  { label: "Oficinas", detail: "Decoración corporativa, salas reuniones" },
-  { label: "Eventos", detail: "Stands, backdrops, photocalls efímeros" },
-  { label: "Institucional", detail: "Museos, espacios públicos, mobiliario urbano" },
+import Link from "next/link";
+
+/* Iconos SVG inline — uniformes, color heredado */
+const Icon = {
+  Pared: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <rect x="3" y="3" width="26" height="26" />
+      <line x1="3" y1="11" x2="29" y2="11" />
+      <line x1="3" y1="20" x2="29" y2="20" />
+      <line x1="12" y1="3" x2="12" y2="11" />
+      <line x1="20" y1="11" x2="20" y2="20" />
+      <line x1="10" y1="20" x2="10" y2="29" />
+      <line x1="22" y1="20" x2="22" y2="29" />
+    </svg>
+  ),
+  Madera: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <rect x="3" y="3" width="26" height="26" />
+      <path d="M3 9 Q 16 11 29 9" />
+      <path d="M3 16 Q 16 18 29 16" />
+      <path d="M3 23 Q 16 25 29 23" />
+    </svg>
+  ),
+  Vidrio: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <rect x="3" y="3" width="26" height="26" />
+      <line x1="8" y1="8" x2="14" y2="8" />
+      <line x1="8" y1="8" x2="8" y2="14" />
+    </svg>
+  ),
+  Hormigon: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <rect x="3" y="3" width="26" height="26" />
+      <circle cx="9" cy="10" r="1.2" />
+      <circle cx="20" cy="14" r="0.9" />
+      <circle cx="13" cy="20" r="1" />
+      <circle cx="23" cy="23" r="1.3" />
+      <circle cx="7" cy="22" r="0.8" />
+    </svg>
+  ),
+  Metal: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <rect x="3" y="3" width="26" height="26" />
+      <line x1="3" y1="3" x2="29" y2="29" />
+      <line x1="29" y1="3" x2="3" y2="29" />
+    </svg>
+  ),
+  Lona: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <path d="M3 10 Q 8 6 13 10 T 23 10 T 29 10" />
+      <path d="M3 16 Q 8 12 13 16 T 23 16 T 29 16" />
+      <path d="M3 22 Q 8 18 13 22 T 23 22 T 29 22" />
+    </svg>
+  ),
+  Acrilico: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <path d="M16 3 L 29 16 L 16 29 L 3 16 Z" />
+      <path d="M16 9 L 23 16 L 16 23 L 9 16 Z" />
+    </svg>
+  ),
+  Azulejo: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <rect x="3" y="3" width="11" height="11" />
+      <rect x="18" y="3" width="11" height="11" />
+      <rect x="3" y="18" width="11" height="11" />
+      <rect x="18" y="18" width="11" height="11" />
+    </svg>
+  ),
+  Textil: () => (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+      <rect x="3" y="3" width="26" height="26" />
+      <line x1="3" y1="3" x2="11" y2="11" />
+      <line x1="11" y1="3" x2="3" y2="11" />
+      <line x1="14" y1="3" x2="22" y2="11" />
+      <line x1="22" y1="3" x2="14" y2="11" />
+      <line x1="3" y1="14" x2="11" y2="22" />
+      <line x1="11" y1="14" x2="3" y2="22" />
+      <line x1="14" y1="14" x2="22" y2="22" />
+      <line x1="22" y1="14" x2="14" y2="22" />
+    </svg>
+  ),
+};
+
+const MATERIALES = [
+  { name: "Pared lisa pintada", detail: "Yeso, mate o satinado", icon: <Icon.Pared /> },
+  { name: "Madera tratada", detail: "MDF, contrachapado, panel fenólico", icon: <Icon.Madera /> },
+  { name: "Vidrio templado", detail: "Front-side o back-side", icon: <Icon.Vidrio /> },
+  { name: "Hormigón / microcemento", detail: "Pulido, decorativo, fachada", icon: <Icon.Hormigon /> },
+  { name: "Metal", detail: "Aluminio, acero lacado, chapa", icon: <Icon.Metal /> },
+  { name: "Lona PVC y textil", detail: "Mesh, blackout, bandera", icon: <Icon.Lona /> },
+  { name: "Acrílico / metacrilato", detail: "Transparente, color, opaco", icon: <Icon.Acrilico /> },
+  { name: "Azulejo y cerámica", detail: "Liso, rugoso, gres porcelánico", icon: <Icon.Azulejo /> },
+  { name: "Panel acústico", detail: "Fonoabsorbente con textura", icon: <Icon.Textil /> },
+];
+
+const CASOS = [
+  { code: "01", title: "Barcos y embarcaciones", detail: "Camarotes · yates · paneles decorativos" },
+  { code: "02", title: "Museos y espacios culturales", detail: "Decoración de salas · escenografías" },
+  { code: "03", title: "Remolques y autocaravanas", detail: "Branding exterior · food trucks" },
+  { code: "04", title: "Tablas de skate y deporte", detail: "Producción artesanal · series cortas" },
+  { code: "05", title: "Persianas comerciales", detail: "Rotulación · escaparate 24/7" },
+  { code: "06", title: "Escuelas y centros educativos", detail: "Pasillos · biblioteca · comedor" },
+  { code: "07", title: "Hospitales y centros sanitarios", detail: "Pediatría · paritorios · salas espera" },
+  { code: "08", title: "Pabellones deportivos", detail: "Branding institucional · murales" },
+  { code: "09", title: "Réplicas de cuadros y arte", detail: "Reproducción museística · fidelidad 2880 dpi" },
 ];
 
 export default function Galeria() {
   return (
     <section className="section-pad bg-ink text-paper">
       <div className="container-page">
+        {/* Cabecera única */}
         <div className="grid lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-6 space-y-4">
             <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300">
               Aplicaciones y superficies
             </div>
-            <h2 className="font-serif text-h2 lg:text-h1 text-paper text-balance">
+            <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-paper text-balance">
               Donde un vinilo se rinde,
-              <br />
-              <span className="italic text-ocre-300">la impresora vertical empieza.</span>
+              <span className="block text-ocre-300">la impresora vertical empieza.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 flex items-end">
             <p className="text-body-lg text-bone/80 text-pretty">
               Trabajamos con clientes que decoran desde habitaciones de hotel
-              hasta fachadas de museo.
+              hasta fachadas de museo. Primero los materiales, después los casos
+              reales.
             </p>
           </div>
         </div>
 
-        {/* Grid de aplicaciones */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-bone/15 mb-12">
-          {APPLICATIONS.map((app) => (
-            <div
-              key={app.label}
-              className="bg-ink p-8 lg:p-10 space-y-2 hover:bg-cobalto-900 transition-colors"
-            >
-              <h3 className="font-serif text-h4 text-paper">{app.label}</h3>
-              <p className="text-body-sm text-bone/70">{app.detail}</p>
-            </div>
-          ))}
+        {/* BLOQUE 1 — MATERIALES */}
+        <div className="mb-20">
+          <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-6">
+            01 · Materiales imprimibles
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-bone/15 border border-bone/15">
+            {MATERIALES.map((m) => (
+              <div
+                key={m.name}
+                className="bg-ink p-6 lg:p-8 space-y-4 hover:bg-cobalto-900 transition-colors group"
+              >
+                <div className="text-ocre-300 group-hover:text-ocre-200 transition-colors">
+                  {m.icon}
+                </div>
+                <div>
+                  <h3 className="font-display text-h5 uppercase tracking-tight text-paper leading-tight">
+                    {m.name}
+                  </h3>
+                  <p className="text-body-sm text-bone/70 mt-1">{m.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Nota técnica altura/ancho */}
-        <div className="bg-bone/5 border-l-4 border-ocre-300 p-8 lg:p-10 max-w-4xl">
+        {/* BLOQUE 2 — CASOS DE USO */}
+        <div className="mb-16">
+          <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-6">
+            02 · Casos de uso · 9 aplicaciones reales
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-bone/15 border border-bone/15">
+            {CASOS.map((c) => (
+              <article
+                key={c.code}
+                className="bg-ink p-6 lg:p-8 space-y-3 hover:bg-cobalto-900 transition-colors"
+              >
+                <div className="font-mono text-h5 text-ocre-300">{c.code}</div>
+                <h3 className="font-display text-h5 uppercase tracking-tight text-paper leading-tight">
+                  {c.title}
+                </h3>
+                <p className="font-sans text-body-sm text-bone/70">{c.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* BLOQUE 3 — DIMENSIONES */}
+        <div className="bg-bone/5 border-l-4 border-ocre-300 p-8 lg:p-10 max-w-4xl mb-12">
           <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-3">
             Dimensiones de impresión
           </div>
           <p className="text-body text-bone/85 leading-relaxed">
-            La altura de impresión es de hasta <strong className="text-paper">5 metros</strong>{" "}
-            (depende del modelo) y en ancho{" "}
+            La altura de impresión es de hasta{" "}
+            <strong className="text-paper">5 metros</strong> (depende del modelo)
+            y en ancho{" "}
             <strong className="text-paper">no tiene limitación de longitud</strong>.
             Existe la posibilidad de usar la técnica de solapación: al unir dos
             imágenes, la altura puede superar los 5 metros.
           </p>
+        </div>
+
+        {/* CTAs */}
+        <div className="flex flex-wrap items-center gap-6">
+          <Link
+            href="/casos-cliente"
+            className="inline-flex items-center justify-center bg-ocre-300 text-ink px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-ocre-200 transition-colors"
+          >
+            Ver casos completos
+          </Link>
+          <Link
+            href="/contacto"
+            className="font-mono text-body-sm uppercase tracking-wider text-bone link-underline"
+          >
+            Probar tu caso en taller →
+          </Link>
         </div>
       </div>
     </section>

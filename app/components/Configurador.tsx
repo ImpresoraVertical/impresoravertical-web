@@ -203,10 +203,14 @@ export default function Configurador() {
             <div className="lg:col-span-4 lg:col-start-9 space-y-4 lg:border-l lg:border-bone/20 lg:pl-8">
               <div>
                 <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
-                  Precio
+                  Tipo
                 </div>
                 <div className="font-display text-h3 uppercase tracking-tight text-paper">
-                  {topSerie.priceLabel}
+                  {topSerie.inkType === "uv"
+                    ? "Tinta UV"
+                    : topSerie.inkType === "base-agua"
+                    ? "Tinta base agua"
+                    : "Personalizable"}
                 </div>
               </div>
               <div className="border-t border-bone/20 pt-4 space-y-2 text-body-sm">
@@ -217,14 +221,8 @@ export default function Configurador() {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-bone/70">Tinta</span>
-                  <span className="text-paper font-mono">
-                    {topSerie.inkType === "uv"
-                      ? "UV"
-                      : topSerie.inkType === "base-agua"
-                      ? "Base agua"
-                      : "Personalizable"}
-                  </span>
+                  <span className="text-bone/70">Presupuesto</span>
+                  <span className="text-paper font-mono">Consultar</span>
                 </div>
               </div>
             </div>

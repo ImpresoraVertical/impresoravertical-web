@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 // Rutas donde el header NO debe aparecer (página inmersiva sin nav)
-const HIDDEN_HEADER_ROUTES = ["/perfiles-icc"];
+const HIDDEN_HEADER_ROUTES: string[] = [];
 
 const NAV_ITEMS = [
   { label: "Series", href: "/series" },
