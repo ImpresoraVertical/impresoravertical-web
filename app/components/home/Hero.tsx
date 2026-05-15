@@ -1,5 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+
+const YT_VIDEO_ID = "GtAMJqZG6g0";
+const YT_EMBED_URL = `https://www.youtube-nocookie.com/embed/${YT_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YT_VIDEO_ID}&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&showinfo=0`;
 
 export default function Hero() {
   return (
@@ -75,27 +77,27 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Visual derecha — imagen real del modelo T1 del catálogo oficial */}
+        {/* Visual derecha — vídeo demostración en autoplay */}
         <div className="lg:col-span-5 relative">
-          <div className="aspect-[4/5] relative overflow-hidden bg-paper border border-stone/15">
-            <Image
-              src="/catalogo/img-01.png"
-              alt="Modelo T1 · Impresora vertical I-TECH"
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-contain object-center"
-              priority
+          <div className="aspect-video relative overflow-hidden bg-ink border border-stone/15">
+            <iframe
+              src={YT_EMBED_URL}
+              title="Impresora Vertical I-TECH · demostración"
+              allow="autoplay; encrypted-media; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
             />
-            <div className="absolute bottom-6 left-6 right-6 bg-paper/95 backdrop-blur-md p-6 border border-stone/15">
-              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mb-2">
-                Modelo destacado
-              </div>
-              <div className="font-display text-h4 uppercase tracking-tight text-ink">
-                Serie T · T1
-              </div>
-              <div className="font-sans text-body-sm text-stone mt-1">
-                UV · pantalla integrada · murales hasta 4m
-              </div>
+          </div>
+          <div className="bg-paper border border-t-0 border-stone/15 p-6">
+            <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mb-2">
+              Vídeo · demostración
+            </div>
+            <div className="font-display text-h4 uppercase tracking-tight text-ink">
+              La impresora vertical en acción.
+            </div>
+            <div className="font-sans text-body-sm text-stone mt-1">
+              Imprimiendo sobre pared real. Sin retoques.
             </div>
           </div>
         </div>
