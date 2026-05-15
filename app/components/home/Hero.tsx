@@ -6,7 +6,7 @@ const YT_EMBED_URL = `https://www.youtube-nocookie.com/embed/${YT_VIDEO_ID}?auto
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center bg-paper pt-24 md:pt-32 overflow-hidden">
-      <div className="container-page relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+      <div className="container-page relative z-10 grid lg:grid-cols-12 gap-12 items-start">
         {/* Texto principal */}
         <div className="lg:col-span-6 space-y-8">
           <div className="badge-ocre">
@@ -78,7 +78,7 @@ export default function Hero() {
         </div>
 
         {/* Visual derecha — vídeo demostración en autoplay */}
-        <div className="lg:col-span-6 relative">
+        <div className="lg:col-span-6 relative lg:mt-32">
           <div className="aspect-video relative overflow-hidden bg-ink border border-stone/15 shadow-xl">
             <iframe
               src={YT_EMBED_URL}
