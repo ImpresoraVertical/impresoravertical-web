@@ -15,6 +15,7 @@ export type ModelSpec = {
   resolution?: string;
   weight?: string;
   highlights?: string[];
+  image?: string;
 };
 
 export type Series = {
@@ -56,6 +57,7 @@ export const SERIES: Series[] = [
         resolution: "1440 dpi",
         weight: "95 kg",
         highlights: ["1 cabezal", "Compacto", "Ideal para empezar"],
+        image: "/modelos/e2.jpg",
       },
       {
         code: "E3",
@@ -66,6 +68,7 @@ export const SERIES: Series[] = [
         resolution: "Pendiente",
         weight: "Pendiente",
         highlights: ["Specs detalladas próximamente"],
+        image: "/modelos/e3.jpg",
       },
     ],
     useCases: [
@@ -103,6 +106,7 @@ export const SERIES: Series[] = [
         resolution: "1440 dpi",
         weight: "Pendiente",
         highlights: ["1 cabezal", "Versátil"],
+        image: "/modelos/k1.jpg",
       },
       {
         code: "K2",
@@ -113,6 +117,7 @@ export const SERIES: Series[] = [
         resolution: "1440 dpi",
         weight: "Pendiente",
         highlights: ["2 cabezales", "Velocidad ×2"],
+        image: "/modelos/k2.jpg",
       },
       {
         code: "K3",
@@ -123,6 +128,7 @@ export const SERIES: Series[] = [
         resolution: "1440 dpi",
         weight: "Pendiente",
         highlights: ["4 cabezales", "Máxima velocidad base agua"],
+        image: "/modelos/k3.jpg",
       },
     ],
     useCases: [
@@ -165,6 +171,7 @@ export const SERIES: Series[] = [
           "Cabezales custom",
           "Conectividad industrial",
         ],
+        image: "/modelos/g.jpg",
       },
     ],
     useCases: [
@@ -202,6 +209,7 @@ export const SERIES: Series[] = [
         resolution: "1440 dpi",
         weight: "145 kg",
         highlights: ["Pantalla integrada", "Desplazamiento rueda o cremallera"],
+        image: "/modelos/t1.jpg",
       },
       {
         code: "T2",
@@ -212,6 +220,7 @@ export const SERIES: Series[] = [
         resolution: "Pendiente",
         weight: "Pendiente",
         highlights: ["Specs detalladas próximamente"],
+        image: "/modelos/t1.jpg",
       },
       {
         code: "T3",
@@ -222,6 +231,7 @@ export const SERIES: Series[] = [
         resolution: "Pendiente",
         weight: "Pendiente",
         highlights: ["Specs detalladas próximamente"],
+        image: "/modelos/t1.jpg",
       },
     ],
     useCases: [
@@ -264,6 +274,7 @@ export const SERIES: Series[] = [
           "Maleta de aviación + set completo",
           "Posicionamiento láser",
         ],
+        image: "/modelos/w1.jpg",
       },
       {
         code: "W2",
@@ -279,6 +290,7 @@ export const SERIES: Series[] = [
           "Conexión Gigabit",
           "Personalizable a doble cabezal",
         ],
+        image: "/modelos/w2.jpg",
       },
       {
         code: "WF",
@@ -294,6 +306,7 @@ export const SERIES: Series[] = [
           "Montaje/desmontaje en 10 minutos",
           "Producción industrial",
         ],
+        image: "/modelos/wf.jpg",
       },
     ],
     useCases: [
@@ -340,6 +353,7 @@ export const SERIES: Series[] = [
           "Tinta UV resistente",
           "Específico para suelos",
         ],
+        image: "/modelos/fb.jpg",
       },
     ],
     useCases: [

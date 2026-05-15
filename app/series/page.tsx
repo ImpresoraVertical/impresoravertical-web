@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SERIES, PRICING_COPY } from "../data/series";
-import { SERIES_IMAGES } from "../data/images";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -74,17 +73,18 @@ export default function SeriesPage() {
               className="block bg-paper hover:bg-bone transition-colors group"
             >
               <div className="grid lg:grid-cols-12 gap-8 p-8 lg:p-12 items-start">
-                {/* Imagen */}
+                {/* Imagen (primera foto del primer modelo) */}
                 <div className="lg:col-span-3">
                   <div className="relative aspect-square bg-bone overflow-hidden">
-                    <Image
-                      src={SERIES_IMAGES[s.slug]}
-                      alt={`${s.name} · ${s.tagline}`}
-                      fill
-                      sizes="(max-width: 1024px) 50vw, 25vw"
-                      unoptimized
-                      className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
-                    />
+                    {s.models[0]?.image && (
+                      <Image
+                        src={s.models[0].image}
+                        alt={`${s.name} · ${s.tagline}`}
+                        fill
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                    )}
                   </div>
                 </div>
 

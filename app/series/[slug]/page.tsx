@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { SERIES, getSeriesBySlug, PRICING_COPY } from "../../data/series";
-import { SERIES_IMAGES } from "../../data/images";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -79,18 +78,19 @@ export default async function SeriePage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Right: imagen */}
+            {/* Right: imagen (primera foto de la serie) */}
             <div className="lg:col-span-4 lg:col-start-9">
               <div className="relative aspect-[3/4] bg-bone overflow-hidden">
-                <Image
-                  src={SERIES_IMAGES[serie.slug]}
-                  alt={`${serie.name} · ${serie.tagline}`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  unoptimized
-                  className="object-contain object-center"
-                  priority
-                />
+                {serie.models[0]?.image && (
+                  <Image
+                    src={serie.models[0].image}
+                    alt={`${serie.name} · ${serie.tagline}`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-contain object-center"
+                    priority
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -121,6 +121,9 @@ export default async function SeriePage({ params }: PageProps) {
             <table className="w-full">
               <thead>
                 <tr className="bg-ink text-paper">
+                  <th className="text-left p-6 font-mono text-eyebrow uppercase tracking-wider w-32">
+                    Foto
+                  </th>
                   <th className="text-left p-6 font-mono text-eyebrow uppercase tracking-wider">
                     Modelo
                   </th>
@@ -141,6 +144,23 @@ export default async function SeriePage({ params }: PageProps) {
               <tbody className="divide-y divide-stone/15">
                 {serie.models.map((m) => (
                   <tr key={m.code} className="hover:bg-bone transition-colors">
+                    <td className="p-4 align-middle">
+                      {m.image ? (
+                        <div className="relative w-24 h-28 bg-bone overflow-hidden">
+                          <Image
+                            src={m.image}
+                            alt={`Modelo ${m.code}`}
+                            fill
+                            sizes="96px"
+                            className="object-contain object-center"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-24 h-28 bg-bone border border-stone/15 flex items-center justify-center">
+                          <span className="font-mono text-eyebrow text-stone">—</span>
+                        </div>
+                      )}
+                    </td>
                     <td className="p-6">
                       <div className="font-display text-h4 uppercase tracking-tight text-ink leading-none">
                         {m.code}

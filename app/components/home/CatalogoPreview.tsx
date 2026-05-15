@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SERIES } from "../../data/series";
-import { SERIES_IMAGES } from "../../data/images";
 
 export default function CatalogoPreview() {
   return (
@@ -31,16 +30,17 @@ export default function CatalogoPreview() {
               href={`/series/${s.slug}`}
               className="group relative bg-paper p-8 space-y-6 hover:bg-bone transition-colors flex flex-col"
             >
-              {/* Imagen del modelo representativo */}
+              {/* Imagen del modelo representativo (primero de la serie) */}
               <div className="relative aspect-square -mx-8 -mt-8 mb-2 overflow-hidden bg-bone">
-                <Image
-                  src={SERIES_IMAGES[s.slug]}
-                  alt={`${s.name} · ${s.tagline}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  unoptimized
-                  className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
-                />
+                {s.models[0]?.image && (
+                  <Image
+                    src={s.models[0].image}
+                    alt={`${s.name} · ${s.tagline}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
               </div>
 
               <div className="flex items-baseline justify-between">
