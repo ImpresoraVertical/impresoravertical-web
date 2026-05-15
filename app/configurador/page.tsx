@@ -21,8 +21,8 @@ export default function ConfiguradorPage() {
                 <span className="italic text-cobalto-700">Te lo decimos.</span>
               </h1>
               <p className="text-body-lg text-stone max-w-2xl text-pretty">
-                4 preguntas, una recomendación basada en datos reales de 15 años
-                de instalaciones I-TECH.
+                4 preguntas, una recomendación basada en datos reales de +6 años
+                de instalaciones en España.
               </p>
             </div>
           </div>

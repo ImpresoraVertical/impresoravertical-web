@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "¿Qué tamaño puede imprimir una impresora vertical?",
-    a: "La altura de impresión es de hasta 3 metros (depende del modelo) y en ancho no tiene limitación de longitud. Existe la posibilidad de usar la técnica de solapación, al unir dos imágenes, la altura puede superar los 3 metros.",
+    a: "La altura de impresión es de hasta 5 metros (depende del modelo) y en ancho no tiene limitación de longitud. Existe la posibilidad de usar la técnica de solapación, al unir dos imágenes, la altura puede superar los 5 metros.",
   },
   {
     q: "¿En qué superficies puede imprimir?",

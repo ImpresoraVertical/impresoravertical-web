@@ -15,9 +15,6 @@ export const WIX_IMAGES = {
   muralBanner: `${WIX_BASE}/3290d3_48cedeafbec9472aa4ff3c60bfc67ea2~mv2.jpg/v1/fill/w_2400,h_1000,al_c,q_90,enc_avif,quality_auto/Mural%20con%20impresora%20Vertical%20I-Tech.jpg`,
 
   // ─────── MODELOS / IMPRESORAS ───────
-  modeloS_Cremallera: `${WIX_BASE}/3290d3_f41e3e8732ea487097307fb33e699ee1~mv2.jpg`,
-  modeloS2_Rueda: `${WIX_BASE}/3290d3_627b8e41351e42029c879263c0f96a78~mv2.jpg`,
-  modeloS3_SinPantalla: `${WIX_BASE}/3290d3_1b9d4375d40145c19fd11be964ef9b5b~mv2.jpg`,
   modeloT1: `${WIX_BASE}/3290d3_28e8473ca193438da315ebd885a4a8dc~mv2.png`,
   modeloW1: `${WIX_BASE}/3290d3_b6edaebeb88f4355a83f059085ef35cf~mv2.jpg`,
   modeloFB_Suelos: `${WIX_BASE}/3290d3_51c5029ca17c4fe6b1f3991c4546079c~mv2.jpg`,
