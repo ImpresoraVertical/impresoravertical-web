@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center bg-paper pt-24 md:pt-32 overflow-hidden">
       <div className="container-page relative z-10 grid lg:grid-cols-12 gap-12 items-center">
         {/* Texto principal */}
-        <div className="lg:col-span-5 space-y-8">
+        <div className="lg:col-span-6 space-y-8">
           <div className="badge-ocre">
             <span>Oficial en España</span>
             <span className="mx-2">·</span>
@@ -78,7 +78,7 @@ export default function Hero() {
         </div>
 
         {/* Visual derecha — vídeo demostración en autoplay */}
-        <div className="lg:col-span-7 relative">
+        <div className="lg:col-span-6 relative">
           <div className="aspect-video relative overflow-hidden bg-ink border border-stone/15 shadow-xl">
             <iframe
               src={YT_EMBED_URL}
