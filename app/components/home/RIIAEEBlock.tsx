@@ -1,13 +1,25 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function RIIAEEBlock() {
   return (
     <section className="section-pad bg-cobalto-900 text-bone">
       <div className="container-page">
-        <div className="grid lg:grid-cols-12 gap-12 mb-12">
-          <div className="lg:col-span-6 space-y-4">
-            <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-200">
-              Registro y certificación
+        <div className="grid lg:grid-cols-12 gap-12 mb-12 items-start">
+          <div className="lg:col-span-6 space-y-6">
+            <div className="flex items-center gap-6">
+              <div className="bg-bone p-3 inline-block shrink-0">
+                <Image
+                  src="/logo/rii-aee.png"
+                  alt="Logo oficial RII-AEE"
+                  width={100}
+                  height={100}
+                  className="w-20 h-20 object-contain"
+                />
+              </div>
+              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-200">
+                Registro y certificación
+              </div>
             </div>
             <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-bone text-balance">
               Estamos registrados y

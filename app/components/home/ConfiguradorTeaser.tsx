@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MediaPlaceholder from "../MediaPlaceholder";
 
 const CARDS = [
   {
@@ -31,6 +32,18 @@ export default function ConfiguradorTeaser() {
   return (
     <section className="section-pad bg-paper">
       <div className="container-page">
+        {/* Foto destacada · 4 mejores modelos del catálogo */}
+        <div className="mb-12">
+          <MediaPlaceholder
+            type="image"
+            title="Las 4 mejores impresoras del catálogo · K3 · T3 · W2 · WF"
+            description="Composición con los 4 modelos top en línea, fondo neutro o taller. K3 (4 cabezales base agua, máxima velocidad) · T3 (UV alta, hasta 2,7m con rail cremallera) · W2 (UV EPSON i3200, personalizable doble cabezal) · WF (Wall+Floor doble cabezal, producción industrial)."
+            dimensions="2400×1000 px · ratio 12:5 panorámico"
+            filename="/inicio/4-mejores-impresoras.jpg"
+            aspect="aspect-[12/5]"
+          />
+        </div>
+
         <div className="grid lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-5 space-y-4">
             <div className="eyebrow">Configurador interactivo</div>

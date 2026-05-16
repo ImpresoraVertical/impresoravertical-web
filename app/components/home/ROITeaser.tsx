@@ -6,37 +6,72 @@ export default function ROITeaser() {
       <div className="container-page">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5">
-            <div className="bg-ink text-paper p-10 lg:p-16 space-y-6">
-              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300">
-                ROI estimado · Serie T
+            {/* Infografía SVG · curva de ROI 0→24 meses */}
+            <div className="relative bg-bone p-6 border border-stone/15">
+              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mb-4">
+                Curva de retorno · 24 meses
               </div>
-              <div className="font-serif text-display lg:text-display-xl text-paper leading-none">
-                8-10
-                <span className="text-h2 text-ocre-300 align-top ml-2">meses</span>
-              </div>
-              <p className="text-body-sm text-bone/80 leading-relaxed">
-                Inversión recuperada con uso medio (25 m² impresos/mes ·
-                facturación 150€/m²). Datos reales clientes 2022-2024.
-              </p>
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-bone/20">
-                <div>
-                  <div className="font-serif text-h4 text-paper">23</div>
-                  <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
-                    Clientes ROI &lt;1 año
-                  </div>
-                </div>
-                <div>
-                  <div className="font-serif text-h4 text-paper">150€</div>
-                  <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
-                    Tarifa media/m²
-                  </div>
-                </div>
-                <div>
-                  <div className="font-serif text-h4 text-paper">25</div>
-                  <div className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
-                    m²/mes uso medio
-                  </div>
-                </div>
+              <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+                {/* Grid suave */}
+                <g stroke="#e5e3da" strokeWidth="0.5">
+                  <line x1="40" y1="40" x2="380" y2="40" />
+                  <line x1="40" y1="100" x2="380" y2="100" />
+                  <line x1="40" y1="160" x2="380" y2="160" />
+                  <line x1="40" y1="220" x2="380" y2="220" />
+                </g>
+
+                {/* Ejes */}
+                <line x1="40" y1="40" x2="40" y2="220" stroke="#a4a191" strokeWidth="1" />
+                <line x1="40" y1="220" x2="380" y2="220" stroke="#a4a191" strokeWidth="1" />
+
+                {/* Etiquetas eje Y */}
+                <text x="32" y="44" textAnchor="end" fontSize="10" fill="#7a7766" fontFamily="ui-monospace,monospace">+€</text>
+                <text x="32" y="164" textAnchor="end" fontSize="10" fill="#7a7766" fontFamily="ui-monospace,monospace">0</text>
+                <text x="32" y="224" textAnchor="end" fontSize="10" fill="#7a7766" fontFamily="ui-monospace,monospace">−€</text>
+
+                {/* Etiquetas eje X */}
+                <text x="40" y="245" fontSize="10" fill="#7a7766" fontFamily="ui-monospace,monospace">0</text>
+                <text x="125" y="245" textAnchor="middle" fontSize="10" fill="#7a7766" fontFamily="ui-monospace,monospace">6m</text>
+                <text x="210" y="245" textAnchor="middle" fontSize="10" fill="#7a7766" fontFamily="ui-monospace,monospace">12m</text>
+                <text x="295" y="245" textAnchor="middle" fontSize="10" fill="#7a7766" fontFamily="ui-monospace,monospace">18m</text>
+                <text x="380" y="245" textAnchor="middle" fontSize="10" fill="#7a7766" fontFamily="ui-monospace,monospace">24m</text>
+
+                {/* Línea inversión inicial · 21.500€ (descenso recto) */}
+                <line x1="40" y1="220" x2="40" y2="60" stroke="#2856b8" strokeWidth="2" />
+
+                {/* Curva ingresos acumulados (sube y supera la inversión) */}
+                <path
+                  d="M 40 220 Q 130 200 170 160 T 380 50"
+                  fill="none"
+                  stroke="#d99a2a"
+                  strokeWidth="3"
+                />
+
+                {/* Línea de break-even (inversión recuperada) */}
+                <line x1="40" y1="160" x2="380" y2="160" strokeDasharray="3 3" stroke="#2856b8" strokeWidth="1" opacity="0.6" />
+
+                {/* Punto break-even (mes 8-10) */}
+                <circle cx="165" cy="160" r="6" fill="#d99a2a" stroke="#1a1a1a" strokeWidth="2" />
+                <text x="175" y="148" fontSize="11" fill="#1a1a1a" fontFamily="ui-monospace,monospace" fontWeight="600">
+                  ROI: mes 8-10
+                </text>
+
+                {/* Leyenda */}
+                <g fontSize="10" fontFamily="ui-monospace,monospace">
+                  <rect x="220" y="55" width="12" height="3" fill="#2856b8" />
+                  <text x="238" y="60" fill="#1a1a1a">Inversión 21.500€</text>
+                  <rect x="220" y="73" width="12" height="3" fill="#d99a2a" />
+                  <text x="238" y="78" fill="#1a1a1a">Ingresos acumulados</text>
+                </g>
+              </svg>
+
+              <div className="mt-4 pt-4 border-t border-stone/15">
+                <p className="text-body-sm text-stone leading-relaxed">
+                  Estimación con uso medio:{" "}
+                  <strong className="text-ink">25 m²/mes</strong> a{" "}
+                  <strong className="text-ink">150 €/m²</strong>. Serie T con
+                  inversión 21.500€. Datos reales clientes 2022-2024.
+                </p>
               </div>
             </div>
           </div>

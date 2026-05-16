@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MediaPlaceholder from "../MediaPlaceholder";
 
 /* Iconos SVG de tipos de tinta */
 const IconDrop = ({ filled }: { filled?: boolean }) => (
@@ -10,24 +11,36 @@ const IconDrop = ({ filled }: { filled?: boolean }) => (
 const TINTAS = [
   {
     code: "01",
-    title: "Tinta Premium Hard",
+    title: "Tinta UV Premium Hard",
     target: "Soportes rígidos",
     description:
       "Formulada para superficies duras y no porosas: cristal, metal, cerámica, acrílico, hormigón pulido.",
+    placeholderTitle: "Foto resultado Premium Hard",
+    placeholderDesc:
+      "Detalle de impresión Premium Hard sobre un soporte rígido (cristal, metal, azulejo o acrílico). Se debe apreciar la adherencia y brillo.",
+    filename: "/tintas/uv-hard.jpg",
   },
   {
     code: "02",
-    title: "Tinta Premium Soft",
+    title: "Tinta UV Premium Soft",
     target: "Soportes flexibles",
     description:
       "Formulada para soportes que se doblan o flexan: lonas PVC, vinilos, textiles técnicos, papeles tapiz.",
+    placeholderTitle: "Foto resultado Premium Soft",
+    placeholderDesc:
+      "Detalle de impresión Premium Soft sobre un soporte flexible (lona, vinilo, textil) con la pieza doblada o curvada para mostrar elasticidad.",
+    filename: "/tintas/uv-soft.jpg",
   },
   {
     code: "03",
-    title: "Tintas Ultravioleta",
+    title: "Tintas UV Ultravioleta",
     target: "A petición · proyectos especiales",
     description:
       "Tintas UV específicas bajo pedido para proyectos con requisitos técnicos concretos.",
+    placeholderTitle: "Foto aplicación UV especial",
+    placeholderDesc:
+      "Detalle de tinta UV especial: efecto barniz, blanco opaco, fluorescente o textura específica sobre un soporte de proyecto a medida.",
+    filename: "/tintas/uv-especial.jpg",
   },
 ];
 
@@ -55,32 +68,39 @@ export default function TintasBlock() {
           </div>
         </div>
 
-        {/* 3 tipos de tinta */}
-        <div className="grid md:grid-cols-3 gap-px bg-stone/15 border border-stone/15 mb-12">
+        {/* 3 tipos de tinta — placeholder de imagen + card */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {TINTAS.map((t, i) => (
-            <div
-              key={t.code}
-              className="bg-paper p-8 lg:p-10 space-y-4 hover:bg-bone transition-colors"
-            >
-              <div className="flex items-start justify-between">
-                <div className="text-ocre-500">
-                  <IconDrop filled={i < 2} />
+            <div key={t.code} className="space-y-3">
+              <MediaPlaceholder
+                type="image"
+                title={t.placeholderTitle}
+                description={t.placeholderDesc}
+                dimensions="1200×900 px · ratio 4:3"
+                filename={t.filename}
+                aspect="aspect-[4/3]"
+              />
+              <div className="bg-paper p-6 lg:p-8 space-y-4 border border-stone/15">
+                <div className="flex items-start justify-between">
+                  <div className="text-ocre-500">
+                    <IconDrop filled={i < 2} />
+                  </div>
+                  <span className="font-mono text-eyebrow uppercase tracking-wider text-stone">
+                    {t.code} / 03
+                  </span>
                 </div>
-                <span className="font-mono text-eyebrow uppercase tracking-wider text-stone">
-                  {t.code} / 03
-                </span>
-              </div>
-              <div>
-                <h3 className="font-display text-h4 uppercase tracking-tight text-ink leading-tight">
-                  {t.title}
-                </h3>
-                <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mt-2">
-                  {t.target}
+                <div>
+                  <h3 className="font-display text-h4 uppercase tracking-tight text-ink leading-tight">
+                    {t.title}
+                  </h3>
+                  <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mt-2">
+                    {t.target}
+                  </div>
                 </div>
+                <p className="font-sans text-body-sm text-stone leading-relaxed">
+                  {t.description}
+                </p>
               </div>
-              <p className="font-sans text-body-sm text-stone leading-relaxed">
-                {t.description}
-              </p>
             </div>
           ))}
         </div>
@@ -110,9 +130,11 @@ export default function TintasBlock() {
               </div>
             </div>
             <p className="text-body text-bone/80 mt-6 leading-relaxed max-w-2xl">
-              Por eso fabricamos en cortas series y mantenemos stock fresco
-              en taller. La tinta UV que recibes está siempre en su ventana
-              óptima de uso.
+              Por eso hacemos fabricar las tintas en cortas series y mantenemos
+              stock fresco en taller, para que nuestros clientes no tengan que
+              comprar grandes cantidades para conseguir mejor precio. Nuestros
+              clientes pueden comprar <strong className="text-bone">por sets</strong>.
+              La tinta UV que recibes está siempre en su ventana óptima de uso.
             </p>
           </div>
           <div className="lg:col-span-4 bg-ink text-paper p-8 lg:p-10 flex flex-col justify-between gap-6">
