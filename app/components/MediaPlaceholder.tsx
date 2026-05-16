@@ -14,14 +14,7 @@ interface MediaPlaceholderProps {
   description: string;
   dimensions?: string;
   filename?: string;
-  aspect?:
-    | "aspect-square"
-    | "aspect-video"
-    | "aspect-[4/3]"
-    | "aspect-[3/4]"
-    | "aspect-[3/2]"
-    | "aspect-[2/3]"
-    | "aspect-[16/9]";
+  aspect?: string;
   variant?: "light" | "dark";
   className?: string;
 }
