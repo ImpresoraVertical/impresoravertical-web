@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import MediaPlaceholder from "../components/MediaPlaceholder";
 
 export const metadata: Metadata = {
   title: "Servicio técnico exclusivo I-TECH España",
@@ -12,8 +13,8 @@ export default function ServicioTecnicoPage() {
     <>
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-paper border-b border-stone/15">
         <div className="container-page">
-          <div className="grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-8 space-y-6">
+          <div className="grid lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-7 space-y-6">
               <div className="eyebrow">Servicio técnico exclusivo</div>
               <h1 className="font-serif text-display lg:text-display-xl text-ink text-balance leading-[1.02]">
                 Cuando algo falla,
@@ -25,6 +26,16 @@ export default function ServicioTecnicoPage() {
                 España. Stock de piezas en taller propio. Visita en 48-72h
                 para urgencias con producción detenida.
               </p>
+            </div>
+            <div className="lg:col-span-5">
+              <MediaPlaceholder
+                type="image"
+                title="Almacén de piezas / técnico trabajando"
+                description="Foto del taller técnico: estanterías con cabezales, bombas, sensores, motores en stock. O técnico revisando una máquina con herramientas."
+                dimensions="1600×1200 px · ratio 4:3"
+                filename="/taller/servicio-tecnico.jpg"
+                aspect="aspect-[4/3]"
+              />
             </div>
           </div>
         </div>

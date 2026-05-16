@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import MediaPlaceholder from "../components/MediaPlaceholder";
 
 export const metadata: Metadata = {
   title: "Sobre I-TECH España · Punto de gestión oficial",
@@ -12,8 +13,8 @@ export default function SobreITechPage() {
     <>
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-paper border-b border-stone/15">
         <div className="container-page">
-          <div className="grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-8 space-y-6">
+          <div className="grid lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-7 space-y-6">
               <div className="eyebrow">Sobre I-TECH España</div>
               <h1 className="font-serif text-display lg:text-display-xl text-ink text-balance leading-[1.02]">
                 Quien está detrás de la
@@ -26,6 +27,16 @@ export default function SobreITechPage() {
                 España para la marca I-TECH, inventora de la tecnología
                 de impresión vertical sobre pared.
               </p>
+            </div>
+            <div className="lg:col-span-5">
+              <MediaPlaceholder
+                type="image"
+                title="Foto del equipo en el taller"
+                description="Equipo de I-TECH España (2-4 personas) en el taller, con una máquina detrás. Plano horizontal, gente mirando a cámara o en acción técnica."
+                dimensions="1600×1200 px · ratio 4:3"
+                filename="/taller/equipo.jpg"
+                aspect="aspect-[4/3]"
+              />
             </div>
           </div>
         </div>

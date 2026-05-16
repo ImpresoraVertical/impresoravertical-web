@@ -52,40 +52,38 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      {/* Proceso 4 pasos */}
-      <section className="section-pad bg-bone">
+      {/* Proceso 4 pasos · compacto */}
+      <section className="py-12 md:py-16 bg-bone">
         <div className="container-page">
-          <div className="grid lg:grid-cols-12 gap-12 mb-12">
-            <div className="lg:col-span-5 space-y-4">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+            <div>
               <div className="eyebrow">El proceso</div>
-              <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-ink text-balance">
+              <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-ink text-balance mt-2">
                 4 pasos
-                <span className="block text-cobalto-700">para llegar a la fábrica.</span>
+                <span className="text-cobalto-700"> para llegar a la fábrica.</span>
               </h2>
             </div>
-            <div className="lg:col-span-6 lg:col-start-7 flex items-end">
-              <p className="text-body-lg text-stone text-pretty">
-                Cada paso tiene su tiempo. Ninguno requiere compromiso hasta
-                que tú lo digas.
-              </p>
-            </div>
+            <p className="text-body text-stone max-w-md">
+              Cada paso tiene su tiempo. Ninguno requiere compromiso hasta que
+              tú lo digas.
+            </p>
           </div>
 
-          <div className="space-y-px bg-stone/15 border border-stone/15">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-stone/15 border border-stone/15">
             {STEPS.map((s) => (
               <article
                 key={s.code}
-                className="bg-bone p-8 lg:p-10 grid lg:grid-cols-12 gap-6 items-start hover:bg-paper transition-colors"
+                className="bg-bone p-6 lg:p-7 space-y-3 hover:bg-paper transition-colors"
               >
-                <div className="lg:col-span-2">
-                  <div className="font-mono text-h2 text-ocre-500">{s.code}</div>
+                <div className="font-mono text-h3 text-ocre-500 leading-none">
+                  {s.code}
                 </div>
-                <div className="lg:col-span-9 lg:col-start-4 space-y-2">
-                  <h3 className="font-display text-h4 uppercase tracking-tight text-ink leading-tight">
-                    {s.title}
-                  </h3>
-                  <p className="text-body text-stone leading-relaxed">{s.body}</p>
-                </div>
+                <h3 className="font-display text-h5 uppercase tracking-tight text-ink leading-tight">
+                  {s.title}
+                </h3>
+                <p className="font-sans text-body-sm text-stone leading-relaxed">
+                  {s.body}
+                </p>
               </article>
             ))}
           </div>

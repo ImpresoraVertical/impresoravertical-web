@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MediaPlaceholder from "../MediaPlaceholder";
 
 /* Iconos SVG inline — uniformes, color heredado */
 const Icon = {
@@ -159,19 +160,37 @@ export default function Galeria() {
           <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-6">
             02 · Casos de uso · 9 aplicaciones reales
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-bone/15 border border-bone/15">
-            {CASOS.map((c) => (
-              <article
-                key={c.code}
-                className="bg-ink p-6 lg:p-8 space-y-3 hover:bg-cobalto-900 transition-colors"
-              >
-                <div className="font-mono text-h5 text-ocre-300">{c.code}</div>
-                <h3 className="font-display text-h5 uppercase tracking-tight text-paper leading-tight">
-                  {c.title}
-                </h3>
-                <p className="font-sans text-body-sm text-bone/70">{c.detail}</p>
-              </article>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {CASOS.map((c) => {
+              const slug = c.title
+                .toLowerCase()
+                .replace(/ /g, "-")
+                .replace(/[^a-z0-9-]/g, "")
+                .slice(0, 20);
+              return (
+                <article
+                  key={c.code}
+                  className="space-y-3"
+                >
+                  <MediaPlaceholder
+                    type="image"
+                    title={`Foto del caso: ${c.title}`}
+                    description={c.detail}
+                    dimensions="1200×900 px · ratio 4:3"
+                    filename={`/casos/caso-${slug}.jpg`}
+                    aspect="aspect-[4/3]"
+                    variant="dark"
+                  />
+                  <div className="px-1">
+                    <div className="font-mono text-h6 text-ocre-300">{c.code}</div>
+                    <h3 className="font-display text-h5 uppercase tracking-tight text-paper leading-tight mt-1">
+                      {c.title}
+                    </h3>
+                    <p className="font-sans text-body-sm text-bone/70 mt-1">{c.detail}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
 

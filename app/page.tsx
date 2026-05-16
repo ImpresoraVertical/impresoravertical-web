@@ -7,6 +7,7 @@ import Taller from "./components/home/Taller";
 import ROITeaser from "./components/home/ROITeaser";
 import Galeria from "./components/home/Galeria";
 import CatalogoPreview from "./components/home/CatalogoPreview";
+import TintasBlock from "./components/home/TintasBlock";
 import RIIAEEBlock from "./components/home/RIIAEEBlock";
 import FAQHome from "./components/home/FAQHome";
 import Colaboraciones from "./components/home/Colaboraciones";
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ROITeaser />
       <Galeria />
       <CatalogoPreview />
+      <TintasBlock />
       <RIIAEEBlock />
       <FAQHome />
       <Colaboraciones />

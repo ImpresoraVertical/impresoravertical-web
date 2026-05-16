@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MediaPlaceholder from "../MediaPlaceholder";
 
 export default function Taller() {
   return (
@@ -71,24 +72,29 @@ export default function Taller() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative">
-            <div className="aspect-square bg-gradient-to-br from-ocre-100 via-bone to-cobalto-100 relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_60%,rgba(40,86,184,0.15),transparent_50%)]" />
-              <div className="absolute top-6 left-6 right-6 bg-paper/90 backdrop-blur-md p-6 border border-stone/15">
-                <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mb-2">
-                  Dirección
-                </div>
-                <div className="font-serif text-h5 text-ink leading-tight">
-                  Calle del Centre d&apos;Empreses, 1-7
-                  <br />
-                  Nave 7 · 17178 Les Preses
-                </div>
-                <div className="font-sans text-body-sm text-stone mt-2">
-                  Girona, Cataluña · España
-                </div>
-                <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mt-4 pt-4 border-t border-stone/15">
-                  L-V · 9:00 a 18:00 · cita previa
-                </div>
+          <div className="lg:col-span-5 relative space-y-4">
+            <MediaPlaceholder
+              type="image"
+              title="Interior del taller en Les Preses"
+              description="Vista panorámica del taller con máquinas en exhibición, mesa de demo y zona de trabajo. Luz natural, ambiente real, no producción."
+              dimensions="1600×1600 px · cuadrado"
+              filename="/taller/taller-hero.jpg"
+              aspect="aspect-square"
+            />
+            <div className="bg-paper p-6 border border-stone/15">
+              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mb-2">
+                Dirección
+              </div>
+              <div className="font-serif text-h5 text-ink leading-tight">
+                Calle del Centre d&apos;Empreses, 1-7
+                <br />
+                Nave 7 · 17178 Les Preses
+              </div>
+              <div className="font-sans text-body-sm text-stone mt-2">
+                Girona, Cataluña · España
+              </div>
+              <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mt-4 pt-4 border-t border-stone/15">
+                L-V · 9:00 a 18:00 · cita previa
               </div>
             </div>
           </div>
