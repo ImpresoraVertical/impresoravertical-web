@@ -104,14 +104,43 @@ type Caso = {
 
 const CASOS: Caso[] = [
   { code: "01", title: "Oficinas y aparadores", detail: "Decoración corporativa · escaparate · branding interior", instagram: "https://www.instagram.com/reel/ChUnbhJKcN6/" },
-  { code: "02", title: "Espacios culturales", detail: "Decoración de salas · escenografías", instagram: "https://www.instagram.com/p/CnNPQT6LQCz/" },
+  { code: "02", title: "Oficinas corporativas", detail: "Despachos · salas de reunión · branding interior", instagram: "https://www.instagram.com/p/CnNPQT6LQCz/" },
   { code: "03", title: "Remolques y autocaravanas", detail: "Branding exterior · food trucks", instagram: "https://www.instagram.com/reel/C6OixKyNxnB/" },
-  { code: "04", title: "Tablas de skate y deporte", detail: "Producción artesanal · series cortas", instagram: "https://www.instagram.com/reel/CRJdkmuoyIo/" },
-  { code: "05", title: "Persianas comerciales", detail: "Rotulación · escaparate 24/7", instagram: "https://www.instagram.com/reel/ClFLlpTDU2f/" },
+  { code: "04", title: "Pabellones deportivos", detail: "Branding institucional · murales de gran formato", instagram: "https://www.instagram.com/reel/CRJdkmuoyIo/" },
+  { code: "05", title: "Escaparates comerciales", detail: "Rotulación · escaparate 24/7", instagram: "https://www.instagram.com/reel/ClFLlpTDU2f/" },
   { code: "06", title: "Escuelas y centros educativos", detail: "Pasillos · biblioteca · comedor", instagram: "https://www.instagram.com/p/CM49krsItKG/" },
   { code: "07", title: "Murales callejeras", detail: "Arte urbano · fachadas · street art", instagram: "https://www.instagram.com/reel/DO6VUVIDML8/" },
-  { code: "08", title: "Pabellones deportivos", detail: "Branding institucional · murales", instagram: "https://www.instagram.com/p/CECnCRNgfLO/" },
-  { code: "09", title: "Réplicas de cuadros y arte", detail: "Reproducción museística · fidelidad 2880 dpi", instagram: "https://www.instagram.com/reel/CofnnoFgmtF/" },
+  { code: "08", title: "Persianas comerciales", detail: "Cierre nocturno con identidad · branding 24/7", instagram: "https://www.instagram.com/p/CECnCRNgfLO/" },
+  { code: "09", title: "Polipel para tapizar", detail: "Tejidos técnicos personalizados · tapicería a medida", instagram: "https://www.instagram.com/reel/CofnnoFgmtF/" },
+];
+
+/* Cuentas de Instagram de inspiración sobre impresoras verticales */
+const CUENTAS_INSPIRACION = [
+  {
+    handle: "@impresoravertical",
+    label: "Nuestra cuenta oficial",
+    url: "https://www.instagram.com/impresoravertical/reels/",
+  },
+  {
+    handle: "@thewallprinter",
+    label: "The Wall Printer · referencia global",
+    url: "https://www.instagram.com/thewallprinter/",
+  },
+  {
+    handle: "@wallprinters.it",
+    label: "Wall Printers Italia",
+    url: "https://www.instagram.com/wallprinters.it/",
+  },
+  {
+    handle: "@prismaprint_",
+    label: "Prisma Print · proyectos creativos",
+    url: "https://www.instagram.com/prismaprint_/",
+  },
+  {
+    handle: "@bf_imprimante_murale",
+    label: "BF Imprimante Murale · Francia",
+    url: "https://www.instagram.com/bf_imprimante_murale/",
+  },
 ];
 
 /* Icono Instagram inline */
@@ -239,6 +268,43 @@ export default function Galeria() {
                 </article>
               );
             })}
+          </div>
+        </div>
+
+        {/* BLOQUE 2.5 — INSPIRACIÓN · cuentas de Instagram */}
+        <div className="mb-20">
+          <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-3">
+            Inspiración · cuentas que seguimos
+          </div>
+          <p className="text-body text-bone/70 max-w-2xl mb-8">
+            Si quieres ver más impresión vertical en acción, estas son las
+            cuentas de referencia mundial. Síguelas para inspirarte.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-bone/15 border border-bone/15">
+            {CUENTAS_INSPIRACION.map((cuenta) => (
+              <a
+                key={cuenta.url}
+                href={cuenta.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-ink p-6 space-y-3 hover:bg-cobalto-900 transition-colors group"
+              >
+                <div className="text-ocre-300 group-hover:text-ocre-200 transition-colors">
+                  <IconInstagram />
+                </div>
+                <div>
+                  <div className="font-mono text-body-sm text-paper leading-tight break-all">
+                    {cuenta.handle}
+                  </div>
+                  <p className="font-sans text-eyebrow uppercase tracking-wider text-bone/60 mt-2">
+                    {cuenta.label}
+                  </p>
+                </div>
+                <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 pt-2">
+                  Abrir →
+                </div>
+              </a>
+            ))}
           </div>
         </div>
 
