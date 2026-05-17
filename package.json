@@ -1,27 +1,30 @@
 {
-    "name": "impresoravertical-web",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-          "dev": "next dev",
-          "build": "next build",
-          "start": "next start",
-          "lint": "next lint"
-    },
-    "dependencies": {
-          "next": "^15.5.4",
-          "react": "^19.0.0",
-          "react-dom": "^19.0.0"
-    },
-    "devDependencies": {
-          "@types/node": "^22",
-          "@types/react": "^19",
-          "@types/react-dom": "^19",
-          "autoprefixer": "^10.4.20",
-          "eslint": "^9",
-          "eslint-config-next": "^15.5.4",
-          "postcss": "^8.4.49",
-          "tailwindcss": "^3.4.15",
-          "typescript": "^5"
-    }
+  "name": "impresoravertical-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@vercel/analytics": "^1.3.1",
+    "@vercel/speed-insights": "^1.0.12",
+    "resend": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9",
+    "eslint-config-next": "^15.5.4",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5"
+  }
 }
