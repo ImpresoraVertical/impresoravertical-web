@@ -55,7 +55,7 @@ export default function TintasBlock() {
     <section className="section-pad bg-bone">
       <div className="container-page">
         {/* Cabecera */}
-        <div className="grid lg:grid-cols-12 gap-12 mb-12">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-12 items-center">
           <div className="lg:col-span-6 space-y-4">
             <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600">
               Tintas · disponibilidad y formulación
@@ -65,8 +65,22 @@ export default function TintasBlock() {
               <span className="block text-cobalto-700">Precio especial cliente.</span>
             </h2>
           </div>
-          <div className="lg:col-span-5 lg:col-start-8 flex items-end">
-            <p className="text-body-lg text-stone text-pretty">
+
+          {/* Certificado Green RoHS · al lado del titular */}
+          <div className="lg:col-span-2 lg:col-start-7 flex items-center justify-center">
+            <div className="relative w-32 h-32 lg:w-36 lg:h-36">
+              <Image
+                src="/tintas/Green-rohs.jpg"
+                alt="Certificado Green RoHS · tintas I-TECH cumplen normativa europea"
+                fill
+                sizes="(max-width: 1024px) 128px, 144px"
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 lg:col-start-9 flex items-end">
+            <p className="text-body text-stone text-pretty">
               Disponemos de tinta en stock permanente de corta fabricación
               en nuestro taller. Como servicio a nuestros clientes, ofrecemos
               precio de formulación especial para impresoras verticales.
