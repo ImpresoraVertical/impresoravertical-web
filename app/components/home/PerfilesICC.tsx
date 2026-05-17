@@ -25,27 +25,27 @@ export default function PerfilesICC() {
           </div>
         </div>
 
-        {/* Visual de proceso ICC */}
-        <div className="grid lg:grid-cols-12 gap-8 mb-12">
-          <div className="lg:col-span-7">
+        {/* Visual de proceso ICC · tamaño compacto y centrado */}
+        <div className="flex flex-col lg:flex-row gap-8 mb-12 items-center justify-center">
+          <div className="w-full lg:w-[400px]">
             <div className="relative aspect-[4/3] bg-bone/5 overflow-hidden">
               <Image
                 src="/perfiles-icc/espectrofotometro.jpg"
                 alt="Espectrofotómetro midiendo test chart en el taller"
                 fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
+                sizes="(max-width: 1024px) 100vw, 400px"
                 className="object-cover object-center"
               />
             </div>
           </div>
-          <div className="lg:col-span-5">
+          <div className="w-full lg:w-[300px]">
             <div className="relative aspect-square bg-bone/5 overflow-hidden">
               <Image
-                src="/perfiles-icc/rueda-color.jpg"
+                src="/perfiles-icc/test-chart.png"
                 alt="Rueda de color · paleta de referencia para perfiles ICC"
                 fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-contain object-center p-6"
+                sizes="(max-width: 1024px) 100vw, 300px"
+                className="object-contain object-center p-4"
               />
             </div>
           </div>
