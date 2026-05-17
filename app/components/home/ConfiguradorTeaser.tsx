@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MediaPlaceholder from "../MediaPlaceholder";
+import Image from "next/image";
 
 const CARDS = [
   {
@@ -34,14 +34,16 @@ export default function ConfiguradorTeaser() {
       <div className="container-page">
         {/* Foto destacada · 4 mejores modelos del catálogo */}
         <div className="mb-12">
-          <MediaPlaceholder
-            type="image"
-            title="Las 4 mejores impresoras del catálogo · K3 · T3 · W2 · WF"
-            description="Composición con los 4 modelos top en línea, fondo neutro o taller. K3 (4 cabezales base agua, máxima velocidad) · T3 (UV alta, hasta 2,7m con rail cremallera) · W2 (UV EPSON i3200, personalizable doble cabezal) · WF (Wall+Floor doble cabezal, producción industrial)."
-            dimensions="2400×1000 px · ratio 12:5 panorámico"
-            filename="/inicio/4-mejores-impresoras.jpg"
-            aspect="aspect-[12/5]"
-          />
+          <div className="relative aspect-[12/5] bg-bone overflow-hidden">
+            <Image
+              src="/inicio/4-mejores-impresoras.jpg"
+              alt="Las 4 mejores impresoras del catálogo I-Tech · K3, T3, W2 y WF"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1200px"
+              className="object-cover object-center"
+              priority
+            />
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 mb-16">
