@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
-import MediaPlaceholder from "../components/MediaPlaceholder";
 
 export const metadata: Metadata = {
   title: "I-TECH Pro · Personalizaciones Sector Industrial",
@@ -97,15 +97,16 @@ export default function ItechProPage() {
 
             {/* Imagen de industria · ambiente productivo */}
             <div className="lg:col-span-5">
-              <MediaPlaceholder
-                type="image"
-                title="Ambiente industrial donde aplicamos I-TECH Pro"
-                description="Foto de planta industrial, línea de producción, fábrica moderna o entorno industrial. Idealmente con I-TECH en uso o integrada en una línea. Tono oscuro encaja con el fondo carbón."
-                dimensions="1200×900 px · ratio 4:3"
-                filename="/itech-pro/hero-industria.jpg"
-                aspect="aspect-[4/3]"
-                variant="dark"
-              />
+              <div className="relative aspect-[4/3] bg-bone/5 overflow-hidden">
+                <Image
+                  src="/itech-pro/hero-industria.jpg"
+                  alt="Ambiente industrial donde aplicamos I-TECH Pro"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -132,14 +133,15 @@ export default function ItechProPage() {
               >
                 {/* Imagen al lado izquierdo */}
                 <div className="lg:col-span-5">
-                  <MediaPlaceholder
-                    type="image"
-                    title={service.imageTitle}
-                    description={service.imageDescription}
-                    dimensions="1200×900 px · ratio 4:3"
-                    filename={service.imageFile}
-                    aspect="aspect-[4/3]"
-                  />
+                  <div className="relative aspect-[4/3] bg-bone overflow-hidden border border-stone/15">
+                    <Image
+                      src={service.imageFile}
+                      alt={service.imageTitle}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover object-center"
+                    />
+                  </div>
                 </div>
 
                 {/* Contenido a la derecha */}
