@@ -46,10 +46,7 @@ const TINTAS: Tinta[] = [
     description:
       "Tintas UV específicas bajo pedido para proyectos con requisitos técnicos concretos.",
     filename: "/tintas/uv-ultravioleta.jpg",
-    hasPhoto: false,
-    placeholderTitle: "Foto aplicación UV ultravioleta especial",
-    placeholderDesc:
-      "Detalle de tinta UV especial: efecto barniz, blanco opaco, fluorescente o textura específica sobre un soporte de proyecto a medida.",
+    hasPhoto: true,
   },
 ];
 
