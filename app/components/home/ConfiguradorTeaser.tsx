@@ -32,14 +32,14 @@ export default function ConfiguradorTeaser() {
   return (
     <section className="section-pad bg-paper">
       <div className="container-page">
-        {/* Foto destacada · 4 mejores modelos del catálogo */}
-        <div className="mb-12">
+        {/* Foto destacada · 4 mejores modelos del catálogo · tamaño compacto */}
+        <div className="mb-12 max-w-[600px] mx-auto">
           <div className="relative aspect-[12/5] bg-bone overflow-hidden">
             <Image
               src="/inicio/4-mejores-impresoras.jpg"
               alt="Las 4 mejores impresoras del catálogo I-Tech · K3, T3, W2 y WF"
               fill
-              sizes="(max-width: 1024px) 100vw, 1200px"
+              sizes="(max-width: 1024px) 100vw, 600px"
               className="object-cover object-center"
               priority
             />

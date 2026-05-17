@@ -72,7 +72,7 @@ export default function Taller() {
           </div>
 
           <div className="lg:col-span-5 relative space-y-4">
-            <div className="relative aspect-square bg-ink overflow-hidden">
+            <div className="relative aspect-[3/4] bg-ink overflow-hidden max-w-[320px]">
               <video
                 src="/videos/taller-hero.mp4"
                 autoPlay
