@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { WIX_IMAGES } from "../../data/images";
-import MediaPlaceholder from "../MediaPlaceholder";
 
 /* SVG inline del logo Museo del Prado (estilo oficial) */
 const LogoMuseoPrado = () => (
@@ -105,14 +104,15 @@ export default function Colaboraciones() {
 
           {/* CARD 02 — Museo del Prado */}
           <article className="bg-paper flex flex-col">
-            <MediaPlaceholder
-              type="image"
-              title="Imagen del mural en Museo del Prado"
-              description="Foto del proyecto colaborativo en el Museo del Prado. Descárgala del Instagram (post C9nfa4bt_jF) y guárdala en /public/colaboraciones/prado.jpg"
-              dimensions="1600×1000 px · ratio 16:10"
-              filename="/colaboraciones/prado.jpg"
-              aspect="aspect-[16/10]"
-            />
+            <div className="relative aspect-[16/10] overflow-hidden bg-bone">
+              <Image
+                src="/colaboraciones/prado.jpg"
+                alt="Mural en colaboración con el Museo del Prado · impresión vertical"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
             <div className="p-8 space-y-4 flex-grow flex flex-col">
               <div className="flex items-start justify-between gap-4">
                 <div className="font-mono text-h4 text-ocre-500">02</div>

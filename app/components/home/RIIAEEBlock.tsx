@@ -14,6 +14,8 @@ export default function RIIAEEBlock() {
                   alt="Logo oficial RII-AEE"
                   width={100}
                   height={100}
+                  loading="eager"
+                  unoptimized
                   className="w-20 h-20 object-contain"
                 />
               </div>
