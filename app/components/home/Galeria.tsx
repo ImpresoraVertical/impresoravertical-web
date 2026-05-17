@@ -94,17 +94,34 @@ const MATERIALES = [
   { name: "Panel acústico", detail: "Fonoabsorbente con textura", icon: <Icon.Textil /> },
 ];
 
-const CASOS = [
-  { code: "01", title: "Barcos y embarcaciones", detail: "Camarotes · yates · paneles decorativos" },
-  { code: "02", title: "Museos y espacios culturales", detail: "Decoración de salas · escenografías" },
-  { code: "03", title: "Remolques y autocaravanas", detail: "Branding exterior · food trucks" },
-  { code: "04", title: "Tablas de skate y deporte", detail: "Producción artesanal · series cortas" },
-  { code: "05", title: "Persianas comerciales", detail: "Rotulación · escaparate 24/7" },
-  { code: "06", title: "Escuelas y centros educativos", detail: "Pasillos · biblioteca · comedor" },
-  { code: "07", title: "Hospitales y centros sanitarios", detail: "Pediatría · paritorios · salas espera" },
-  { code: "08", title: "Pabellones deportivos", detail: "Branding institucional · murales" },
-  { code: "09", title: "Réplicas de cuadros y arte", detail: "Reproducción museística · fidelidad 2880 dpi" },
+type Caso = {
+  code: string;
+  title: string;
+  detail: string;
+  /** URL del post real en Instagram. Si está vacía, la card no es clickable. */
+  instagram?: string;
+};
+
+const CASOS: Caso[] = [
+  { code: "01", title: "Oficinas y aparadores", detail: "Decoración corporativa · escaparate · branding interior", instagram: "https://www.instagram.com/reel/ChUnbhJKcN6/" },
+  { code: "02", title: "Espacios culturales", detail: "Decoración de salas · escenografías", instagram: "https://www.instagram.com/p/CnNPQT6LQCz/" },
+  { code: "03", title: "Remolques y autocaravanas", detail: "Branding exterior · food trucks", instagram: "https://www.instagram.com/reel/C6OixKyNxnB/" },
+  { code: "04", title: "Tablas de skate y deporte", detail: "Producción artesanal · series cortas", instagram: "https://www.instagram.com/reel/CRJdkmuoyIo/" },
+  { code: "05", title: "Persianas comerciales", detail: "Rotulación · escaparate 24/7", instagram: "https://www.instagram.com/reel/ClFLlpTDU2f/" },
+  { code: "06", title: "Escuelas y centros educativos", detail: "Pasillos · biblioteca · comedor", instagram: "https://www.instagram.com/p/CM49krsItKG/" },
+  { code: "07", title: "Murales callejeras", detail: "Arte urbano · fachadas · street art", instagram: "https://www.instagram.com/reel/DO6VUVIDML8/" },
+  { code: "08", title: "Pabellones deportivos", detail: "Branding institucional · murales", instagram: "https://www.instagram.com/p/CECnCRNgfLO/" },
+  { code: "09", title: "Réplicas de cuadros y arte", detail: "Reproducción museística · fidelidad 2880 dpi", instagram: "https://www.instagram.com/reel/CofnnoFgmtF/" },
 ];
+
+/* Icono Instagram inline */
+const IconInstagram = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
 
 export default function Galeria() {
   return (
@@ -167,11 +184,10 @@ export default function Galeria() {
                 .replace(/ /g, "-")
                 .replace(/[^a-z0-9-]/g, "")
                 .slice(0, 20);
-              return (
-                <article
-                  key={c.code}
-                  className="space-y-3"
-                >
+              const hasInsta = Boolean(c.instagram);
+
+              const inner = (
+                <>
                   <MediaPlaceholder
                     type="image"
                     title={`Foto del caso: ${c.title}`}
@@ -182,12 +198,39 @@ export default function Galeria() {
                     variant="dark"
                   />
                   <div className="px-1">
-                    <div className="font-mono text-h6 text-ocre-300">{c.code}</div>
+                    <div className="flex items-baseline justify-between">
+                      <div className="font-mono text-h6 text-ocre-300">{c.code}</div>
+                      {hasInsta && (
+                        <span className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                          <IconInstagram /> Ver en Instagram →
+                        </span>
+                      )}
+                    </div>
                     <h3 className="font-display text-h5 uppercase tracking-tight text-paper leading-tight mt-1">
                       {c.title}
                     </h3>
                     <p className="font-sans text-body-sm text-bone/70 mt-1">{c.detail}</p>
                   </div>
+                </>
+              );
+
+              if (hasInsta) {
+                return (
+                  <a
+                    key={c.code}
+                    href={c.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group space-y-3 block hover:opacity-90 transition-opacity"
+                  >
+                    {inner}
+                  </a>
+                );
+              }
+
+              return (
+                <article key={c.code} className="space-y-3">
+                  {inner}
                 </article>
               );
             })}

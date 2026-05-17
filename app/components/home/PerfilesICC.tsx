@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MediaPlaceholder from "../MediaPlaceholder";
+import Image from "next/image";
 
 export default function PerfilesICC() {
   return (
@@ -27,27 +27,27 @@ export default function PerfilesICC() {
 
         {/* Visual de proceso ICC */}
         <div className="grid lg:grid-cols-12 gap-8 mb-12">
-          <div className="lg:col-span-6">
-            <MediaPlaceholder
-              type="image"
-              title="Espectrofotómetro midiendo test chart"
-              description="Detalle del aparato leyendo un test chart impreso sobre un soporte real. Manos visibles, color tinta, ambiente taller."
-              dimensions="1600×1200 px · ratio 4:3"
-              filename="/perfiles-icc/espectrofotometro.jpg"
-              aspect="aspect-[4/3]"
-              variant="dark"
-            />
+          <div className="lg:col-span-7">
+            <div className="relative aspect-[4/3] bg-bone/5 overflow-hidden">
+              <Image
+                src="/perfiles-icc/espectrofotometro.jpg"
+                alt="Espectrofotómetro midiendo test chart en el taller"
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover object-center"
+              />
+            </div>
           </div>
-          <div className="lg:col-span-6">
-            <MediaPlaceholder
-              type="image"
-              title="Test chart impreso sobre superficie cliente"
-              description="Cuadrícula de parches de color sobre el material que el cliente envió (madera, cristal, hormigón…). Demuestra el proceso real."
-              dimensions="1600×1200 px · ratio 4:3"
-              filename="/perfiles-icc/test-chart.jpg"
-              aspect="aspect-[4/3]"
-              variant="dark"
-            />
+          <div className="lg:col-span-5">
+            <div className="relative aspect-square bg-bone/5 overflow-hidden">
+              <Image
+                src="/perfiles-icc/rueda-color.jpg"
+                alt="Rueda de color · paleta de referencia para perfiles ICC"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-contain object-center p-6"
+              />
+            </div>
           </div>
         </div>
 

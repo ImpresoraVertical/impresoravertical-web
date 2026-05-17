@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
-import MediaPlaceholder from "../components/MediaPlaceholder";
 
 export const metadata: Metadata = {
   title: "Perfiles ICC personalizados · I-TECH España",
@@ -42,15 +42,15 @@ export default function PerfilesICCPage() {
             </div>
 
             <div className="lg:col-span-5 lg:col-start-8 space-y-4">
-              <MediaPlaceholder
-                type="image"
-                title="Espectrofotómetro en uso"
-                description="Foto cenital o de medio cuerpo del espectrofotómetro X-Rite/i1Pro midiendo un test chart sobre una muestra del cliente. Ambiente taller."
-                dimensions="1200×1200 px · cuadrado"
-                filename="/perfiles-icc/espectrofotometro-hero.jpg"
-                aspect="aspect-square"
-                variant="dark"
-              />
+              <div className="relative aspect-square bg-bone/5 overflow-hidden">
+                <Image
+                  src="/perfiles-icc/espectrofotometro.jpg"
+                  alt="Espectrofotómetro X-Rite midiendo un test chart sobre muestra de cliente"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-center"
+                />
+              </div>
               <div className="bg-bone/5 border border-bone/15 p-8 space-y-4">
                 <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-200">
                   Proceso
