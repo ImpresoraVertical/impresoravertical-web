@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { SERIES, PRICING_COPY } from "../data/series";
 
 // Coste tinta + soporte por m² impreso (estimado)
-const INK_COST_PER_M2 = 8; // €/m²
+const INK_COST_PER_M2 = 0.8; // €/m²
 
 /** Precio de referencia según tipo de tinta de la serie */
 function getReferencePrice(inkType: string): number | null {
@@ -141,8 +141,8 @@ export default function CalculadoraROI() {
           </div>
           <p className="text-body-sm text-ink leading-relaxed">
             Cálculo basado en <strong>Serie T · UV 21.500 €</strong> sin IVA.
-            Coste de tinta estimado en 8 €/m². Para comparar otras series o
-            personalizar tu caso,{" "}
+            Coste de tinta estimado en <strong>0,8 €/m²</strong>. Para comparar
+            otras series o personalizar tu caso,{" "}
             <a href="/contacto" className="text-cobalto-700 underline">
               contáctanos
             </a>.
