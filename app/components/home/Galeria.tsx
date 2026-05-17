@@ -172,7 +172,7 @@ export default function Galeria() {
           </div>
         </div>
 
-        {/* BLOQUE 2 — CASOS DE USO */}
+        {/* BLOQUE 2 — CASOS DE USO con embed real de Instagram */}
         <div className="mb-16">
           <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 mb-6">
             02 · Casos de uso · 9 aplicaciones reales
@@ -186,24 +186,49 @@ export default function Galeria() {
                 .slice(0, 20);
               const hasInsta = Boolean(c.instagram);
 
-              const inner = (
-                <>
-                  <MediaPlaceholder
-                    type="image"
-                    title={`Foto del caso: ${c.title}`}
-                    description={c.detail}
-                    dimensions="1200×900 px · ratio 4:3"
-                    filename={`/casos/caso-${slug}.jpg`}
-                    aspect="aspect-[4/3]"
-                    variant="dark"
-                  />
+              // Convertir URL pública en URL embed: añade "embed/" al final del path
+              // Acepta /p/{id}/ y /reel/{id}/
+              const embedUrl = hasInsta
+                ? c.instagram!.replace(/\/$/, "") + "/embed/"
+                : "";
+
+              return (
+                <article key={c.code} className="space-y-3 bg-bone/5 border border-bone/15 p-4">
+                  {hasInsta ? (
+                    <div className="relative w-full bg-paper overflow-hidden" style={{ height: "560px" }}>
+                      <iframe
+                        src={embedUrl}
+                        className="absolute inset-0 w-full h-full border-0"
+                        loading="lazy"
+                        scrolling="no"
+                        allow="encrypted-media; picture-in-picture; web-share"
+                        title={`Post Instagram · ${c.title}`}
+                      />
+                    </div>
+                  ) : (
+                    <MediaPlaceholder
+                      type="image"
+                      title={`Foto del caso: ${c.title}`}
+                      description={c.detail}
+                      dimensions="1200×900 px · ratio 4:3"
+                      filename={`/casos/caso-${slug}.jpg`}
+                      aspect="aspect-[4/3]"
+                      variant="dark"
+                    />
+                  )}
+
                   <div className="px-1">
-                    <div className="flex items-baseline justify-between">
+                    <div className="flex items-baseline justify-between gap-2">
                       <div className="font-mono text-h6 text-ocre-300">{c.code}</div>
                       {hasInsta && (
-                        <span className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-                          <IconInstagram /> Ver en Instagram →
-                        </span>
+                        <a
+                          href={c.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300 inline-flex items-center gap-2 hover:text-ocre-200 transition-colors"
+                        >
+                          <IconInstagram /> Abrir →
+                        </a>
                       )}
                     </div>
                     <h3 className="font-display text-h5 uppercase tracking-tight text-paper leading-tight mt-1">
@@ -211,26 +236,6 @@ export default function Galeria() {
                     </h3>
                     <p className="font-sans text-body-sm text-bone/70 mt-1">{c.detail}</p>
                   </div>
-                </>
-              );
-
-              if (hasInsta) {
-                return (
-                  <a
-                    key={c.code}
-                    href={c.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group space-y-3 block hover:opacity-90 transition-opacity"
-                  >
-                    {inner}
-                  </a>
-                );
-              }
-
-              return (
-                <article key={c.code} className="space-y-3">
-                  {inner}
                 </article>
               );
             })}
