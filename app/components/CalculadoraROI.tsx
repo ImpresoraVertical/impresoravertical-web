@@ -13,38 +13,36 @@ function getReferencePrice(inkType: string): number | null {
   return null; // personalizable
 }
 
+// Serie de referencia fija para la simulación (T · UV 21.500€)
+const REFERENCE_SLUG = "t";
+
 export default function CalculadoraROI() {
   const [m2PerMonth, setM2PerMonth] = useState(60);
   const [pricePerM2, setPricePerM2] = useState(150);
   const [operationalCost, setOperationalCost] = useState(800);
-  const [selectedSerie, setSelectedSerie] = useState("t"); // por defecto T (UV)
 
-  const results = useMemo(() => {
-    return SERIES.map((serie) => {
-      const investment = getReferencePrice(serie.inkType);
-      const revenue = m2PerMonth * pricePerM2;
-      const inkCost = m2PerMonth * INK_COST_PER_M2;
-      const monthlyProfit = revenue - inkCost - operationalCost;
-      const roiMonths =
-        investment && monthlyProfit > 0
-          ? Math.ceil(investment / monthlyProfit)
-          : null;
-      const yearProfit = monthlyProfit * 12;
+  const selectedResult = useMemo(() => {
+    const serie = SERIES.find((s) => s.slug === REFERENCE_SLUG) || SERIES[0];
+    const investment = getReferencePrice(serie.inkType);
+    const revenue = m2PerMonth * pricePerM2;
+    const inkCost = m2PerMonth * INK_COST_PER_M2;
+    const monthlyProfit = revenue - inkCost - operationalCost;
+    const roiMonths =
+      investment && monthlyProfit > 0
+        ? Math.ceil(investment / monthlyProfit)
+        : null;
+    const yearProfit = monthlyProfit * 12;
 
-      return {
-        ...serie,
-        investment,
-        revenue,
-        inkCost,
-        monthlyProfit,
-        roiMonths,
-        yearProfit,
-        isSelected: serie.slug === selectedSerie,
-      };
-    });
-  }, [m2PerMonth, pricePerM2, operationalCost, selectedSerie]);
-
-  const selectedResult = results.find((r) => r.isSelected)!;
+    return {
+      ...serie,
+      investment,
+      revenue,
+      inkCost,
+      monthlyProfit,
+      roiMonths,
+      yearProfit,
+    };
+  }, [m2PerMonth, pricePerM2, operationalCost]);
 
   return (
     <div className="grid lg:grid-cols-12 gap-8">
@@ -137,29 +135,17 @@ export default function CalculadoraROI() {
           </div>
         </div>
 
-        <div className="bg-paper p-8 border border-stone/15">
-          <h3 className="font-display text-h5 uppercase tracking-tight text-ink mb-4">
-            Serie a simular
-          </h3>
-          <div className="grid grid-cols-3 gap-2">
-            {SERIES.map((s) => (
-              <button
-                key={s.slug}
-                onClick={() => setSelectedSerie(s.slug)}
-                className={`p-3 font-mono text-eyebrow uppercase tracking-wider border transition-colors ${
-                  selectedSerie === s.slug
-                    ? "bg-ink text-paper border-ink"
-                    : "bg-paper text-stone border-stone/30 hover:border-ink"
-                }`}
-              >
-                Serie {s.code}
-              </button>
-            ))}
+        <div className="bg-cobalto-900/5 border-l-4 border-cobalto-700 p-6">
+          <div className="font-mono text-eyebrow uppercase tracking-wider text-cobalto-700 mb-2">
+            Simulación de referencia
           </div>
-          <p className="text-body-sm text-stone mt-3">
-            Precios base <strong>sin IVA</strong>: <strong>base agua 10.500€</strong>{" "}
-            (E, K) · <strong>UV 21.500€</strong> (T, W, FB) ·{" "}
-            <strong>Serie G consultar</strong>
+          <p className="text-body-sm text-ink leading-relaxed">
+            Cálculo basado en <strong>Serie T · UV 21.500 €</strong> sin IVA.
+            Coste de tinta estimado en 8 €/m². Para comparar otras series o
+            personalizar tu caso,{" "}
+            <a href="/contacto" className="text-cobalto-700 underline">
+              contáctanos
+            </a>.
           </p>
         </div>
       </div>
@@ -226,70 +212,24 @@ export default function CalculadoraROI() {
           </div>
         </div>
 
-        {/* Tabla comparativa */}
-        <div className="bg-paper border border-stone/15">
-          <div className="p-6 border-b border-stone/15">
-            <h3 className="font-display text-h5 uppercase tracking-tight text-ink">
-              Comparativa todas las series
-            </h3>
-            <p className="text-body-sm text-stone mt-1">
-              Con los datos que has introducido
+        {/* CTA · pedir presupuesto exacto */}
+        <div className="bg-paper border border-stone/15 p-8 flex flex-wrap items-center justify-between gap-6">
+          <div className="space-y-1 max-w-xl">
+            <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600">
+              ¿Quieres números exactos?
+            </div>
+            <p className="font-serif text-h5 text-ink leading-snug">
+              Te hacemos una simulación personalizada con tu serie, tu volumen
+              real y los costes operativos exactos de tu taller.
             </p>
           </div>
-          <div className="divide-y divide-stone/15">
-            {results.map((r) => (
-              <div
-                key={r.slug}
-                className={`grid grid-cols-12 gap-4 p-4 items-center ${
-                  r.isSelected ? "bg-bone" : ""
-                }`}
-              >
-                <div className="col-span-3">
-                  <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-500">
-                    Serie {r.code}
-                  </div>
-                  <div className="font-sans text-body text-ink">{r.name}</div>
-                </div>
-                <div className="col-span-3 text-body-sm text-stone font-mono">
-                  {r.investment
-                    ? `${r.investment.toLocaleString("es-ES")}€`
-                    : "Consultar"}
-                </div>
-                <div className="col-span-3 text-body-sm font-mono">
-                  <span className="text-stone">ROI: </span>
-                  <span className="text-ink">
-                    {r.roiMonths === null
-                      ? "—"
-                      : r.roiMonths === Infinity
-                      ? "∞"
-                      : `${r.roiMonths} meses`}
-                  </span>
-                </div>
-                <div className="col-span-3 text-body-sm font-mono text-right">
-                  <span className="text-stone">Año 1: </span>
-                  <span
-                    className={`font-medium ${
-                      r.yearProfit > 0 ? "text-cobalto-700" : "text-stone"
-                    }`}
-                  >
-                    {r.yearProfit > 0 ? "+" : ""}
-                    {r.yearProfit.toLocaleString("es-ES")}€
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <p className="text-body-sm text-stone leading-relaxed">
-          Precios base orientativos: <strong>10.500€</strong> tinta base agua,{" "}
-          <strong>21.500€</strong> tinta UV. Serie G consultar. Coste de tinta
-          calculado a 8€/m² (orientativo). Para presupuesto exacto{" "}
-          <a href="/contacto" className="text-cobalto-700 underline">
-            contáctanos
+          <a
+            href="/contacto"
+            className="inline-flex items-center justify-center bg-cobalto-700 text-bone px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-cobalto-900 transition-colors"
+          >
+            Pedir presupuesto →
           </a>
-          .
-        </p>
+        </div>
       </div>
     </div>
   );
