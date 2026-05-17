@@ -45,7 +45,7 @@ const TINTAS: Tinta[] = [
     target: "A petición · proyectos especiales",
     description:
       "Tintas UV específicas bajo pedido para proyectos con requisitos técnicos concretos.",
-    filename: "/tintas/uv-ultravioleta.jpg",
+    filename: "/tintas/uv-especial.jpg",
     hasPhoto: true,
   },
 ];
