@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import MediaPlaceholder from "../components/MediaPlaceholder";
 
 export const metadata: Metadata = {
   title: "I-TECH Pro · Personalizaciones Sector Industrial",
@@ -7,18 +8,35 @@ export const metadata: Metadata = {
     "I-TECH Pro: soluciones de impresión vertical personalizadas para industria. Desarrollo a medida, electrónica adaptada, cabezales custom. Integración en líneas automatizadas.",
 };
 
-const SERVICES = [
+type Service = {
+  code: string;
+  icon: string;
+  title: string;
+  body: string;
+  list?: string[];
+  imageFile: string;
+  imageTitle: string;
+  imageDescription: string;
+};
+
+const SERVICES: Service[] = [
   {
     code: "01",
     icon: "🔧",
     title: "Desarrollo de proyectos a medida",
     body: "Trabajamos codo a codo con cada cliente para diseñar y fabricar soluciones que se adapten exactamente a su entorno de producción. Desde la integración en líneas automatizadas hasta aplicaciones especiales para superficies complejas o condiciones extremas.",
+    imageFile: "/itech-pro/servicio-01-desarrollo.jpg",
+    imageTitle: "Ingeniería trabajando en proyecto a medida",
+    imageDescription: "Foto de ingeniero/a junto a impresora I-TECH adaptada a línea industrial. Mejor: taller, planos en mano, integración con cinta transportadora o robot.",
   },
   {
     code: "02",
     icon: "🧠",
     title: "Electrónica adaptada a tus necesidades",
     body: "Diseñamos y fabricamos placas electrónicas personalizadas, adaptadas a los requerimientos técnicos de cada instalación o sistema. Esto permite controlar con precisión la impresora, integrar sensores específicos, automatizar procesos y asegurar una conectividad total con tu infraestructura industrial.",
+    imageFile: "/itech-pro/servicio-02-electronica.jpg",
+    imageTitle: "Placa electrónica personalizada I-TECH",
+    imageDescription: "Foto macro de PCB / placa electrónica con componentes visibles, conectores o cables, idealmente con logo o sello I-TECH. Estilo técnico, bien iluminada.",
   },
   {
     code: "03",
@@ -31,6 +49,9 @@ const SERVICES = [
       "Cabezales de gran caudal para alta velocidad",
       "Opciones para tintas especiales o pigmentadas",
     ],
+    imageFile: "/itech-pro/servicio-03-cabezales.jpg",
+    imageTitle: "Cabezales de impresión I-TECH",
+    imageDescription: "Foto de cabezales de impresión sobre superficie técnica. Detalle de las boquillas, varias opciones alineadas, o cabezal en acción sobre material industrial.",
   },
 ];
 
@@ -50,8 +71,8 @@ export default function ItechProPage() {
     <>
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-carbon text-bone border-b border-bone/15">
         <div className="container-page">
-          <div className="grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-9 space-y-6">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6">
               <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-200">
                 I-TECH Pro · Personalizaciones sector industrial
               </div>
@@ -72,6 +93,19 @@ export default function ItechProPage() {
                   Cuéntanos tu proyecto
                 </Link>
               </div>
+            </div>
+
+            {/* Imagen de industria · ambiente productivo */}
+            <div className="lg:col-span-5">
+              <MediaPlaceholder
+                type="image"
+                title="Ambiente industrial donde aplicamos I-TECH Pro"
+                description="Foto de planta industrial, línea de producción, fábrica moderna o entorno industrial. Idealmente con I-TECH en uso o integrada en una línea. Tono oscuro encaja con el fondo carbón."
+                dimensions="1200×900 px · ratio 4:3"
+                filename="/itech-pro/hero-industria.jpg"
+                aspect="aspect-[4/3]"
+                variant="dark"
+              />
             </div>
           </div>
         </div>
@@ -94,14 +128,25 @@ export default function ItechProPage() {
             {SERVICES.map((service) => (
               <article
                 key={service.code}
-                className="grid lg:grid-cols-12 gap-8 pb-12 border-b border-stone/15 last:border-0"
+                className="grid lg:grid-cols-12 gap-8 pb-12 border-b border-stone/15 last:border-0 items-start"
               >
-                <div className="lg:col-span-2">
-                  <div className="font-mono text-h2 text-ocre-500">
-                    {service.code}
-                  </div>
+                {/* Imagen al lado izquierdo */}
+                <div className="lg:col-span-5">
+                  <MediaPlaceholder
+                    type="image"
+                    title={service.imageTitle}
+                    description={service.imageDescription}
+                    dimensions="1200×900 px · ratio 4:3"
+                    filename={service.imageFile}
+                    aspect="aspect-[4/3]"
+                  />
                 </div>
-                <div className="lg:col-span-9 lg:col-start-4 space-y-4">
+
+                {/* Contenido a la derecha */}
+                <div className="lg:col-span-6 lg:col-start-7 space-y-4">
+                  <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-500">
+                    {service.code} · Servicio I-TECH Pro
+                  </div>
                   <h3 className="font-display text-h3 uppercase tracking-tight text-ink leading-tight">
                     {service.title}
                   </h3>
