@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Anton, Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./globals.css";
 
 // Display / Headlines — geometric condensed, ecos del logo I-TECH
@@ -95,6 +98,9 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
+        <GoogleAnalytics />
       </body>
     </html>
   );
