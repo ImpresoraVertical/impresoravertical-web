@@ -1,5 +1,4 @@
 import Link from "next/link";
-import MediaPlaceholder from "../MediaPlaceholder";
 
 export default function Taller() {
   return (
@@ -73,14 +72,17 @@ export default function Taller() {
           </div>
 
           <div className="lg:col-span-5 relative space-y-4">
-            <MediaPlaceholder
-              type="image"
-              title="Interior del taller en Les Preses"
-              description="Vista panorámica del taller con máquinas en exhibición, mesa de demo y zona de trabajo. Luz natural, ambiente real, no producción."
-              dimensions="1600×1600 px · cuadrado"
-              filename="/taller/taller-hero.jpg"
-              aspect="aspect-square"
-            />
+            <div className="relative aspect-square bg-ink overflow-hidden">
+              <video
+                src="/videos/taller-hero.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
             <div className="bg-paper p-6 border border-stone/15">
               <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-600 mb-2">
                 Dirección
