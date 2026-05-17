@@ -58,7 +58,7 @@ export default function ROITeaser() {
               {/* Stat principal */}
               <div className="text-center">
                 <div className="font-display text-display lg:text-display-xl text-cobalto-700 leading-none">
-                  8-10
+                  3-5
                 </div>
                 <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mt-2">
                   meses para recuperar la inversión
