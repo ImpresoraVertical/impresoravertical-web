@@ -10,7 +10,7 @@ export default function RIIAEEBlock() {
             <div className="flex items-center gap-6">
               <div className="bg-bone p-3 inline-block shrink-0">
                 <Image
-                  src="/logo/rii-aee.png"
+                  src="/tintas/RII-AEE .jpg"
                   alt="Logo oficial RII-AEE"
                   width={100}
                   height={100}
