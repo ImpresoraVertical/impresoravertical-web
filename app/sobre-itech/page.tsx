@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
-import MediaPlaceholder from "../components/MediaPlaceholder";
 
 export const metadata: Metadata = {
   title: "Sobre I-TECH España · Punto de gestión oficial",
@@ -27,16 +27,29 @@ export default function SobreITechPage() {
                 España para la marca I-TECH, inventora de la tecnología
                 de impresión vertical sobre pared.
               </p>
+
+              {/* Presentación personal de Marc */}
+              <div className="border-l-2 border-ocre-500 pl-6 py-2 max-w-2xl">
+                <p className="font-serif text-h5 text-ink italic leading-snug">
+                  &ldquo;Hola, soy Marc Takahashi, apasionado y experto en el
+                  mundo de la impresión vertical.&rdquo;
+                </p>
+                <div className="font-mono text-eyebrow uppercase tracking-wider text-stone mt-3">
+                  Marc Takahashi · Fundador I-TECH España
+                </div>
+              </div>
             </div>
             <div className="lg:col-span-5">
-              <MediaPlaceholder
-                type="image"
-                title="Foto del equipo en el taller"
-                description="Equipo de I-TECH España (2-4 personas) en el taller, con una máquina detrás. Plano horizontal, gente mirando a cámara o en acción técnica."
-                dimensions="1600×1200 px · ratio 4:3"
-                filename="/taller/equipo.jpg"
-                aspect="aspect-[4/3]"
-              />
+              <div className="relative aspect-[4/3] bg-bone overflow-hidden border border-stone/15">
+                <Image
+                  src="/taller/equipo.jpg"
+                  alt="Equipo de I-TECH España en el taller de Les Preses"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
