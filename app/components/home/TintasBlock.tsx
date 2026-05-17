@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import MediaPlaceholder from "../MediaPlaceholder";
 
 /* Iconos SVG de tipos de tinta */
@@ -8,17 +9,26 @@ const IconDrop = ({ filled }: { filled?: boolean }) => (
   </svg>
 );
 
-const TINTAS = [
+type Tinta = {
+  code: string;
+  title: string;
+  target: string;
+  description: string;
+  filename: string;
+  hasPhoto: boolean;
+  placeholderTitle?: string;
+  placeholderDesc?: string;
+};
+
+const TINTAS: Tinta[] = [
   {
     code: "01",
     title: "Tinta UV Premium Hard",
     target: "Soportes rígidos",
     description:
       "Formulada para superficies duras y no porosas: cristal, metal, cerámica, acrílico, hormigón pulido.",
-    placeholderTitle: "Foto resultado Premium Hard",
-    placeholderDesc:
-      "Detalle de impresión Premium Hard sobre un soporte rígido (cristal, metal, azulejo o acrílico). Se debe apreciar la adherencia y brillo.",
     filename: "/tintas/uv-hard.jpg",
+    hasPhoto: true,
   },
   {
     code: "02",
@@ -26,10 +36,8 @@ const TINTAS = [
     target: "Soportes flexibles",
     description:
       "Formulada para soportes que se doblan o flexan: lonas PVC, vinilos, textiles técnicos, papeles tapiz.",
-    placeholderTitle: "Foto resultado Premium Soft",
-    placeholderDesc:
-      "Detalle de impresión Premium Soft sobre un soporte flexible (lona, vinilo, textil) con la pieza doblada o curvada para mostrar elasticidad.",
     filename: "/tintas/uv-soft.jpg",
+    hasPhoto: true,
   },
   {
     code: "03",
@@ -37,10 +45,11 @@ const TINTAS = [
     target: "A petición · proyectos especiales",
     description:
       "Tintas UV específicas bajo pedido para proyectos con requisitos técnicos concretos.",
-    placeholderTitle: "Foto aplicación UV especial",
+    filename: "/tintas/uv-ultravioleta.jpg",
+    hasPhoto: false,
+    placeholderTitle: "Foto aplicación UV ultravioleta especial",
     placeholderDesc:
       "Detalle de tinta UV especial: efecto barniz, blanco opaco, fluorescente o textura específica sobre un soporte de proyecto a medida.",
-    filename: "/tintas/uv-especial.jpg",
   },
 ];
 
@@ -72,14 +81,26 @@ export default function TintasBlock() {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {TINTAS.map((t, i) => (
             <div key={t.code} className="space-y-3">
-              <MediaPlaceholder
-                type="image"
-                title={t.placeholderTitle}
-                description={t.placeholderDesc}
-                dimensions="1200×900 px · ratio 4:3"
-                filename={t.filename}
-                aspect="aspect-[4/3]"
-              />
+              {t.hasPhoto ? (
+                <div className="relative aspect-[4/3] bg-bone overflow-hidden border border-stone/15">
+                  <Image
+                    src={t.filename}
+                    alt={`${t.title} · ${t.target}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+              ) : (
+                <MediaPlaceholder
+                  type="image"
+                  title={t.placeholderTitle || `Foto ${t.title}`}
+                  description={t.placeholderDesc || ""}
+                  dimensions="1200×900 px · ratio 4:3"
+                  filename={t.filename}
+                  aspect="aspect-[4/3]"
+                />
+              )}
               <div className="bg-paper p-6 lg:p-8 space-y-4 border border-stone/15">
                 <div className="flex items-start justify-between">
                   <div className="text-ocre-500">
