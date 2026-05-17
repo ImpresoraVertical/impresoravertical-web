@@ -29,10 +29,16 @@ const REQUIRED_FIELDS = [
 
 type ContactData = Record<string, string>;
 
-async function verifyRecaptcha(token: string): Promise<boolean> {
+async function verifyRecaptcha(token: string): Promise<{ ok: boolean; reason: string }> {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
-  if (!secret) return true; // sin secret → no se valida (dev)
-  if (!token) return false;
+  if (!secret) {
+    console.log("[RECAPTCHA] sin secret, validación saltada");
+    return { ok: true, reason: "no-secret" };
+  }
+  if (!token) {
+    console.log("[RECAPTCHA] sin token recibido del cliente");
+    return { ok: false, reason: "no-token" };
+  }
 
   try {
     const res = await fetch(
@@ -44,9 +50,17 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
       }
     );
     const data = await res.json();
-    return Boolean(data?.success) && (data?.score ?? 1) >= 0.3;
-  } catch {
-    return false;
+    console.log("[RECAPTCHA] respuesta de Google:", JSON.stringify(data));
+    const ok = Boolean(data?.success) && (data?.score ?? 1) >= 0.3;
+    return {
+      ok,
+      reason: ok
+        ? "ok"
+        : `success=${data?.success}, score=${data?.score}, errors=${JSON.stringify(data?.["error-codes"] || [])}, hostname=${data?.hostname}`,
+    };
+  } catch (err) {
+    console.error("[RECAPTCHA] excepción al llamar a Google:", err);
+    return { ok: false, reason: "exception: " + String(err) };
   }
 }
 
@@ -92,10 +106,11 @@ export async function POST(req: NextRequest) {
     }
 
     // 2) Validación reCAPTCHA (si está configurada)
-    const recaptchaOk = await verifyRecaptcha(data.recaptchaToken ?? "");
-    if (!recaptchaOk) {
+    const recaptchaResult = await verifyRecaptcha(data.recaptchaToken ?? "");
+    if (!recaptchaResult.ok) {
+      console.log("[CONTACT FORM] reCAPTCHA fallida:", recaptchaResult.reason);
       return NextResponse.json(
-        { error: "Verificación reCAPTCHA fallida" },
+        { error: "Verificación reCAPTCHA fallida", debug: recaptchaResult.reason },
         { status: 400 }
       );
     }
