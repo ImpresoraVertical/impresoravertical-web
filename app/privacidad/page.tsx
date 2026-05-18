@@ -36,6 +36,16 @@ export default function PrivacidadPage() {
             <li>Enviar información técnica o comercial relacionada con I-TECH si lo autoriza expresamente</li>
             <li>Cumplir con obligaciones legales y fiscales</li>
           </ul>
+          <p className="text-body text-stone leading-relaxed mt-4">
+            En caso de que el usuario nos facilite su número de teléfono y
+            otorgue consentimiento expreso marcando la casilla correspondiente,
+            podremos contactarle por WhatsApp con la misma finalidad: atender
+            su consulta y darle seguimiento comercial. La base legal es el
+            consentimiento del interesado (art. 6.1.a RGPD). El número de
+            teléfono se conservará durante el periodo necesario para la
+            gestión comercial y un máximo de 3 años desde el último contacto,
+            salvo obligación legal.
+          </p>
 
           <h2 className="font-serif text-h4 text-ink mt-12">3. Base legitimadora</h2>
           <p className="text-body text-stone leading-relaxed">
