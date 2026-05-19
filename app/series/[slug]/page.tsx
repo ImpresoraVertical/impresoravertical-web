@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { SERIES, getSeriesBySlug, PRICING_COPY } from "../../data/series";
+import PixelTrack from "../../components/PixelTrack";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -37,6 +38,10 @@ export default async function SeriePage({ params }: PageProps) {
 
   return (
     <>
+      <PixelTrack
+        event="ViewContent"
+        params={{ content_name: serie.name, content_category: "Product Series", content_ids: [serie.slug] }}
+      />
       {/* Hero de la serie */}
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-paper border-b border-stone/15">
         <div className="container-page">

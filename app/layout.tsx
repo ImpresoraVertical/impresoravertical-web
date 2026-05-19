@@ -5,6 +5,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import GoogleAdsTag from "./components/GoogleAdsTag";
+import MetaPixel from "./components/MetaPixel";
 import "./globals.css";
 
 // Display / Headlines — geometric condensed, ecos del logo I-TECH
@@ -104,6 +106,8 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <GoogleAnalytics />
+        <GoogleAdsTag />
+        <MetaPixel />
       </body>
     </html>
   );

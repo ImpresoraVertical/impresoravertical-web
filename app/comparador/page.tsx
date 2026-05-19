@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MODELS } from "../data/models";
+import PixelTrack from "../components/PixelTrack";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ const COMPARISON_ROWS = [
 export default function ComparadorPage() {
   return (
     <>
+      <PixelTrack event="ViewContent" params={{ content_name: "Comparador Oficial vs China", content_category: "Product" }} />
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-paper border-b border-stone/15">
         <div className="container-page">
           <div className="grid lg:grid-cols-12 gap-12">

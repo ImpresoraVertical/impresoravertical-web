@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { trackEvent } from "../lib/metaPixel";
 
 const INTERESTS = [
   "Quiero adquirir una impresora para iniciar un negocio",
@@ -92,6 +93,12 @@ export default function ContactForm() {
         throw new Error(body?.error || "Error al enviar");
       }
       setSubmitted(true);
+      // Meta Pixel: Lead event
+      trackEvent("Lead", {
+        content_name: "Contact Form",
+        content_category: String(data.interest ?? ""),
+        source: String(data.source ?? ""),
+      });
     } catch (err) {
       setError(
         "No se pudo enviar el formulario. Llámanos al +34 623 007 729 o escríbenos directamente a info@impresoravertical.com"

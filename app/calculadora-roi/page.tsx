@@ -1,4 +1,5 @@
 import CalculadoraROI from "../components/CalculadoraROI";
+import PixelTrack from "../components/PixelTrack";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function CalculadoraROIPage() {
   return (
     <>
+      <PixelTrack event="ViewContent" params={{ content_name: "Calculadora ROI", content_category: "Tool" }} />
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-paper border-b border-stone/15">
         <div className="container-page">
           <div className="grid lg:grid-cols-12 gap-12">
