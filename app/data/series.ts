@@ -50,6 +50,8 @@ export type Series = {
   useCases: string[];
   highlights: string[];
   image?: string;
+  /** Vídeos demostrativos de la serie (opcional). */
+  videos?: { src: string; title: string }[];
 };
 
 export const SERIES: Series[] = [
@@ -406,6 +408,10 @@ export const SERIES: Series[] = [
       "Curado UV-LED con refrigeración aire",
       "Tecnología White-skip y posicionamiento láser",
       "Documentación CE · LVD · MD según normas UE",
+    ],
+    videos: [
+      { src: "/videos/Maletin_W.mp4", title: "Transporte en maleta de aviación" },
+      { src: "/videos/w1.mp4", title: "Serie W en funcionamiento" },
     ],
   },
 

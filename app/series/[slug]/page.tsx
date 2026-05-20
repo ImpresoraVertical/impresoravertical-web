@@ -320,6 +320,51 @@ export default async function SeriePage({ params }: PageProps) {
         </section>
       )}
 
+      {/* Vídeos de la serie */}
+      {serie.videos && serie.videos.length > 0 && (
+        <section className="section-pad bg-ink text-paper">
+          <div className="container-page">
+            <div className="grid lg:grid-cols-12 gap-12 mb-12">
+              <div className="lg:col-span-5 space-y-4">
+                <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-300">
+                  Serie {serie.code} en vídeo
+                </div>
+                <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-paper text-balance">
+                  Míralas en
+                  <span className="block text-ocre-300">funcionamiento.</span>
+                </h2>
+              </div>
+              <div className="lg:col-span-6 lg:col-start-7 flex items-end">
+                <p className="text-body-lg text-bone/80 text-pretty">
+                  Demostraciones reales de la Serie {serie.code}: transporte,
+                  montaje e impresión sobre superficie.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {serie.videos.map((v) => (
+                <figure key={v.src} className="space-y-3">
+                  <div className="relative aspect-video bg-carbon overflow-hidden border border-bone/15">
+                    <video
+                      src={v.src}
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="font-mono text-eyebrow uppercase tracking-wider text-bone/60">
+                    {v.title}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Casos de uso */}
       <section className="section-pad bg-paper">
         <div className="container-page">
