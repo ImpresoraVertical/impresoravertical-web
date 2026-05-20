@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ContactForm from "../components/ContactForm";
 import PixelTrack from "../components/PixelTrack";
 import type { Metadata } from "next";
@@ -9,99 +8,21 @@ export const metadata: Metadata = {
     "Reserva una demo gratuita en nuestro taller de Les Preses, Girona. Sin compromiso. Imprime sobre tu superficie real. +34 623 007 729.",
 };
 
-const STEPS = [
-  {
-    code: "01",
-    title: "Rellena el formulario",
-    body: "Un agente te contactará y te facilitará una explicación básica de la tecnología junto con la tarifa de precios actual.",
-  },
-  {
-    code: "02",
-    title: "Visita demo en taller",
-    body: "Si el precio encaja, coordinamos una visita de 1h-1h30 en Les Preses para conocernos, hacerte una explicación extensa, ver la impresora en funcionamiento y mostrarte distintas impresiones en diferentes acabados.",
-  },
-  {
-    code: "03",
-    title: "Definimos tu serie ideal",
-    body: "Durante la visita decidimos contigo la serie y modelo que mejor encaja con tu uso, volumen y superficies. Sin presión comercial.",
-  },
-  {
-    code: "04",
-    title: "Proforma y fábrica",
-    body: "Te pasamos la proforma definitiva. Una vez confirmada, gestionamos la orden directamente con la fábrica.",
-  },
-];
-
 export default function ContactoPage() {
   return (
     <>
       <PixelTrack event="Contact" params={{ content_name: "Contacto Page" }} />
-      <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-paper border-b border-stone/15">
-        <div className="container-page">
-          <div className="grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-8 space-y-6">
-              <div className="eyebrow">Contacto · proceso de compra</div>
-              <h1 className="font-display text-display lg:text-display-xl uppercase tracking-tight text-ink text-balance leading-[0.92]">
-                Cómo adquirir tu
-                <span className="block text-cobalto-700">impresora vertical.</span>
-              </h1>
-              <p className="text-body-lg text-stone max-w-2xl text-pretty">
-                Te lo explicamos paso a paso. Sin sorpresas. Cuando llegues al
-                formulario ya sabrás cómo va a ir todo.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Proceso 4 pasos · compacto */}
-      <section className="py-12 md:py-16 bg-bone">
-        <div className="container-page">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
-            <div>
-              <div className="eyebrow">El proceso</div>
-              <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-ink text-balance mt-2">
-                4 pasos
-                <span className="text-cobalto-700"> para llegar a la fábrica.</span>
-              </h2>
-            </div>
-            <p className="text-body text-stone max-w-md">
-              Cada paso tiene su tiempo. Ninguno requiere compromiso hasta que
-              tú lo digas.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-stone/15 border border-stone/15">
-            {STEPS.map((s) => (
-              <article
-                key={s.code}
-                className="bg-bone p-6 lg:p-7 space-y-3 hover:bg-paper transition-colors"
-              >
-                <div className="font-mono text-h3 text-ocre-500 leading-none">
-                  {s.code}
-                </div>
-                <h3 className="font-display text-h5 uppercase tracking-tight text-ink leading-tight">
-                  {s.title}
-                </h3>
-                <p className="font-sans text-body-sm text-stone leading-relaxed">
-                  {s.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Formulario */}
-      <section className="section-pad bg-paper">
+      <section className="pt-32 md:pt-40 pb-24 bg-paper">
         <div className="container-page">
           <div className="grid lg:grid-cols-12 gap-12 mb-12">
             <div className="lg:col-span-7 space-y-4">
-              <div className="eyebrow">Paso 1 · Empezamos aquí</div>
-              <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-ink text-balance">
+              <div className="eyebrow">Empezamos aquí</div>
+              <h1 className="font-display text-display lg:text-display-xl uppercase tracking-tight text-ink text-balance leading-[0.92]">
                 Cuéntanos
                 <span className="block text-cobalto-700">qué necesitas.</span>
-              </h2>
+              </h1>
               <p className="text-body-lg text-stone max-w-xl text-pretty">
                 Te respondemos en menos de 24h laborables. Sin compromiso.
               </p>

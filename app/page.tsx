@@ -8,6 +8,7 @@ import ROITeaser from "./components/home/ROITeaser";
 import Galeria from "./components/home/Galeria";
 import CatalogoPreview from "./components/home/CatalogoPreview";
 import TintasBlock from "./components/home/TintasBlock";
+import ProcesoCompra from "./components/home/ProcesoCompra";
 import RIIAEEBlock from "./components/home/RIIAEEBlock";
 import FAQHome from "./components/home/FAQHome";
 import Colaboraciones from "./components/home/Colaboraciones";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Galeria />
       <CatalogoPreview />
       <TintasBlock />
+      <ProcesoCompra />
       <RIIAEEBlock />
       <FAQHome />
       <Colaboraciones />
