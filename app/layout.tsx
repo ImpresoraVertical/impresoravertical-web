@@ -34,10 +34,10 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://impresoravertical.com"),
+  metadataBase: new URL("https://www.impresoravertical.com"),
   title: {
     default: "Impresora Vertical I-Tech · Oficial en España",
-    template: "%s · Impresora Vertical I-Tech",
+    template: "%s · I-TECH España",
   },
   description:
     "Punto de gestión oficial en España de las impresoras verticales del inventor de la tecnología. Servicio técnico, formación y soporte de por vida.",
@@ -59,10 +59,13 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://impresoravertical.com",
+    url: "https://www.impresoravertical.com",
     title: "Impresora Vertical I-Tech · Oficial en España",
     description:
       "La impresora vertical oficial. Sin vinilos. Sin pintores. Servicio técnico, formación y soporte de por vida.",
@@ -89,6 +92,68 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Schema.org JSON-LD para Organization + LocalBusiness.
+ * Aporta Rich Results en Google y permite que Maps/Knowledge Graph
+ * entiendan que I-TECH España es un negocio físico en Les Preses.
+ */
+const ORGANIZATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://www.impresoravertical.com/#organization",
+      name: "Impresora Vertical · I-TECH España",
+      alternateName: "I-TECH España",
+      url: "https://www.impresoravertical.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.impresoravertical.com/logo/logo-itech-full.png",
+      },
+      image: "https://www.impresoravertical.com/opengraph-image",
+      description:
+        "Punto de gestión oficial en España de las impresoras verticales I-TECH, inventor de la tecnología. Servicio técnico, formación y soporte de por vida.",
+      telephone: "+34 623 007 729",
+      email: "info@impresoravertical.com",
+      priceRange: "€€€",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Calle del Centre d'Empreses 1-7, Nave 7",
+        addressLocality: "Les Preses",
+        addressRegion: "Girona",
+        postalCode: "17178",
+        addressCountry: "ES",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 42.155,
+        longitude: 2.555,
+      },
+      areaServed: [
+        { "@type": "Country", name: "España" },
+        { "@type": "Place", name: "Europa" },
+      ],
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+      sameAs: [
+        "https://www.instagram.com/impresoravertical/",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.impresoravertical.com/#website",
+      url: "https://www.impresoravertical.com",
+      name: "Impresora Vertical · I-TECH España",
+      publisher: { "@id": "https://www.impresoravertical.com/#organization" },
+      inLanguage: "es-ES",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -99,6 +164,12 @@ export default function RootLayout({
       lang="es"
       className={`${anton.variable} ${inter.variable} ${jetBrainsMono.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_SCHEMA) }}
+        />
+      </head>
       <body>
         <Header />
         <main>{children}</main>

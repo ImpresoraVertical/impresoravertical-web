@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://impresoravertical.com/sitemap.xml",
-    host: "https://impresoravertical.com",
+    sitemap: "https://www.impresoravertical.com/sitemap.xml",
+    host: "https://www.impresoravertical.com",
   };
 }

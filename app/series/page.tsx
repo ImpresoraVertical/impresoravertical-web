@@ -4,9 +4,10 @@ import { SERIES, PRICING_COPY } from "../data/series";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Series · catálogo impresoras verticales I-TECH",
+  title: "Series · catálogo impresoras verticales",
   description:
     "Catálogo completo de Series I-TECH España: Serie E y K base agua, Serie T y W UV, Serie G industrial, Serie FB suelos. 12+ modelos disponibles.",
+  alternates: { canonical: "/series" },
 };
 
 export default function SeriesPage() {

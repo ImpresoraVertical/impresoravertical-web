@@ -3,9 +3,10 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servicio técnico exclusivo I-TECH España",
+  title: "Servicio técnico exclusivo",
   description:
     "Servicio técnico exclusivo para clientes de impresora vertical I-TECH en España. Stock de piezas, visita 48-72h, WhatsApp 24/7. Taller en Les Preses.",
+  alternates: { canonical: "/servicio-tecnico" },
 };
 
 export default function ServicioTecnicoPage() {

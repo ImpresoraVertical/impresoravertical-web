@@ -1,9 +1,16 @@
 import type { MetadataRoute } from "next";
+import { SECTORES } from "./data/sectores";
 
-const BASE_URL = "https://impresoravertical.com";
+const BASE_URL = "https://www.impresoravertical.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+
+  const sectorRoutes = SECTORES.map((s) => ({
+    url: `/sectores/${s.slug}`,
+    priority: 0.75,
+    changeFrequency: "monthly" as const,
+  }));
 
   const routes = [
     { url: "", priority: 1.0, changeFrequency: "weekly" as const },
@@ -19,9 +26,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/casos-cliente", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "/perfiles-icc", priority: 0.7, changeFrequency: "monthly" as const },
     { url: "/itech-pro", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/por-que-itech", priority: 0.85, changeFrequency: "monthly" as const },
     { url: "/servicio-tecnico", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/formacion", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/contacto", priority: 0.9, changeFrequency: "monthly" as const },
+    { url: "/faq", priority: 0.7, changeFrequency: "monthly" as const },
+    { url: "/comparador", priority: 0.7, changeFrequency: "monthly" as const },
+    { url: "/sectores", priority: 0.85, changeFrequency: "monthly" as const },
+    ...sectorRoutes,
   ];
 
   return routes.map((route) => ({

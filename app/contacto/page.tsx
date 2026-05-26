@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Contacto · Reserva tu demo en taller",
   description:
     "Reserva una demo gratuita en nuestro taller de Les Preses, Girona. Sin compromiso. Imprime sobre tu superficie real. +34 623 007 729.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default function ContactoPage() {

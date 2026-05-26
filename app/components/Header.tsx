@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { label: "Calculadora ROI", href: "/calculadora-roi" },
   { label: "I-TECH Pro", href: "/itech-pro" },
   { label: "Perfiles ICC", href: "/perfiles-icc" },
+  { label: "Por qué I-TECH", href: "/por-que-itech" },
   { label: "Casos", href: "/casos-cliente" },
   { label: "Sobre I-Tech", href: "/sobre-itech" },
 ];

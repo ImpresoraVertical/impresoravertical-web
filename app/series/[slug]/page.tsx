@@ -17,9 +17,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const serie = getSeriesBySlug(slug);
   if (!serie) return { title: "Serie no encontrada" };
+  // Description recortada a ~155 chars para evitar truncado en SERPs
+  const fullDesc = serie.description;
+  const desc =
+    fullDesc.length > 155 ? fullDesc.substring(0, 152).trimEnd() + "…" : fullDesc;
   return {
     title: `${serie.name} · ${serie.tagline}`,
-    description: serie.description,
+    description: desc,
+    alternates: { canonical: `/series/${slug}` },
+    openGraph: {
+      title: `${serie.name} · ${serie.tagline}`,
+      description: desc,
+      url: `https://www.impresoravertical.com/series/${slug}`,
+      type: "website",
+    },
   };
 }
 
@@ -36,8 +47,103 @@ export default async function SeriePage({ params }: PageProps) {
       ? SERIES[currentIndex + 1]
       : SERIES[0];
 
+  // JSON-LD Schema.org: Product + BreadcrumbList para Rich Results
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: serie.name,
+    description: serie.description,
+    brand: {
+      "@type": "Brand",
+      name: "I-TECH",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "I-TECH",
+    },
+    category: "Impresoras verticales",
+    image: serie.models[0]?.image
+      ? `https://www.impresoravertical.com${serie.models[0].image}`
+      : "https://www.impresoravertical.com/opengraph-image",
+    url: `https://www.impresoravertical.com/series/${slug}`,
+    offers: serie.priceFrom
+      ? {
+          "@type": "AggregateOffer",
+          priceCurrency: "EUR",
+          lowPrice: serie.priceFrom,
+          offerCount: serie.models.length,
+          availability: "https://schema.org/InStock",
+          seller: { "@id": "https://www.impresoravertical.com/#organization" },
+        }
+      : {
+          "@type": "Offer",
+          priceCurrency: "EUR",
+          price: "0",
+          availability: "https://schema.org/InStock",
+          seller: { "@id": "https://www.impresoravertical.com/#organization" },
+          description: "Precio bajo consulta",
+        },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: "https://www.impresoravertical.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Series",
+        item: "https://www.impresoravertical.com/series",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: serie.name,
+        item: `https://www.impresoravertical.com/series/${slug}`,
+      },
+    ],
+  };
+
+  // VideoObject schema para cada vídeo (solo si la serie tiene vídeos)
+  const videoSchemas =
+    serie.videos && serie.videos.length > 0
+      ? serie.videos.map((v) => ({
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: `${serie.name} · ${v.title}`,
+          description: `${v.title} — demostración de la ${serie.name}, impresora vertical I-TECH oficial en España.`,
+          thumbnailUrl: serie.models[0]?.image
+            ? `https://www.impresoravertical.com${serie.models[0].image}`
+            : "https://www.impresoravertical.com/opengraph-image",
+          contentUrl: `https://www.impresoravertical.com${v.src}`,
+          uploadDate: "2025-01-01",
+          publisher: { "@id": "https://www.impresoravertical.com/#organization" },
+        }))
+      : [];
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {videoSchemas.map((vs, i) => (
+        <script
+          key={`video-schema-${i}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(vs) }}
+        />
+      ))}
       <PixelTrack
         event="ViewContent"
         params={{ content_name: serie.name, content_category: "Product Series", content_ids: [serie.slug] }}

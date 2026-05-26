@@ -3,9 +3,10 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "I-TECH Pro · Personalizaciones Sector Industrial",
+  title: "I-TECH Pro · Personalizaciones industriales",
   description:
-    "I-TECH Pro: soluciones de impresión vertical personalizadas para industria. Desarrollo a medida, electrónica adaptada, cabezales custom. Integración en líneas automatizadas.",
+    "Soluciones de impresión vertical personalizadas para industria. Desarrollo a medida, electrónica adaptada, cabezales custom y líneas automatizadas.",
+  alternates: { canonical: "/itech-pro" },
 };
 
 type Service = {

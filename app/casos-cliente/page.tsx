@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Casos de uso · dónde brilla la impresora vertical I-TECH",
   description:
-    "Casos reales de uso de la impresora vertical I-TECH: barcos, museos, remolques de camión, autocaravanas, skate, persianas comerciales, escuelas, hospitales, pabellones deportivos, réplicas de cuadros.",
+    "Casos reales de la impresora vertical I-TECH: barcos, museos, autocaravanas, persianas, escuelas, hospitales y réplicas de cuadros.",
+  alternates: { canonical: "/casos-cliente" },
 };
 
 const USE_CASES = [

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Sobre I-TECH España · Punto de gestión oficial",
   description:
     "I-TECH España es el punto de gestión oficial de impresoras verticales I-TECH en España, con taller propio en Les Preses, Girona.",
+  alternates: { canonical: "/sobre-itech" },
 };
 
 export default function SobreITechPage() {

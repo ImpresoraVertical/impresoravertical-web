@@ -2,9 +2,10 @@ import FAQAccordion from "../components/FAQAccordion";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FAQ · preguntas frecuentes impresora vertical I-TECH",
+  title: "FAQ · preguntas frecuentes impresora vertical",
   description:
     "Preguntas frecuentes sobre la impresora vertical I-TECH: superficies, tintas, resolución, formatos, velocidad, durabilidad, garantía y personalización.",
+  alternates: { canonical: "/faq" },
 };
 
 const FAQ_CATEGORIES = [
@@ -98,9 +99,27 @@ const FAQ_CATEGORIES = [
   },
 ];
 
+// Schema.org FAQPage para Rich Snippets de Google (lista de preguntas
+// expandible directamente en la SERP). Aplana todas las categorías.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_CATEGORIES.flatMap((cat) =>
+    cat.questions.map((q) => ({
+      "@type": "Question",
+      name: q.q,
+      acceptedAnswer: { "@type": "Answer", text: q.a },
+    }))
+  ),
+};
+
 export default function FAQPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-paper border-b border-stone/15">
         <div className="container-page">
           <div className="grid lg:grid-cols-12 gap-12">

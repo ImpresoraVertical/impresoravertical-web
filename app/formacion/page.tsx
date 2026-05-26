@@ -3,9 +3,10 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Formación · curso completo impresora vertical I-TECH",
+  title: "Formación · curso completo impresora vertical",
   description:
     "Curso de formación de 8 horas dividido en 10 módulos. In situ en nuestro taller de Les Preses. Almuerzo y material incluidos. Opción a domicilio con suplemento.",
+  alternates: { canonical: "/formacion" },
 };
 
 const MODULES = [

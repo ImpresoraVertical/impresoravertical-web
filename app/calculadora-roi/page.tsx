@@ -3,9 +3,10 @@ import PixelTrack from "../components/PixelTrack";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calculadora ROI · cuánto tarda en pagar la impresora",
+  title: "Calculadora ROI · cuánto tarda en pagar",
   description:
     "Calcula en cuántos meses recuperas la inversión de tu impresora vertical I-TECH. Compara los 6 modelos. Datos reales de clientes 2022-2024.",
+  alternates: { canonical: "/calculadora-roi" },
 };
 
 export default function CalculadoraROIPage() {

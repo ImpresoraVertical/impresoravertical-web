@@ -1,8 +1,25 @@
 import Link from "next/link";
 
+// VideoObject schema para SEO (Rich Results de vídeo en Google)
+const tallerVideoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Taller I-TECH España · Les Preses, Girona",
+  description:
+    "Visita virtual al taller oficial de I-TECH España en Les Preses, Girona. Demos en vivo de impresoras verticales con cita previa.",
+  thumbnailUrl: "https://www.impresoravertical.com/opengraph-image",
+  contentUrl: "https://www.impresoravertical.com/videos/taller-hero.mp4",
+  uploadDate: "2025-01-01",
+  publisher: { "@id": "https://www.impresoravertical.com/#organization" },
+};
+
 export default function Taller() {
   return (
     <section className="section-pad bg-bone">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(tallerVideoSchema) }}
+      />
       <div className="container-page">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-8">

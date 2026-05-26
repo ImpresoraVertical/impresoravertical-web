@@ -3,9 +3,10 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Perfiles ICC personalizados · I-TECH España",
+  title: "Perfiles ICC personalizados",
   description:
     "Creamos perfiles ICC personalizados para tu soporte y tinta. Calibración con espectrofotómetro en taller. Solicita el tuyo sin compromiso.",
+  alternates: { canonical: "/perfiles-icc" },
 };
 
 export default function PerfilesICCPage() {

@@ -10,6 +10,7 @@ const FOOTER_COLUMNS = [
       { label: "Calculadora ROI", href: "/calculadora-roi" },
       { label: "Comparador", href: "/comparador" },
       { label: "Perfiles ICC", href: "/perfiles-icc" },
+      { label: "Sectores", href: "/sectores" },
     ],
   },
   {
@@ -24,6 +25,7 @@ const FOOTER_COLUMNS = [
     title: "Empresa",
     links: [
       { label: "Sobre I-Tech", href: "/sobre-itech" },
+      { label: "Por qué I-TECH", href: "/por-que-itech" },
       { label: "Casos de cliente", href: "/casos-cliente" },
       { label: "Contacto", href: "/contacto" },
       { label: "FAQ", href: "/faq" },
