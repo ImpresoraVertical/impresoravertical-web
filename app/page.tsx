@@ -1,6 +1,4 @@
-import Link from "next/link";
 import Hero from "./components/home/Hero";
-import ConfiguradorTeaser from "./components/home/ConfiguradorTeaser";
 import PerfilesICC from "./components/home/PerfilesICC";
 import Comparador from "./components/home/Comparador";
 import Taller from "./components/home/Taller";
@@ -18,7 +16,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ConfiguradorTeaser />
       <PerfilesICC />
       <Comparador />
       <Taller />

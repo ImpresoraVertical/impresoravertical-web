@@ -10,7 +10,7 @@ const HIDDEN_HEADER_ROUTES: string[] = [];
 
 const NAV_ITEMS = [
   { label: "Series", href: "/series" },
-  { label: "Configurador", href: "/configurador" },
+  { label: "Calculadora ROI", href: "/calculadora-roi" },
   { label: "I-TECH Pro", href: "/itech-pro" },
   { label: "Perfiles ICC", href: "/perfiles-icc" },
   { label: "Casos", href: "/casos-cliente" },

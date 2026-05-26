@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/series/t", priority: 0.7, changeFrequency: "monthly" as const },
     { url: "/series/w", priority: 0.7, changeFrequency: "monthly" as const },
     { url: "/series/fb", priority: 0.7, changeFrequency: "monthly" as const },
-    { url: "/configurador", priority: 0.9, changeFrequency: "monthly" as const },
     { url: "/calculadora-roi", priority: 0.9, changeFrequency: "monthly" as const },
     { url: "/casos-cliente", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "/perfiles-icc", priority: 0.7, changeFrequency: "monthly" as const },

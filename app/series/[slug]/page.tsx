@@ -77,8 +77,8 @@ export default async function SeriePage({ params }: PageProps) {
                 <Link href="/contacto" className="btn-primary">
                   Pedir presupuesto Serie {serie.code}
                 </Link>
-                <Link href="/configurador" className="btn-secondary">
-                  Configurador
+                <Link href="/calculadora-roi" className="btn-secondary">
+                  Calcular ROI
                 </Link>
               </div>
             </div>

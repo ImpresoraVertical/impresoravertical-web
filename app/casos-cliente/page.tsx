@@ -169,10 +169,10 @@ export default function CasosUsoPage() {
               Probar mi caso en taller
             </Link>
             <Link
-              href="/configurador"
+              href="/calculadora-roi"
               className="inline-flex items-center justify-center border border-bone/30 text-bone px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-bone/10"
             >
-              Ver qué Serie va mejor
+              Calcular ROI
             </Link>
           </div>
         </div>

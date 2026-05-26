@@ -167,15 +167,15 @@ export default function SeriesPage() {
             ¿No tienes claro cuál?
           </h2>
           <p className="text-body-lg text-bone/80 mt-4 max-w-xl mx-auto">
-            Configurador interactivo de 2 minutos. Te recomendamos la serie
-            ideal según tus necesidades.
+            Calcula el retorno de inversión con tus datos reales y compara
+            las 6 series para ver qué modelo paga más rápido.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <Link
-              href="/configurador"
+              href="/calculadora-roi"
               className="inline-flex items-center justify-center bg-ocre-300 text-cobalto-900 px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-ocre-200"
             >
-              Configurador
+              Calcular ROI
             </Link>
             <Link
               href="/comparador"

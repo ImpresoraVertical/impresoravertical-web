@@ -89,10 +89,10 @@ export default function CatalogoPreview() {
             Ver catálogo completo
           </Link>
           <Link
-            href="/configurador"
+            href="/calculadora-roi"
             className="font-mono text-body-sm uppercase tracking-wider text-ink link-underline"
           >
-            ¿Cuál te conviene? Configurador →
+            ¿Cuál te conviene? Calcular ROI →
           </Link>
         </div>
       </div>

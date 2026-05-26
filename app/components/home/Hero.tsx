@@ -35,8 +35,8 @@ export default function Hero() {
             <Link href="/contacto" className="btn-primary">
               Pedir demo en taller
             </Link>
-            <Link href="/configurador" className="btn-secondary">
-              Configurar serie
+            <Link href="/calculadora-roi" className="btn-secondary">
+              Calcular ROI
             </Link>
           </div>
 
