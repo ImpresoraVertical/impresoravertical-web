@@ -9,7 +9,7 @@ const tallerVideoSchema = {
     "Visita virtual al taller oficial de I-TECH España en Les Preses, Girona. Demos en vivo de impresoras verticales con cita previa.",
   thumbnailUrl: "https://www.impresoravertical.com/opengraph-image",
   contentUrl: "https://www.impresoravertical.com/videos/taller-hero.mp4",
-  uploadDate: "2025-01-01",
+  uploadDate: "2025-01-01T09:00:00+01:00",
   publisher: { "@id": "https://www.impresoravertical.com/#organization" },
 };
 

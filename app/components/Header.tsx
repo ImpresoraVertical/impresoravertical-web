@@ -10,12 +10,12 @@ const HIDDEN_HEADER_ROUTES: string[] = [];
 
 const NAV_ITEMS = [
   { label: "Series", href: "/series" },
-  { label: "Calculadora ROI", href: "/calculadora-roi" },
+  { label: "Sectores", href: "/sectores" },
+  { label: "ROI", href: "/calculadora-roi" },
   { label: "I-TECH Pro", href: "/itech-pro" },
-  { label: "Perfiles ICC", href: "/perfiles-icc" },
-  { label: "Por qué I-TECH", href: "/por-que-itech" },
+  { label: "Por qué", href: "/por-que-itech" },
   { label: "Casos", href: "/casos-cliente" },
-  { label: "Sobre I-Tech", href: "/sobre-itech" },
+  { label: "Sobre", href: "/sobre-itech" },
 ];
 
 export default function Header() {
@@ -56,12 +56,12 @@ export default function Header() {
         </Link>
 
         {/* Nav desktop */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="font-mono text-body-sm uppercase tracking-wider text-ink hover:text-cobalto-700 transition-colors link-underline"
+              className="font-mono text-body-sm uppercase tracking-wider text-ink hover:text-cobalto-700 transition-colors link-underline whitespace-nowrap"
             >
               {item.label}
             </Link>
@@ -70,7 +70,7 @@ export default function Header() {
 
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-4">
-          <Link href="/contacto" className="hidden md:inline-flex btn-primary">
+          <Link href="/contacto" className="hidden md:inline-flex btn-primary whitespace-nowrap">
             Pedir demo
           </Link>
 

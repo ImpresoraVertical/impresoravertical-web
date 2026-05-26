@@ -122,7 +122,7 @@ export default async function SeriePage({ params }: PageProps) {
             ? `https://www.impresoravertical.com${serie.models[0].image}`
             : "https://www.impresoravertical.com/opengraph-image",
           contentUrl: `https://www.impresoravertical.com${v.src}`,
-          uploadDate: "2025-01-01",
+          uploadDate: "2025-01-01T09:00:00+01:00",
           publisher: { "@id": "https://www.impresoravertical.com/#organization" },
         }))
       : [];
