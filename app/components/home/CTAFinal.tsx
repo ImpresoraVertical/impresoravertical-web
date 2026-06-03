@@ -27,7 +27,7 @@ export default function CTAFinal() {
               href="/contacto"
               className="inline-flex items-center justify-center bg-ocre-300 text-cobalto-900 px-10 py-5 font-mono text-sm uppercase tracking-wider transition-all hover:bg-ocre-200 hover:translate-y-[-1px]"
             >
-              Reservar demo
+              Pedir info
             </Link>
             <a
               href="tel:+34623007729"

@@ -306,7 +306,7 @@ export default function PorQueITechPage() {
               href="/contacto"
               className="inline-flex items-center justify-center bg-ocre-300 text-cobalto-900 px-10 py-5 font-mono text-sm uppercase tracking-wider hover:bg-ocre-200 transition-colors"
             >
-              Reservar demo
+              Pedir info
             </Link>
             <Link
               href="/calculadora-roi"

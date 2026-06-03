@@ -71,7 +71,7 @@ export default function Header() {
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-4">
           <Link href="/contacto" className="hidden md:inline-flex btn-primary whitespace-nowrap">
-            Pedir demo
+            Pedir info
           </Link>
 
           <button
@@ -117,7 +117,7 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
               className="btn-primary mt-4 self-start"
             >
-              Pedir demo
+              Pedir info
             </Link>
           </nav>
         </div>

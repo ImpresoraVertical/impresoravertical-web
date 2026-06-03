@@ -18,7 +18,7 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Servicio técnico", href: "/servicio-tecnico" },
       { label: "Formación", href: "/formacion" },
-      { label: "Demo en taller", href: "/contacto" },
+      { label: "Pedir info", href: "/contacto" },
     ],
   },
   {

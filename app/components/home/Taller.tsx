@@ -77,7 +77,7 @@ export default function Taller() {
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Link href="/contacto" className="btn-primary">
-                Reservar demo
+                Pedir info
               </Link>
               <a
                 href="tel:+34623007729"

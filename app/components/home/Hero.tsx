@@ -33,7 +33,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4 pt-4">
             <Link href="/contacto" className="btn-primary">
-              Pedir demo en taller
+              Pedir info
             </Link>
             <Link href="/calculadora-roi" className="btn-secondary">
               Calcular ROI

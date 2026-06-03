@@ -143,7 +143,7 @@ export default async function SectorPage({ params }: PageProps) {
                   href="/contacto"
                   className={`inline-flex items-center justify-center px-10 py-5 font-mono text-sm uppercase tracking-wider transition-colors ${variant.cta}`}
                 >
-                  Pedir demo para {sector.name.split(" ")[0].toLowerCase()}
+                  Pedir info
                 </Link>
                 <Link
                   href="/calculadora-roi"
@@ -368,7 +368,7 @@ export default async function SectorPage({ params }: PageProps) {
               href="/contacto"
               className="inline-flex items-center justify-center bg-ocre-300 text-cobalto-900 px-10 py-5 font-mono text-sm uppercase tracking-wider hover:bg-ocre-200 transition-colors"
             >
-              Reservar demo
+              Pedir info
             </Link>
             <Link
               href="/por-que-itech"
