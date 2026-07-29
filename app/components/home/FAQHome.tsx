@@ -3,30 +3,25 @@
 import Link from "next/link";
 import { useState } from "react";
 
+/**
+ * FAQ de home — 3 preguntas COMERCIALES exclusivas.
+ * Antes eran 6 preguntas técnicas duplicadas literalmente de /faq, lo que
+ * canibalizaba contenido. /faq cubre lo técnico; aquí solo lo que pregunta
+ * quien está a punto de comprar.
+ * Sin schema FAQPage para no competir con el de /faq.
+ */
 const FAQS = [
   {
-    q: "¿Qué es una impresora vertical o de pared y cómo funciona?",
-    a: "Una impresora vertical o de pared es una variedad de impresora de inyección de tinta que emplea tinta de 4 o 5 colores CMYK(W) para plasmar imágenes directamente sobre muros y otros soportes verticales.",
+    q: "¿Cuánto cuesta y qué incluye el precio?",
+    a: "Las series de tinta base agua arrancan en 10.500 € y las UV en 21.500 €, según modelo y equipación. El precio incluye la máquina, el curso de formación de 8 horas en nuestro taller, los perfiles ICC iniciales, la importación con registro RII-AEE y el servicio técnico oficial en España. Sin costes ocultos de aduanas ni de puesta en marcha.",
   },
   {
-    q: "¿Cuál es la diferencia entre tinta base agua y tinta UV?",
-    a: "La impresora vertical con tinta a base de agua emplea tinta de pigmento, adecuada para imprimir en materiales absorbentes como paredes de yeso y papel tapiz. La impresora UV utiliza una lámpara UV para solidificar la tinta sobre superficies de materiales como muros, metal, vidrio, acrílico, azulejos, entre otros.",
+    q: "¿Cuánto se tarda en recuperar la inversión?",
+    a: "Depende de tu precio por m² y del volumen que factures. Con 15-30 m² mensuales a precio de mercado, la mayoría de nuestros clientes amortiza la máquina entre 12 y 24 meses. Puedes calcularlo con tus propios datos en la calculadora ROI.",
   },
   {
-    q: "¿Qué tamaño puede imprimir una impresora vertical?",
-    a: "La altura de impresión es de hasta 5 metros (depende del modelo) y en ancho no tiene limitación de longitud. Existe la posibilidad de usar la técnica de solapación, al unir dos imágenes, la altura puede superar los 5 metros.",
-  },
-  {
-    q: "¿En qué superficies puede imprimir?",
-    a: "La impresora vertical con LED UV puede imprimir en casi cualquier superficie: paredes, papel tapiz, azulejos, metal, vidrio, acrílico, plástico. La base agua imprime en paredes y superficies absorbentes como masilla, cal, etc.",
-  },
-  {
-    q: "¿Cuánto dura la tinta?",
-    a: "Depende de la preparación y condiciones del soporte. En condiciones buenas: 15 años en interiores y 5 años en exteriores con protección UV.",
-  },
-  {
-    q: "¿Puedo quitar una impresión?",
-    a: "Sí. Se puede repintar encima con 3 capas de pintura plástica. En cristal con espátula de cerámica. En otros materiales con chorro de arena o lijando.",
+    q: "¿Qué pasa si la máquina se avería?",
+    a: "Tienes WhatsApp directo 24/7 con nuestro equipo técnico: el 60% de las incidencias se resuelven en remoto en menos de 2 horas. Si hace falta visita, vamos a tu taller en 48-72h con las piezas. Mantenemos stock de cabezales, bombas, sensores y motores en Les Preses.",
   },
 ];
 
@@ -38,7 +33,7 @@ export default function FAQHome() {
       <div className="container-page">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4 space-y-4">
-            <div className="eyebrow">Preguntas frecuentes</div>
+            <div className="eyebrow">Antes de decidir</div>
             <h2 className="font-serif text-h2 lg:text-h1 text-ink text-balance">
               Las dudas reales
               <br />
@@ -48,12 +43,18 @@ export default function FAQHome() {
               Si tu pregunta no está aquí, pregúntanos sin compromiso.
               Respondemos en menos de 24h laborables.
             </p>
-            <div className="pt-6">
+            <div className="pt-6 flex flex-col gap-3">
               <Link
                 href="/faq"
                 className="font-mono text-body-sm uppercase tracking-wider text-ink link-underline"
               >
-                Ver todas las FAQ →
+                Ver las 17 preguntas técnicas →
+              </Link>
+              <Link
+                href="/calculadora-roi"
+                className="font-mono text-body-sm uppercase tracking-wider text-ink link-underline"
+              >
+                Calcular mi ROI →
               </Link>
             </div>
           </div>

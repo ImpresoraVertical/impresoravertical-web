@@ -80,6 +80,27 @@ const COMPARISON_ROWS = [
     europa: "Variable según proveedor.",
     itechWin: true,
   },
+  {
+    aspect: "Tintas certificadas",
+    itech: "GREENGUARD y REACH. Aptas para espacios públicos, hospitales y centros educativos.",
+    importacion: "Sin certificación europea verificable. Riesgo en entornos sensibles.",
+    europa: "Habitualmente certificadas, pero conviene pedir la ficha técnica.",
+    itechWin: true,
+  },
+  {
+    aspect: "Documentación CE",
+    itech: "Declaración de conformidad oficial. Válida para licitaciones públicas.",
+    importacion: "Marcado dudoso. Suele rechazarse en licitaciones.",
+    europa: "Válida si el distribuidor es europeo registrado.",
+    itechWin: true,
+  },
+  {
+    aspect: "Coste real a 5 años",
+    itech: "Predecible. Piezas, soporte y actualizaciones incluidas o a precio cerrado.",
+    importacion: "Inversión inicial baja, costes ocultos altos: piezas, paradas, viajes técnicos.",
+    europa: "Intermedio. Depende del contrato de mantenimiento.",
+    itechWin: true,
+  },
 ];
 
 // Mitos sobre importación directa que conviene desmontar
@@ -136,7 +157,7 @@ export default function PorQueITechPage() {
             <div className="lg:col-span-5 space-y-4">
               <div className="eyebrow">Comparativa real</div>
               <h2 className="font-display text-h2 lg:text-h1 uppercase tracking-tight text-ink text-balance">
-                10 puntos donde
+                13 puntos donde
                 <span className="block text-cobalto-700">marcamos la diferencia.</span>
               </h2>
             </div>

@@ -2,12 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Casos de uso · dónde brilla la impresora vertical I-TECH",
+  title: "Aplicaciones especiales · superficies poco convencionales",
   description:
-    "Casos reales de la impresora vertical I-TECH: barcos, museos, autocaravanas, persianas, escuelas, hospitales y réplicas de cuadros.",
+    "Impresión vertical sobre barcos, autocaravanas, tablas de skate, hospitales y réplicas de arte. Superficies donde el vinilo no llega. Prueba en taller.",
   alternates: { canonical: "/casos-cliente" },
 };
 
+/**
+ * Aplicaciones NICHO. Los casos por industria (museos, retail, hostelería,
+ * decoración, publicidad, industria) viven en /sectores/[slug] con su propia
+ * landing y schema. Aquí solo lo que no encaja en ningún sector: superficies
+ * poco convencionales y entornos con requisitos especiales.
+ */
 const USE_CASES = [
   {
     code: "01",
@@ -19,14 +25,6 @@ const USE_CASES = [
   },
   {
     code: "02",
-    title: "Museos y espacios culturales",
-    description:
-      "Decoración de salas, paneles informativos, escenografías temporales. Cumplimos certificaciones para entornos culturales (tintas GREENGUARD, materiales ignífugos compatibles).",
-    surfaces: ["Yeso pintado", "Panel acústico", "Vidrio templado"],
-    serie: "Serie T · Serie W · Serie WF",
-  },
-  {
-    code: "03",
     title: "Remolques de camión y autocaravanas",
     description:
       "Branding exterior y rotulación de remolques, autocaravanas, food trucks. Sustituye al vinilo tradicional con acabado directo sobre chapa, sin juntas y con durabilidad exterior probada.",
@@ -34,7 +32,7 @@ const USE_CASES = [
     serie: "Serie W · Serie WF",
   },
   {
-    code: "04",
+    code: "03",
     title: "Tablas de skate y deporte",
     description:
       "Producción artesanal o serie corta de tablas personalizadas. Impresión directa con curvas adaptativas del cabezal. Compatible con barnices deportivos posteriores.",
@@ -42,23 +40,7 @@ const USE_CASES = [
     serie: "Serie FB · Serie K",
   },
   {
-    code: "05",
-    title: "Persianas y locales comerciales",
-    description:
-      "Rotulación de persianas metálicas de comercios, escaparates 24/7, frente publicitario. Impresión vertical sobre persiana bajada o panel desmontable.",
-    surfaces: ["Persiana metálica galvanizada", "PVC", "Chapa pintada"],
-    serie: "Serie T · Serie W",
-  },
-  {
-    code: "06",
-    title: "Murales en escuelas",
-    description:
-      "Decoración educativa, gamificación de pasillos, biblioteca, comedor, gimnasio. Tintas base agua GREENGUARD aptas para entornos infantiles sin restricciones de uso.",
-    surfaces: ["Yeso pintado", "MDF lacado", "Hormigón pulido"],
-    serie: "Serie E · Serie K",
-  },
-  {
-    code: "07",
+    code: "04",
     title: "Murales en hospitales",
     description:
       "Humanización de espacios sanitarios: paritorios, plantas pediátricas, salas de espera. Tintas certificadas para entornos hospitalarios, materiales no porosos limpiables.",
@@ -66,7 +48,15 @@ const USE_CASES = [
     serie: "Serie T · Serie W",
   },
   {
-    code: "08",
+    code: "05",
+    title: "Murales en escuelas",
+    description:
+      "Decoración educativa, gamificación de pasillos, biblioteca, comedor, gimnasio. Tintas base agua GREENGUARD aptas para entornos infantiles sin restricciones de uso.",
+    surfaces: ["Yeso pintado", "MDF lacado", "Hormigón pulido"],
+    serie: "Serie E · Serie K",
+  },
+  {
+    code: "06",
     title: "Pabellones deportivos",
     description:
       "Branding institucional en pabellones, polideportivos, gimnasios. Murales motivacionales, identidad de club, patrocinadores. Resistencia al impacto de pelotas y limpieza intensiva.",
@@ -74,7 +64,7 @@ const USE_CASES = [
     serie: "Serie T · Serie W · Serie WF",
   },
   {
-    code: "09",
+    code: "07",
     title: "Réplicas de cuadros y arte",
     description:
       "Reproducción de obras de arte sobre lienzo, panel rígido o pared directa. Resolución 2880 dpi y perfiles ICC museísticos para fidelidad cromática máxima.",
@@ -90,16 +80,23 @@ export default function CasosUsoPage() {
         <div className="container-page">
           <div className="grid lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8 space-y-6">
-              <div className="eyebrow">Casos de uso · aplicaciones reales</div>
+              <div className="eyebrow">Aplicaciones especiales</div>
               <h1 className="font-display text-display lg:text-display-xl uppercase tracking-tight text-ink text-balance leading-[0.92]">
-                Donde un vinilo se rinde,
-                <span className="block text-cobalto-700">la impresora vertical empieza.</span>
+                Superficies donde
+                <span className="block text-cobalto-700">nadie más imprime.</span>
               </h1>
               <p className="text-body-lg text-stone max-w-2xl text-pretty">
-                9 aplicaciones reales donde nuestros clientes están imprimiendo
-                ahora mismo. Desde barcos hasta pabellones deportivos, pasando
-                por escuelas, hospitales y arte. Si tu caso no aparece, también
-                podemos hacerlo.
+                Barcos, autocaravanas, tablas de skate, entornos sanitarios.
+                Aplicaciones que no encajan en un sector concreto pero que
+                nuestros clientes ya están facturando. Si buscas tu industria,
+                mira las{" "}
+                <Link
+                  href="/sectores"
+                  className="text-cobalto-700 underline underline-offset-4 hover:text-cobalto-900"
+                >
+                  soluciones por sector
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -170,10 +167,10 @@ export default function CasosUsoPage() {
               Probar mi caso en taller
             </Link>
             <Link
-              href="/calculadora-roi"
+              href="/sectores"
               className="inline-flex items-center justify-center border border-bone/30 text-bone px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-bone/10"
             >
-              Calcular ROI
+              Ver por sector
             </Link>
           </div>
         </div>

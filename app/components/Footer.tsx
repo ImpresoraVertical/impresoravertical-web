@@ -8,7 +8,6 @@ const FOOTER_COLUMNS = [
       { label: "Series", href: "/series" },
       { label: "I-TECH Pro · Industrial", href: "/itech-pro" },
       { label: "Calculadora ROI", href: "/calculadora-roi" },
-      { label: "Comparador", href: "/comparador" },
       { label: "Perfiles ICC", href: "/perfiles-icc" },
       { label: "Sectores", href: "/sectores" },
     ],

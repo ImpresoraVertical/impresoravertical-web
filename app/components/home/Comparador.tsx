@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const ROWS = [
   {
@@ -28,12 +29,12 @@ const ROWS = [
   },
   {
     aspect: "Importación y aduanas",
-    oficial: "Importación legal · documentación completa · entrega operativa",
-    china: "Riesgo de bloqueo aduanero · devolución o destrucción a cargo del importador",
+    oficial: "Registro RII-AEE propio · importación legal · entrega operativa",
+    china: "Riesgo de bloqueo aduanero · devolución o destrucción a tu cargo",
   },
   {
     aspect: "Software RIP",
-    oficial: "El mejor software con licencia oficial actualizada · soporte inglés/español",
+    oficial: "Licencia oficial actualizada · soporte inglés/español",
     china: "Software crackeado · sin actualizaciones",
   },
 ];
@@ -54,8 +55,8 @@ export default function Comparador() {
           <div className="lg:col-span-5 lg:col-start-8 flex items-end">
             <p className="text-body-lg text-stone text-pretty">
               En esta tecnología China es líder indiscutible e I-TECH líder
-              destacado, pero cada vez más imitaciones del modelo I-TECH llegan
-              a España. Te contamos la diferencia real, no la teórica.
+              destacado, pero cada vez más imitaciones llegan a España. Te
+              contamos la diferencia real, no la teórica.
             </p>
           </div>
         </div>
@@ -103,16 +104,47 @@ export default function Comparador() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center gap-6">
-          <Link href="/comparador" className="btn-oficial">
-            Ver comparador completo
-          </Link>
-          <Link
-            href="/sobre-itech"
-            className="font-mono text-body-sm uppercase tracking-wider text-ink link-underline"
-          >
-            Conoce I-TECH España →
-          </Link>
+        {/* RII-AEE — antes era una sección completa aparte (RIIAEEBlock).
+            Resumido aquí: el argumento de aduanas ya está en la fila 6. */}
+        <div className="mt-12 bg-cobalto-900 text-bone p-8 lg:p-10">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-2 flex justify-center lg:justify-start">
+              <div className="bg-bone p-3 inline-block shrink-0">
+                <Image
+                  src="/tintas/RII-AEE .jpg"
+                  alt="Logo oficial RII-AEE"
+                  width={100}
+                  height={100}
+                  unoptimized
+                  className="w-20 h-20 object-contain"
+                />
+              </div>
+            </div>
+            <div className="lg:col-span-7 space-y-3">
+              <div className="font-mono text-eyebrow uppercase tracking-wider text-ocre-200">
+                Registro RII-AEE · certificado
+              </div>
+              <h3 className="font-display text-h4 uppercase tracking-tight text-bone leading-tight">
+                Importar sin este registro
+                <span className="text-ocre-200"> bloquea tu máquina en aduanas.</span>
+              </h3>
+              <p className="text-body-sm text-bone/80 leading-relaxed">
+                Es obligación legal europea para importar equipos electrónicos.
+                Sin él, la máquina puede quedar retenida, devolverse a origen o
+                destruirse a tu cargo. Comprando en I-TECH España, la
+                importación, la documentación y el reciclaje final ya están
+                resueltos.
+              </p>
+            </div>
+            <div className="lg:col-span-3 flex lg:justify-end">
+              <Link
+                href="/por-que-itech"
+                className="inline-flex items-center justify-center bg-ocre-300 text-cobalto-900 px-6 py-4 font-mono text-sm uppercase tracking-wider hover:bg-ocre-200 transition-colors text-center"
+              >
+                Ver comparativa completa
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

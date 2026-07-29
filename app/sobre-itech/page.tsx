@@ -148,7 +148,7 @@ export default function SobreITechPage() {
               href="/contacto"
               className="inline-flex items-center justify-center bg-ocre-300 text-cobalto-900 px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-ocre-200"
             >
-              Reservar visita
+              Pedir info
             </Link>
           </div>
         </div>

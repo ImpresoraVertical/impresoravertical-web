@@ -31,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/formacion", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/contacto", priority: 0.9, changeFrequency: "monthly" as const },
     { url: "/faq", priority: 0.7, changeFrequency: "monthly" as const },
-    { url: "/comparador", priority: 0.7, changeFrequency: "monthly" as const },
     { url: "/sectores", priority: 0.85, changeFrequency: "monthly" as const },
     ...sectorRoutes,
   ];

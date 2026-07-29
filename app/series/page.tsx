@@ -179,10 +179,10 @@ export default function SeriesPage() {
               Calcular ROI
             </Link>
             <Link
-              href="/comparador"
+              href="/por-que-itech"
               className="inline-flex items-center justify-center border border-bone/30 text-bone px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-bone/10"
             >
-              Comparar series
+              Por qué I-TECH
             </Link>
           </div>
         </div>

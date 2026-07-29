@@ -45,6 +45,8 @@ export type Series = {
   description: string;
   inkType: InkType;
   priceFrom: number | null; // en euros, null para "Consultar"
+  /** Precio máximo aproximado de la serie (modelo top equipado). Opcional. */
+  priceTo?: number | null;
   priceLabel: string;
   models: ModelSpec[];
   useCases: string[];

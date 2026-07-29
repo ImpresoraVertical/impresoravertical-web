@@ -71,6 +71,8 @@ export default async function SeriePage({ params }: PageProps) {
           "@type": "AggregateOffer",
           priceCurrency: "EUR",
           lowPrice: serie.priceFrom,
+          // highPrice: si la serie lo define usa priceTo; si no, estimación 2× lowPrice
+          highPrice: serie.priceTo ?? serie.priceFrom * 2,
           offerCount: serie.models.length,
           availability: "https://schema.org/InStock",
           seller: { "@id": "https://www.impresoravertical.com/#organization" },
