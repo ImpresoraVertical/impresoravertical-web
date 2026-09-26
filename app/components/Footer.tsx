@@ -3,31 +3,30 @@ import Image from "next/image";
 
 const FOOTER_COLUMNS = [
   {
-    title: "Producto",
+    title: "Web",
     links: [
       { label: "Series", href: "/series" },
-      { label: "I-TECH Pro · Industrial", href: "/itech-pro" },
-      { label: "Calculadora ROI", href: "/calculadora-roi" },
-      { label: "Perfiles ICC", href: "/perfiles-icc" },
-      { label: "Sectores", href: "/sectores" },
-    ],
-  },
-  {
-    title: "Servicios",
-    links: [
-      { label: "Servicio técnico", href: "/servicio-tecnico" },
-      { label: "Formación", href: "/formacion" },
-      { label: "Pedir info", href: "/contacto" },
-    ],
-  },
-  {
-    title: "Empresa",
-    links: [
-      { label: "Sobre I-Tech", href: "/sobre-itech" },
       { label: "Por qué I-TECH", href: "/por-que-itech" },
-      { label: "Casos de cliente", href: "/casos-cliente" },
+      { label: "Sobre nosotros", href: "/sobre-itech" },
       { label: "Contacto", href: "/contacto" },
-      { label: "FAQ", href: "/faq" },
+    ],
+  },
+  {
+    title: "Por qué I-TECH",
+    links: [
+      { label: "Servicio técnico", href: "/por-que-itech#servicio-tecnico" },
+      { label: "Formación", href: "/por-que-itech#formacion" },
+      { label: "Perfiles ICC", href: "/por-que-itech#perfiles-icc" },
+      { label: "Industrial · I-TECH Pro", href: "/por-que-itech#industrial" },
+      { label: "Tintas", href: "/por-que-itech#tintas" },
+    ],
+  },
+  {
+    title: "Herramientas",
+    links: [
+      { label: "Calculadora ROI", href: "/calculadora-roi" },
+      { label: "Soluciones por sector", href: "/sectores" },
+      { label: "Preguntas frecuentes", href: "/sobre-itech#faq" },
     ],
   },
   {

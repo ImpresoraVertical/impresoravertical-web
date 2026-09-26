@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SERIES, PRICING_COPY } from "../data/series";
+import Galeria from "../components/home/Galeria";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -141,6 +142,9 @@ export default function SeriesPage() {
           ))}
         </div>
       </section>
+
+      {/* Materiales imprimibles (antes en la home) */}
+      <Galeria />
 
       {/* Bloque precios genérico */}
       <section className="section-pad bg-bone">

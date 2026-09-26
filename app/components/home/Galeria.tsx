@@ -201,10 +201,10 @@ export default function Galeria() {
         {/* CTAs */}
         <div className="flex flex-wrap items-center gap-6">
           <Link
-            href="/casos-cliente"
+            href="/sobre-itech#aplicaciones"
             className="inline-flex items-center justify-center bg-ocre-300 text-ink px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-ocre-200 transition-colors"
           >
-            Ver casos completos
+            Ver aplicaciones reales
           </Link>
           <Link
             href="/sectores"

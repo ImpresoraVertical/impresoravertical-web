@@ -245,7 +245,7 @@ export default async function SectorPage({ params }: PageProps) {
               </p>
               <div className="pt-4">
                 <Link
-                  href="/perfiles-icc"
+                  href="/por-que-itech#perfiles-icc"
                   className="font-mono text-eyebrow uppercase tracking-wider text-cobalto-700 hover:text-cobalto-900 transition-colors inline-flex items-center gap-2"
                 >
                   Ver perfiles ICC personalizados →
@@ -343,7 +343,7 @@ export default async function SectorPage({ params }: PageProps) {
 
           <div className="mt-10 text-center">
             <Link
-              href="/faq"
+              href="/sobre-itech#faq"
               className="font-mono text-eyebrow uppercase tracking-wider text-cobalto-700 hover:text-cobalto-900 transition-colors inline-flex items-center gap-2"
             >
               Ver FAQ completa →

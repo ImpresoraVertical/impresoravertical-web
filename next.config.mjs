@@ -10,20 +10,17 @@ const nextConfig = {
     ],
   },
   async redirects() {
+    // Simplificación a 5 páginas: las rutas fusionadas redirigen (301) a la
+    // sección correspondiente para conservar autoridad SEO y enlaces externos.
     return [
-      // /comparador se fusionó en /por-que-itech (misma intención de búsqueda,
-      // evitaba canibalización SEO). 301 permanente para transferir autoridad.
-      {
-        source: "/comparador",
-        destination: "/por-que-itech",
-        permanent: true,
-      },
-      // /configurador se retiró: página huérfana sin enlaces entrantes.
-      {
-        source: "/configurador",
-        destination: "/calculadora-roi",
-        permanent: true,
-      },
+      { source: "/comparador", destination: "/por-que-itech#comparativa", permanent: true },
+      { source: "/servicio-tecnico", destination: "/por-que-itech#servicio-tecnico", permanent: true },
+      { source: "/formacion", destination: "/por-que-itech#formacion", permanent: true },
+      { source: "/perfiles-icc", destination: "/por-que-itech#perfiles-icc", permanent: true },
+      { source: "/itech-pro", destination: "/por-que-itech#industrial", permanent: true },
+      { source: "/faq", destination: "/sobre-itech#faq", permanent: true },
+      { source: "/casos-cliente", destination: "/sobre-itech#aplicaciones", permanent: true },
+      { source: "/configurador", destination: "/calculadora-roi", permanent: true },
     ];
   },
 };

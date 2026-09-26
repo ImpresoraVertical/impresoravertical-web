@@ -10,12 +10,9 @@ const HIDDEN_HEADER_ROUTES: string[] = [];
 
 const NAV_ITEMS = [
   { label: "Series", href: "/series" },
-  { label: "Sectores", href: "/sectores" },
-  { label: "ROI", href: "/calculadora-roi" },
-  { label: "I-TECH Pro", href: "/itech-pro" },
-  { label: "Por qué", href: "/por-que-itech" },
-  { label: "Casos", href: "/casos-cliente" },
-  { label: "Sobre", href: "/sobre-itech" },
+  { label: "Por qué I-TECH", href: "/por-que-itech" },
+  { label: "Sobre nosotros", href: "/sobre-itech" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export default function Header() {
@@ -56,7 +53,7 @@ export default function Header() {
         </Link>
 
         {/* Nav desktop */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
+        <nav className="hidden lg:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}

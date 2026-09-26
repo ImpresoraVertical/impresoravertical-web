@@ -45,7 +45,7 @@ export default function FAQHome() {
             </p>
             <div className="pt-6 flex flex-col gap-3">
               <Link
-                href="/faq"
+                href="/sobre-itech#faq"
                 className="font-mono text-body-sm uppercase tracking-wider text-ink link-underline"
               >
                 Ver las 17 preguntas técnicas →
